@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>JEROME</Machine>
+    <WindowsUser>jerome</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>02d6b977-af74-469c-930a-4866e1671d8c</PackageIdentityName>
+    <RegisteredManifestChecksum>4D918394D150502D3C8A767F2D338B892F27824C6E12214086AEDA65B9D9A9D2</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>02d6b977-af74-469c-930a-4866e1671d8c_1.0.0.0_neutral__s50wc3d62dg4g</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>02d6b977-af74-469c-930a-4866e1671d8c_s50wc3d62dg4g!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>02d6b977-af74-469c-930a-4866e1671d8c</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=jerome</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-04-08T14:52:32.371</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\AriaView.exe">
+      <PackagePath>AriaView.exe</PackagePath>
+      <Modified>2015-04-08T15:28:01.430</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\AriaView-logo.png">
+      <PackagePath>Assets\AriaView-logo.png</PackagePath>
+      <Modified>2015-04-06T19:39:50.743</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T19:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T19:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T19:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-09-24T19:55:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+      <Modified>2015-04-08T14:43:01.402</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-04-06T19:37:12.831</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-04-06T20:26:07.686</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\Model\AuthentificationForm.xbf">
+      <PackagePath>Model\AuthentificationForm.xbf</PackagePath>
+      <Modified>2015-04-08T15:28:00.827</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\Model\MapPage.xbf">
+      <PackagePath>Model\MapPage.xbf</PackagePath>
+      <Modified>2015-04-08T15:28:00.828</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-04-08T14:52:31.610</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

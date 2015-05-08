@@ -1,1 +1,1 @@
-C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\AriaView.csproj;x86
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\AriaView.csproj;x86

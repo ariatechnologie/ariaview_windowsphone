@@ -3,9 +3,11 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Login" />
-    <RootPropertyPathName Name="DefaultViewModel" />
+    <RootPropertyPathName Name="ViewModel" />
     <RootPropertyPathName Name="NavigationHelper" />
     <RootPropertyPathName Name="GoBackCommand" />
+    <RootPropertyPathName Name="user" />
+    <RootPropertyPathName Name="Sites" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -77,6 +79,12 @@
       <RootProperty Name="Text" />
       <RootProperty Name="Height" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Password" />
+      <RootProperty Name="PasswordChar" />
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Height" />
@@ -86,15 +94,19 @@
       <RootProperty Name="Command" />
       <RootProperty Name="Style" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Name" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="FlowDirection" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="IsChecked" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
       <RootProperty Name="RelativeSource" />
       <RootProperty Name="ElementName" />
     </RootType>
@@ -102,6 +114,10 @@
     <RootType FullName="System.String" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" />
+    <RootType FullName="AriaView.Model.MapView">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
       <RootMethod Name="SetName" />
@@ -110,16 +126,25 @@
       <RootMethod Name="GetItemType" />
       <RootMethod Name="SetItemType" />
     </RootType>
-    <RootType FullName="AriaView.Model.MapView">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-    </RootType>
     <RootType FullName="AriaView.Model.MapPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.WebView">
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootEvent Name="ScriptNotify" />
+      <RootEvent Name="LoadCompleted" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ItemsSource" />
+    </RootType>
+    <RootType FullName="AriaView.SiteSelectionPage" />
   </Roots.RootTypes>
 </Roots>

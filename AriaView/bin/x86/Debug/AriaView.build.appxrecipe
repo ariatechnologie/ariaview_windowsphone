@@ -7,320 +7,86 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>02d6b977-af74-469c-930a-4866e1671d8c</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\AriaView.exe">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.exe">
       <PackagePath>AriaView.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
-      <PackagePath>Bing.Maps.winmd</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
-      <PackagePath>Bing.Maps.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Font\Bing_Maps_Symbol.ttf">
-      <PackagePath>Bing.Maps\Font\Bing_Maps_Symbol.ttf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Blocked_Regions_01.png">
-      <PackagePath>Bing.Maps\Blocked_Regions_01.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage-noalpha.png">
-      <PackagePath>Bing.Maps\circleImage-noalpha.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage.png">
-      <PackagePath>Bing.Maps\circleImage.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\dashedImage.png">
-      <PackagePath>Bing.Maps\dashedImage.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.ps">
-      <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXY-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXY.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.ps">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.ps">
-      <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.ps">
-      <PackagePath>Bing.Maps\Shaders\TextRenderingShader-downlevel.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.ps">
-      <PackagePath>Bing.Maps\Shaders\TextRenderingShader.ps</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.vs">
-      <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXY-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXY.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.vs">
-      <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.vs">
-      <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.vs">
-      <PackagePath>Bing.Maps\Shaders\TextRenderingShader-downlevel.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.vs">
-      <PackagePath>Bing.Maps\Shaders\TextRenderingShader.vs</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\CMF.ont">
-      <PackagePath>Bing.Maps\CMF.ont</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LandmarkSchema.ont">
-      <PackagePath>Bing.Maps\LandmarkSchema.ont</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Schema.ont">
-      <PackagePath>Bing.Maps\Schema.ont</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\VenueMapsSchema.ont">
-      <PackagePath>Bing.Maps\VenueMapsSchema.ont</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EnglishEntityNames.hlx">
-      <PackagePath>Bing.Maps\EnglishEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityLookup.hlx">
-      <PackagePath>Bing.Maps\EntityLookup.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityNameLength.hlx">
-      <PackagePath>Bing.Maps\EntityNameLength.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\GermanicEntityNames.hlx">
-      <PackagePath>Bing.Maps\GermanicEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\InvariantEntityNames.hlx">
-      <PackagePath>Bing.Maps\InvariantEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LatinEntityNames.hlx">
-      <PackagePath>Bing.Maps\LatinEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameCount.hlx">
-      <PackagePath>Bing.Maps\NameCount.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameRoleLcid.hlx">
-      <PackagePath>Bing.Maps\NameRoleLcid.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\ScandinavianEntityNames.hlx">
-      <PackagePath>Bing.Maps\ScandinavianEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields202.hlx">
-      <PackagePath>Bing.Maps\Shields202.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields244.hlx">
-      <PackagePath>Bing.Maps\Shields244.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields39.hlx">
-      <PackagePath>Bing.Maps\Shields39.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\SlavicEntityNames.hlx">
-      <PackagePath>Bing.Maps\SlavicEntityNames.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets202.hlx">
-      <PackagePath>Bing.Maps\Streets202.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets244.hlx">
-      <PackagePath>Bing.Maps\Streets244.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets39.hlx">
-      <PackagePath>Bing.Maps\Streets39.hlx</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h0.tile">
-      <PackagePath>Bing.Maps\h0.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h1.tile">
-      <PackagePath>Bing.Maps\h1.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h2.tile">
-      <PackagePath>Bing.Maps\h2.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h3.tile">
-      <PackagePath>Bing.Maps\h3.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r0.tile">
-      <PackagePath>Bing.Maps\r0.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r1.tile">
-      <PackagePath>Bing.Maps\r1.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r2.tile">
-      <PackagePath>Bing.Maps\r2.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r3.tile">
-      <PackagePath>Bing.Maps\r3.tile</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\map.config">
-      <PackagePath>Bing.Maps\map.config</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\UnifiedStyle.MapStyle">
-      <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\AriaView-logo.png">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\AriaView-logo.png">
       <PackagePath>Assets\AriaView-logo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Common\ReadMe.txt">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Test\urlWebservice.txt">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\urlWebservice.txt">
       <PackagePath>Test\urlWebservice.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\GoogleMap\default.html">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\default.html">
       <PackagePath>GoogleMap\default.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\GoogleMap\Map.html">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.html">
       <PackagePath>GoogleMap\Map.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\GoogleMap\Map.css">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.css">
       <PackagePath>GoogleMap\Map.css</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\GoogleMap\Map.js">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.js">
       <PackagePath>GoogleMap\Map.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Test\dates.xml">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\dates.xml">
       <PackagePath>Test\dates.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Test\login.xml">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\login.xml">
       <PackagePath>Test\login.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\Test\login2.xml">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\login2.xml">
       <PackagePath>Test\login2.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\View\AuthentificationForm.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\AuthentificationForm.xbf">
       <PackagePath>View\AuthentificationForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\View\MapPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapPage.xbf">
       <PackagePath>View\MapPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\View\MapView.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapView.xbf">
       <PackagePath>View\MapView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\View\SiteSelectionPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\SiteSelectionPage.xbf">
       <PackagePath>View\SiteSelectionPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
-      <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\AriaView.xr.xml">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.xr.xml">
       <PackagePath>AriaView.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\documents\visual studio 2013\Projects\AriaView\AriaView\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

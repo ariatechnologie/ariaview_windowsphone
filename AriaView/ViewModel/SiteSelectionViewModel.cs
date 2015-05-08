@@ -31,7 +31,11 @@ namespace AriaView.ViewModel
            var doc = XDocument.Parse(xml);
            var list = doc.Descendants("sites").Select(X => X.Value);
            foreach (var sitename in list)
-               ((User)this["user"]).Sites.Add(new Site { Name = sitename });
+           {
+               var user = (User)this["user"];
+               if(!user.Sites.Select(X => X.Name).Contains(sitename))
+                    user.Sites.Add(new Site { Name = sitename });
+           }
            ((User)this["user"]).Id = doc.Descendants("user").ElementAt(0).Attribute("id").Value;
        }
 

@@ -280,6 +280,7 @@ namespace AriaView.AriaView_XamlTypeInfo
             case 8:   //  AriaView.Model.MapView
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_8_MapView;
+                userType.AddMemberName("ImgSource");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -344,17 +345,27 @@ namespace AriaView.AriaView_XamlTypeInfo
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             that.ViewModel = (global::AriaView.ViewModel.AuthentificationViewModel)Value;
         }
-        private object get_2_MapPage_ViewModel(object instance)
+        private object get_2_MapView_ImgSource(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.ImgSource;
+        }
+        private void set_2_MapView_ImgSource(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.ImgSource = (global::System.String)Value;
+        }
+        private object get_3_MapPage_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.ViewModel;
         }
-        private object get_3_MapPage_NavigationHelper(object instance)
+        private object get_4_MapPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.NavigationHelper;
         }
-        private object get_4_SiteSelectionPage_NavigationHelper(object instance)
+        private object get_5_SiteSelectionPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.SiteSelectionPage)instance;
             return that.NavigationHelper;
@@ -379,22 +390,28 @@ namespace AriaView.AriaView_XamlTypeInfo
                 xamlMember.Getter = get_1_AuthentificationForm_ViewModel;
                 xamlMember.Setter = set_1_AuthentificationForm_ViewModel;
                 break;
+            case "AriaView.Model.MapView.ImgSource":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ImgSource", "String");
+                xamlMember.Getter = get_2_MapView_ImgSource;
+                xamlMember.Setter = set_2_MapView_ImgSource;
+                break;
             case "AriaView.Model.MapPage.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.ViewModel.MapPageViewModel");
-                xamlMember.Getter = get_2_MapPage_ViewModel;
+                xamlMember.Getter = get_3_MapPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.Model.MapPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_3_MapPage_NavigationHelper;
+                xamlMember.Getter = get_4_MapPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.SiteSelectionPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.SiteSelectionPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_4_SiteSelectionPage_NavigationHelper;
+                xamlMember.Getter = get_5_SiteSelectionPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             }

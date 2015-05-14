@@ -24,18 +24,21 @@ function initialize() {
     //    });
     //}
 
-    var kmlOptions = {
-        suppressInfoWindows: true,
-        preserveViewport: false,
-        map: map
-    };
-    var kmlLayer = new google.maps.KmlLayer(kmlUrl);
-    kmlLayer.setMap(map);
+    //var kmlOptions = {
+    //    suppressInfoWindows: true,
+    //    preserveViewport: false,
+    //    map: map
+    //};
+    //var kmlLayer = new google.maps.KmlLayer(kmlUrl);
+    //kmlLayer.setMap(map);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function changeCenter(value)
+
+function changeCenter(lat,long)
 {
-    window.external.notify(value);
+    var position = new google.maps.LatLng(lat, long);
+    map.setCenter(Position);
+    //window.external.notify(value);
 }

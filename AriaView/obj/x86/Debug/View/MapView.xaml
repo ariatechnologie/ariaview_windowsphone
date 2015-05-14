@@ -11,7 +11,8 @@
     d:DesignWidth="400">
     
     <Grid>
-        <WebView x:ConnectionId='1' Name="webView"  Width="Auto" Height="Auto"                                                                          />
+        <WebView x:ConnectionId='1' Name="webView"  Width="Auto" Height="Auto"                                     Canvas.ZIndex="1"                                      />
+        <Image x:Name="polutantImage" HorizontalAlignment="Center" Height="250" VerticalAlignment="Center" Width="250" Canvas.ZIndex="2"/>
     </Grid>
 </UserControl>
 

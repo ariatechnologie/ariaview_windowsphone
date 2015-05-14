@@ -32,6 +32,7 @@ namespace AriaView
         {
             this.InitializeComponent();
             AuthForm.Caller = this;
+            ApplicationData.Current.LocalSettings.Values["wsurl"] = "http://web.aria.fr";
         }
 
 

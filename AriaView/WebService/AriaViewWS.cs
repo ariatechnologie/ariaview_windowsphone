@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using AriaView.Model;
+using Windows.Storage;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace AriaView.WebService
 {
     public class AriaViewWS
     {
-        public string Url = "http://web.aria.fr";
+        public string Url = ApplicationData.Current.LocalSettings.Values["wsurl"] as string;
         
         public  async Task<String> Authentificate(string login,string pwd)
         {
@@ -61,7 +63,7 @@ namespace AriaView.WebService
             return await new HttpClient().PostAsync(url,null).Result.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> getKmlAsync(string url)
+        public async Task<string> GetDataAsync(string url)
         {
             return await new HttpClient().PostAsync(url, null).Result.Content.ReadAsStringAsync();
         }

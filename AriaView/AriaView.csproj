@@ -116,6 +116,8 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="GoogleMap\KmlDataReader.cs" />
+    <Compile Include="Model\AriaViewDate.cs" />
+    <Compile Include="Model\AriaViewDateTerm.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\AuthentificationViewModel.cs" />

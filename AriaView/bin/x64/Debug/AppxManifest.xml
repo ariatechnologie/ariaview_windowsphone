@@ -35,6 +35,8 @@
     <PackageDependency Name="Microsoft.VCLibs.120.00.Debug" MinVersion="12.0.21005.1" />
   </Dependencies>
   <build:Metadata>
+    <build:Item Name="SharedGUID" Value="40fa067e-8bbb-4376-b0ee-96605d72eac4" />
+    <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5.1" />
     <build:Item Name="VisualStudio" Version="12.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Ultimate 2013" />

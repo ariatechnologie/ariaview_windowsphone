@@ -19,6 +19,9 @@ using Windows.Storage.Streams;
 using AriaView.GoogleMap;
 using System.Xml.Linq;
 using Windows.UI.Xaml.Media.Imaging;
+using System.ComponentModel;
+using AriaView.Common;
+using System.Reflection;
 
 // Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -28,13 +31,36 @@ namespace AriaView.Model
     {
         private StorageFile kmlStorageFile;
         private string webServiceUrl;
-        public String ImgSource { get; set; }
+
+        public AriaViewDateTerm CurrentTerm
+        {
+            get
+            {
+                return ViewModel["currentTerm"] as AriaViewDateTerm;
+            }
+            set
+            {
+                ViewModel["currentTerm"] = value;
+                viewModel["currentTermImage"] = ((AriaViewDateTerm)ViewModel["currentTerm"]).ImgName;
+            }
+        }
+
+        private ObservableDictionary viewModel = new ObservableDictionary();
+
+        public ObservableDictionary ViewModel
+        {
+            get
+            {
+                return viewModel;
+            }
+        }
+        
+
 
         public MapView()
         {
             this.InitializeComponent();
-            var uri = webView.BuildLocalStreamUri("AriaView", "/GoogleMap/Map.html");
-            webView.NavigateToLocalStreamUri(uri, new UriToStreamResolver());
+            DataContext = viewModel;
         }
 
 
@@ -68,27 +94,65 @@ namespace AriaView.Model
 
         private void mapView_ScriptNotify(object sender, NotifyEventArgs e)
         {
-            var test = e.Value;
+            switch(e.Value)
+            {
+                case "SetScriptVariables":
+                    SetScriptVariables();
+                    break;
+            }
         }
 
         private async void mapView_LoadCompleted(object sender, NavigationEventArgs e)
         {
-            var parentPage = ((Grid)Parent).Parent as MapPage;
-            kmlStorageFile = parentPage.ViewModel["localkmlfile"] as StorageFile;
-            webServiceUrl = parentPage.ViewModel["siteInfoUrl"] as string;
-            await GetMapDataAsync();
-            await webView.InvokeScriptAsync("changeCenter", new String[] { "100","100" });
+            //var parentPage = ((Grid)Parent).Parent as MapPage;
+            //kmlStorageFile = parentPage.ViewModel["localkmlfile"] as StorageFile;
+            //webServiceUrl = parentPage.ViewModel["siteInfoUrl"] as string;
+            //await GetMapDataAsync();
+            //var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            //var currentTerm = ViewModel["currentTerm"] as AriaViewDateTerm;
+            //await webView.InvokeScriptAsync("changeCenter", new String[]
+            //{ 
+            //    ariaViewDate.North.ToString(),
+            //    ariaViewDate.East.ToString(),
+            //    ariaViewDate.South.ToString(),
+            //    ariaViewDate.West.ToString(),
+            //    currentTerm.ImgName
+            //});
         }
 
         private async Task GetMapDataAsync()
         {
             var xmlString = await FileIO.ReadTextAsync(kmlStorageFile);
-            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString));
-            //ImgSource = webServiceUrl + "/" + kmlReader.ImagesNameList[0];
-            var imageUri = new Uri(webServiceUrl + "/" + kmlReader.ImagesNameList[0]);
-            polutantImage.Source = new BitmapImage(imageUri);
+            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString),webServiceUrl);
+            viewModel["AriaViewDate"] = kmlReader.CreateDate();
+            SetCurrentTerm(0);
         }
 
-      
+        public void SetCurrentTerm(int i)
+        {
+            var ariaViewDate = viewModel["AriaViewDate"] as AriaViewDate;
+            CurrentTerm = ariaViewDate.DateTerms[i];
+        }
+
+        public void LoadMapAsync()
+        {
+            var uri = webView.BuildLocalStreamUri("AriaView", "/GoogleMap/Map.html");
+            webView.NavigateToLocalStreamUri(uri, new UriToStreamResolver());
+        }
+
+
+        public async void SetScriptVariables()
+        {
+            var parentPage = ((Grid)Parent).Parent as MapPage;
+            var ariaViewDate = parentPage.ViewModel["AriaViewDate"] as AriaViewDate;
+            await webView.InvokeScriptAsync("setValues", new List<String> {
+                    ariaViewDate.North.ToString(),
+                    ariaViewDate.East.ToString(),
+                    ariaViewDate.South.ToString(),
+                    ariaViewDate.West.ToString(),
+                    CurrentTerm.ImgName
+            });
+        }
+
     }
 }

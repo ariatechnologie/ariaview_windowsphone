@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AriaView.ViewModel;
+using AriaView.GoogleMap;
+using System.Xml.Linq;
+using System.Threading.Tasks;
 
 // Pour en savoir plus sur le modèle d'élément Page de base, consultez la page http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -109,5 +112,21 @@ namespace AriaView.Model
         }
 
         #endregion
+
+        private async void pageRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
+            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String);
+            ViewModel["AriaViewDate"] = kmlReader.CreateDate();
+            SetCurrentTerm(0);
+        }
+
+        public void SetCurrentTerm(int i)
+        {
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            mapView.CurrentTerm = ariaViewDate.DateTerms[i];
+            mapView.LoadMapAsync();
+        }
+
     }
 }

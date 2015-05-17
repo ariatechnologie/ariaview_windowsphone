@@ -7,11 +7,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+
     d:DesignHeight="300"
     d:DesignWidth="400">
     
     <Grid>
         <WebView Name="webView"  Width="Auto" Height="Auto" ScriptNotify="mapView_ScriptNotify" Canvas.ZIndex="1" LoadCompleted="mapView_LoadCompleted"/>
-        <Image x:Name="polutantImage" HorizontalAlignment="Center" Height="250" VerticalAlignment="Center" Width="250" Canvas.ZIndex="2"/>
+        <!--<Image x:Name="polutantImage" HorizontalAlignment="Center" Height="250" VerticalAlignment="Center" Width="250" Canvas.ZIndex="2" Source="{Binding currentTermImage}"/>-->
     </Grid>
 </UserControl>

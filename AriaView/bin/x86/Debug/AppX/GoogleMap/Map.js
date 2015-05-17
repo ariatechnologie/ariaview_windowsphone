@@ -1,7 +1,8 @@
 ﻿var map,
-    NECoordinates,
-    SWCoordinates,
-    fogImageOverlayBounds,
+    north,
+    east,
+    south,
+    west,
     imageURL
 
 
@@ -13,13 +14,15 @@ function initialize() {
 
     var maProp = {
         zoom: 6,
-        center: new google.maps.LatLng(0,0),
+        center: new google.maps.LatLng(0, 0),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
     map = new google.maps.Map(document.getElementById('mapwindow'), maProp);
+    var imageBounds = new google.maps.LatLngBounds(
+     new google.maps.LatLng(north, east),
+     new google.maps.LatLng(south, west));
     fogImageOverlay = new google.maps.GroundOverlay(
-         fogImageOverlayBounds,
+         imageBounds,
          imageURL
          );
     fogImageOverlay.setMap(map);
@@ -45,11 +48,12 @@ function changeCenter(north,east,south,west,imgUrl)
 }
 
 
-function setValues(north, east, south, west, imagePath) {
+function setValues(n, e, s, w, imagePath) {
     imageURL = imagePath;
-    NECoordinates = new google.maps.LatLng(north, east);
-    SWCoordinates = new google.maps.LatLng(south, west);
-    fogImageOverlayBounds = new google.maps.LatLngBounds(SWCoordinates, NECoordinates)
+    north = n;
+    east = e;
+    south = s;
+    west = w;
 }
 
 function callMapViewMethod(methodName) {

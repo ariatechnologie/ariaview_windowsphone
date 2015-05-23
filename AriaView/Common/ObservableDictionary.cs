@@ -151,7 +151,7 @@ namespace AriaView.Common
             _dictionary = o._dictionary;
             foreach(var k in Keys)
             {
-                this.InvokeMapChanged(CollectionChange.ItemChanged, k);
+                this.InvokeMapChanged(CollectionChange.ItemInserted, k);
             }
         }
     }

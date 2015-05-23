@@ -19,6 +19,8 @@ namespace AriaView.GoogleMap
     {
         private XDocument doc;
         private string webServiceURL;
+        private List<Site> sites;
+        private List<string> dates;
         public List<String> ImagesNameList
         {
             get { return imagesNameList; }
@@ -29,10 +31,12 @@ namespace AriaView.GoogleMap
         }
         private List<string> imagesNameList;
 
-        public KmlDataReader(XDocument doc,string webServiceURL)
+        public KmlDataReader(XDocument doc,string webServiceURL,List<Site> sites,List<String> dates)
         {
             this.doc = doc;
             this.webServiceURL = webServiceURL;
+            this.dates = dates;
+            this.sites = sites;
             imagesNameList = GetImagesName();
         }
 
@@ -47,23 +51,30 @@ namespace AriaView.GoogleMap
 
         public AriaViewDate CreateDate()
         {
-             XNamespace xmlns = doc.Root.Name.Namespace;
-             var latLonBoxElement = doc.Descendants(xmlns + "LatLonBox")
-                 .ElementAt(0);  
-             var north = Double.Parse(latLonBoxElement.Descendants(xmlns + "north")
-                 .ElementAt(0)
-                 .Value.Replace('.',','));
-             var east = Double.Parse(latLonBoxElement.Descendants(xmlns + "east")
-                 .ElementAt(0)
-                 .Value.Replace('.', ','));
-             var south = Double.Parse(latLonBoxElement.Descendants(xmlns + "south")
-                 .ElementAt(0)
-                 .Value.Replace('.', ','));
-             var west = Double.Parse(latLonBoxElement.Descendants(xmlns + "west")
-                 .ElementAt(0)
-                 .Value.Replace('.', ','));
-             var termsList = CreateDateTermsList();
-             return new AriaViewDate(north, east, south, west, termsList);
+            try
+            {
+                XNamespace xmlns = doc.Root.Name.Namespace;
+                var latLonBoxElement = doc.Descendants(xmlns + "LatLonBox")
+                    .ElementAt(0);
+                var north = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "north")
+                    .ElementAt(0)
+                    .Value);
+                var east = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "east")
+                    .ElementAt(0)
+                    .Value);
+                var south = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "south")
+                    .ElementAt(0)
+                    .Value);
+                var west = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "west")
+                    .ElementAt(0)
+                    .Value);
+                var termsList = CreateDateTermsList();
+                return new AriaViewDate(north, east, south, west, termsList,sites,dates);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
         private List<AriaViewDateTerm> CreateDateTermsList()

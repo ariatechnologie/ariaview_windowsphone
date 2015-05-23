@@ -19,7 +19,6 @@ using AriaView.GoogleMap;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 
-// Pour en savoir plus sur le modèle d'élément Page de base, consultez la page http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace AriaView.Model
 {
@@ -115,17 +114,73 @@ namespace AriaView.Model
 
         private async void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
-            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String);
-            ViewModel["AriaViewDate"] = kmlReader.CreateDate();
-            SetCurrentTerm(0);
+
+            await InitMapAsync();
+            //Creation des binding ne pouvant pas etre executer
+            //lors de la construction de la page
+
+            var selectedIndexBinding = new Binding { Path = new PropertyPath("initialSelectedDateIndex") };
+            var selectedIndexBinding1 = new Binding { Path = new PropertyPath("InitialSelectedDateTerm") };
+            datesCB.SetBinding(ComboBox.SelectedIndexProperty, selectedIndexBinding);
+            dateTermsCB.SetBinding(ComboBox.SelectedIndexProperty, selectedIndexBinding1);
+
+            //Chargement de la map
+            mapView.LoadMapAsync();
         }
 
-        public void SetCurrentTerm(int i)
+
+        /// <summary>
+        /// Insere les objet necessaire à l'affichage des informations de la map
+        /// dans le viewModel
+        /// </summary>
+        /// <returns></returns>
+        async Task InitMapAsync()
         {
+            //Insertion des objet a binder dans le dictionnaire
+            var user = ViewModel["user"] as User;
+            ViewModel["sites"] = user.Sites;
+            var datesList = ViewModel["datesList"] as List<String>;
+            ViewModel["initialSelectedDateIndex"] = 0;
+            ViewModel["InitialSelectedDateTerm"] = 0;
+            var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
+
+            //creation de l'objet ariaviewdate
+            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String
+                , user.Sites
+                , datesList);
+            ViewModel["AriaViewDate"] = kmlReader.CreateDate();
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-            mapView.CurrentTerm = ariaViewDate.DateTerms[i];
-            mapView.LoadMapAsync();
+            ViewModel["currentTermName"] = ariaViewDate.CurrentTerm.StartDate;
+        }
+
+
+        private async void nextTermBtn_Click(object sender, RoutedEventArgs e)
+        {
+           await mapView.NextTermAsync();
+        }
+
+        private async void previousTermBtn_Click(object sender, RoutedEventArgs e)
+        {
+            await mapView.PreviousTermAsync();
+        }
+
+        private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Si le viewModel du mapView est vide
+            if (mapView.ViewModel.Count == 0)
+                return;
+            var source = sender as ComboBox;
+            await mapView.ChangeTerm(source.SelectedIndex);
+        }
+
+        private void datesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        public void SetSelectedDateTerm(int i)
+        {
+            dateTermsCB.SelectedIndex = i;
         }
 
     }

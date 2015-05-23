@@ -29,24 +29,9 @@ namespace AriaView.Model
 {
     public sealed partial class MapView : UserControl
     {
-        private StorageFile kmlStorageFile;
-        private string webServiceUrl;
-
-        public AriaViewDateTerm CurrentTerm
-        {
-            get
-            {
-                return ViewModel["currentTerm"] as AriaViewDateTerm;
-            }
-            set
-            {
-                ViewModel["currentTerm"] = value;
-                viewModel["currentTermImage"] = ((AriaViewDateTerm)ViewModel["currentTerm"]).ImgName;
-            }
-        }
 
         private ObservableDictionary viewModel = new ObservableDictionary();
-
+        private MapPage parentView;
         public ObservableDictionary ViewModel
         {
             get
@@ -102,38 +87,33 @@ namespace AriaView.Model
             }
         }
 
-        private async void mapView_LoadCompleted(object sender, NavigationEventArgs e)
-        {
-            //var parentPage = ((Grid)Parent).Parent as MapPage;
-            //kmlStorageFile = parentPage.ViewModel["localkmlfile"] as StorageFile;
-            //webServiceUrl = parentPage.ViewModel["siteInfoUrl"] as string;
-            //await GetMapDataAsync();
-            //var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-            //var currentTerm = ViewModel["currentTerm"] as AriaViewDateTerm;
-            //await webView.InvokeScriptAsync("changeCenter", new String[]
-            //{ 
-            //    ariaViewDate.North.ToString(),
-            //    ariaViewDate.East.ToString(),
-            //    ariaViewDate.South.ToString(),
-            //    ariaViewDate.West.ToString(),
-            //    currentTerm.ImgName
-            //});
-        }
+       /// <summary>
+       /// Crée l'objet AriaViewDate a partir du kml
+       /// </summary>
+       /// <returns></returns>
+        //private async Task GetMapDataAsync()
+        //{
+        //    var xmlString = await FileIO.ReadTextAsync(kmlStorageFile);
+        //    var kmlReader = new KmlDataReader(XDocument.Parse(xmlString),webServiceUrl);
+        //    viewModel["AriaViewDate"] = kmlReader.CreateDate();
+        //    SetCurrentTerm(0);
+        //}
 
-        private async Task GetMapDataAsync()
-        {
-            var xmlString = await FileIO.ReadTextAsync(kmlStorageFile);
-            var kmlReader = new KmlDataReader(XDocument.Parse(xmlString),webServiceUrl);
-            viewModel["AriaViewDate"] = kmlReader.CreateDate();
-            SetCurrentTerm(0);
-        }
-
+        /// <summary>
+        /// Change l'échéance courante en fonction de l'indice passé en paramètre
+        /// </summary>
+        /// <param name="i"></param>
         public void SetCurrentTerm(int i)
         {
             var ariaViewDate = viewModel["AriaViewDate"] as AriaViewDate;
-            CurrentTerm = ariaViewDate.DateTerms[i];
+            ariaViewDate.CurrentTermIndex = i;
+            parentView.ViewModel["currentTermName"] = ariaViewDate.CurrentTerm.StartDate;
+            parentView.ViewModel["InitialSelectedDateTerm"] = ariaViewDate.CurrentTermIndex;
         }
 
+        /// <summary>
+        /// Chargement des fichiers web dans la webView
+        /// </summary>
         public void LoadMapAsync()
         {
             var uri = webView.BuildLocalStreamUri("AriaView", "/GoogleMap/Map.html");
@@ -141,17 +121,58 @@ namespace AriaView.Model
         }
 
 
+        /// <summary>
+        /// Envoie les données nécessaire à la creation
+        /// de la map au fichier javascript
+        /// </summary>
         public async void SetScriptVariables()
         {
-            var parentPage = ((Grid)Parent).Parent as MapPage;
-            var ariaViewDate = parentPage.ViewModel["AriaViewDate"] as AriaViewDate;
+            parentView = ((Grid)Parent).Parent as MapPage;
+            var mapPageViewModel = parentView.ViewModel as ObservableDictionary;
+            viewModel.SetDictionary(mapPageViewModel);
+            var ariaViewDate = this.viewModel["AriaViewDate"] as AriaViewDate;
+            var n = ariaViewDate.North;
+            var e = ariaViewDate.East;
+            var s = ariaViewDate.South;
+            var w = ariaViewDate.West;
+            var centerLat = (n + s) / 2;
+            var centerlong = (e + w) / 2;
             await webView.InvokeScriptAsync("setValues", new List<String> {
                     ariaViewDate.North.ToString(),
                     ariaViewDate.East.ToString(),
                     ariaViewDate.South.ToString(),
                     ariaViewDate.West.ToString(),
-                    CurrentTerm.ImgName
+                    ariaViewDate.CurrentTerm.ImgName,
+                    centerLat.ToString(),
+                    centerlong.ToString()
             });
+        }
+
+        public async Task NextTermAsync()
+        {
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            var i = ariaViewDate.CurrentTermIndex + 1;
+            if (i < 0 || i == ariaViewDate.DateTerms.Count)
+                return;
+            SetCurrentTerm(++ariaViewDate.CurrentTermIndex);
+            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+        }
+
+        public async Task PreviousTermAsync()
+        {
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            var i = ariaViewDate.CurrentTermIndex - 1;
+            if (i < 0 || i == ariaViewDate.DateTerms.Count)
+                return;
+            SetCurrentTerm(--ariaViewDate.CurrentTermIndex);
+            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+        }
+
+        public async Task ChangeTerm(int i)
+        {
+            SetCurrentTerm(i);
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
         }
 
     }

@@ -43,5 +43,11 @@ namespace AriaView.Model
             EndDate = endDate;
             ImgName = imgName;
         }
+
+
+        public override string ToString()
+        {
+            return RawName;
+        }
     }
 }

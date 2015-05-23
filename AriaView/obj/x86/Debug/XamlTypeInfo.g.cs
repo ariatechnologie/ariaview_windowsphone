@@ -124,7 +124,7 @@ namespace AriaView.AriaView_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[15];
+            _typeNameTable = new string[14];
             _typeNameTable[0] = "AriaView.Model.AuthentificationForm";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.Page";
@@ -134,14 +134,13 @@ namespace AriaView.AriaView_XamlTypeInfo
             _typeNameTable[6] = "String";
             _typeNameTable[7] = "AriaView.MainPage";
             _typeNameTable[8] = "AriaView.Model.MapView";
-            _typeNameTable[9] = "AriaView.Model.AriaViewDateTerm";
-            _typeNameTable[10] = "AriaView.Model.MapPage";
-            _typeNameTable[11] = "AriaView.ViewModel.MapPageViewModel";
-            _typeNameTable[12] = "AriaView.Common.NavigationHelper";
-            _typeNameTable[13] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[14] = "AriaView.SiteSelectionPage";
+            _typeNameTable[9] = "AriaView.Model.MapPage";
+            _typeNameTable[10] = "AriaView.ViewModel.MapPageViewModel";
+            _typeNameTable[11] = "AriaView.Common.NavigationHelper";
+            _typeNameTable[12] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[13] = "AriaView.SiteSelectionPage";
 
-            _typeTable = new global::System.Type[15];
+            _typeTable = new global::System.Type[14];
             _typeTable[0] = typeof(global::AriaView.Model.AuthentificationForm);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Page);
@@ -151,12 +150,11 @@ namespace AriaView.AriaView_XamlTypeInfo
             _typeTable[6] = typeof(global::System.String);
             _typeTable[7] = typeof(global::AriaView.MainPage);
             _typeTable[8] = typeof(global::AriaView.Model.MapView);
-            _typeTable[9] = typeof(global::AriaView.Model.AriaViewDateTerm);
-            _typeTable[10] = typeof(global::AriaView.Model.MapPage);
-            _typeTable[11] = typeof(global::AriaView.ViewModel.MapPageViewModel);
-            _typeTable[12] = typeof(global::AriaView.Common.NavigationHelper);
-            _typeTable[13] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[14] = typeof(global::AriaView.SiteSelectionPage);
+            _typeTable[9] = typeof(global::AriaView.Model.MapPage);
+            _typeTable[10] = typeof(global::AriaView.ViewModel.MapPageViewModel);
+            _typeTable[11] = typeof(global::AriaView.Common.NavigationHelper);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[13] = typeof(global::AriaView.SiteSelectionPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -196,9 +194,9 @@ namespace AriaView.AriaView_XamlTypeInfo
         private object Activate_4_ObservableDictionary() { return new global::AriaView.Common.ObservableDictionary(); }
         private object Activate_7_MainPage() { return new global::AriaView.MainPage(); }
         private object Activate_8_MapView() { return new global::AriaView.Model.MapView(); }
-        private object Activate_10_MapPage() { return new global::AriaView.Model.MapPage(); }
-        private object Activate_11_MapPageViewModel() { return new global::AriaView.ViewModel.MapPageViewModel(); }
-        private object Activate_14_SiteSelectionPage() { return new global::AriaView.SiteSelectionPage(); }
+        private object Activate_9_MapPage() { return new global::AriaView.Model.MapPage(); }
+        private object Activate_10_MapPageViewModel() { return new global::AriaView.ViewModel.MapPageViewModel(); }
+        private object Activate_13_SiteSelectionPage() { return new global::AriaView.SiteSelectionPage(); }
         private void MapAdd_3_AuthentificationViewModel(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -213,7 +211,7 @@ namespace AriaView.AriaView_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void MapAdd_11_MapPageViewModel(object instance, object key, object item)
+        private void MapAdd_10_MapPageViewModel(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -282,50 +280,42 @@ namespace AriaView.AriaView_XamlTypeInfo
             case 8:   //  AriaView.Model.MapView
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_8_MapView;
-                userType.AddMemberName("CurrentTerm");
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  AriaView.Model.AriaViewDateTerm
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 10:   //  AriaView.Model.MapPage
+            case 9:   //  AriaView.Model.MapPage
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_MapPage;
+                userType.Activator = Activate_9_MapPage;
                 userType.AddMemberName("ViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  AriaView.ViewModel.MapPageViewModel
+            case 10:   //  AriaView.ViewModel.MapPageViewModel
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AriaView.Common.ObservableDictionary"));
-                userType.DictionaryAdd = MapAdd_11_MapPageViewModel;
+                userType.DictionaryAdd = MapAdd_10_MapPageViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  AriaView.Common.NavigationHelper
+            case 11:   //  AriaView.Common.NavigationHelper
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  Windows.UI.Xaml.DependencyObject
+            case 12:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  AriaView.SiteSelectionPage
+            case 13:   //  AriaView.SiteSelectionPage
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_SiteSelectionPage;
+                userType.Activator = Activate_13_SiteSelectionPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -355,32 +345,22 @@ namespace AriaView.AriaView_XamlTypeInfo
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             that.ViewModel = (global::AriaView.ViewModel.AuthentificationViewModel)Value;
         }
-        private object get_2_MapView_CurrentTerm(object instance)
-        {
-            var that = (global::AriaView.Model.MapView)instance;
-            return that.CurrentTerm;
-        }
-        private void set_2_MapView_CurrentTerm(object instance, object Value)
-        {
-            var that = (global::AriaView.Model.MapView)instance;
-            that.CurrentTerm = (global::AriaView.Model.AriaViewDateTerm)Value;
-        }
-        private object get_3_MapView_ViewModel(object instance)
+        private object get_2_MapView_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.MapView)instance;
             return that.ViewModel;
         }
-        private object get_4_MapPage_ViewModel(object instance)
+        private object get_3_MapPage_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.ViewModel;
         }
-        private object get_5_MapPage_NavigationHelper(object instance)
+        private object get_4_MapPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.NavigationHelper;
         }
-        private object get_6_SiteSelectionPage_NavigationHelper(object instance)
+        private object get_5_SiteSelectionPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.SiteSelectionPage)instance;
             return that.NavigationHelper;
@@ -405,34 +385,28 @@ namespace AriaView.AriaView_XamlTypeInfo
                 xamlMember.Getter = get_1_AuthentificationForm_ViewModel;
                 xamlMember.Setter = set_1_AuthentificationForm_ViewModel;
                 break;
-            case "AriaView.Model.MapView.CurrentTerm":
-                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
-                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "CurrentTerm", "AriaView.Model.AriaViewDateTerm");
-                xamlMember.Getter = get_2_MapView_CurrentTerm;
-                xamlMember.Setter = set_2_MapView_CurrentTerm;
-                break;
             case "AriaView.Model.MapView.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.Common.ObservableDictionary");
-                xamlMember.Getter = get_3_MapView_ViewModel;
+                xamlMember.Getter = get_2_MapView_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.Model.MapPage.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.ViewModel.MapPageViewModel");
-                xamlMember.Getter = get_4_MapPage_ViewModel;
+                xamlMember.Getter = get_3_MapPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.Model.MapPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_5_MapPage_NavigationHelper;
+                xamlMember.Getter = get_4_MapPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.SiteSelectionPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.SiteSelectionPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_6_SiteSelectionPage_NavigationHelper;
+                xamlMember.Getter = get_5_SiteSelectionPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             }

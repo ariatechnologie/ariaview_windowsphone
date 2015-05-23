@@ -53,7 +53,11 @@ namespace AriaView.ViewModel
            var dateStorageFile = await appTempFolder.CreateFileAsync("dates");
            var datesXml = await ws.GetDatesAsync(url + (string)this["datefile"]);
            await FileIO.WriteTextAsync(dateStorageFile,datesXml);
-           var mostRecentDate = XDocument.Parse(datesXml).Descendants("Folder").Descendants("name").ElementAt(0).Value;
+           var datesList = new List<String>();
+           foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
+               datesList.Add(date.Value);
+           var mostRecentDate = datesList.Last(); //XDocument.Parse(datesXml).Descendants("Folder").Descendants("name").Last().Value;
+           this["datesList"] = datesList;
            var kmlStorageFile = await appTempFolder.CreateFileAsync("kml");
            var kml = await ws.GetDataAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
            await FileIO.WriteTextAsync(kmlStorageFile, kml);

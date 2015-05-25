@@ -154,8 +154,8 @@ namespace AriaView.Model
             var i = ariaViewDate.CurrentTermIndex + 1;
             if (i < 0 || i == ariaViewDate.DateTerms.Count)
                 return;
-            SetCurrentTerm(++ariaViewDate.CurrentTermIndex);
-            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+            //await ChangeTerm(i);
+            parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
         public async Task PreviousTermAsync()
@@ -164,8 +164,8 @@ namespace AriaView.Model
             var i = ariaViewDate.CurrentTermIndex - 1;
             if (i < 0 || i == ariaViewDate.DateTerms.Count)
                 return;
-            SetCurrentTerm(--ariaViewDate.CurrentTermIndex);
-            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+            //await ChangeTerm(i);
+            parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
         public async Task ChangeTerm(int i)
@@ -173,6 +173,7 @@ namespace AriaView.Model
             SetCurrentTerm(i);
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+            parentView.UpdateUI();
         }
 
     }

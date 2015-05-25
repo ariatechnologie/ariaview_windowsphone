@@ -63,7 +63,7 @@ namespace AriaView.WebService
             return await new HttpClient().PostAsync(url,null).Result.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> GetDataAsync(string url)
+        public async Task<string> GetKmlAsync(string url)
         {
             return await new HttpClient().PostAsync(url, null).Result.Content.ReadAsStringAsync();
         }

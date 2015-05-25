@@ -109,6 +109,9 @@ namespace AriaView
 
         private async void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            if (siteCB.SelectedItem == null)
+                return;
+            viewModel["defaultSite"] = siteCB.SelectedItem as Site;
            await viewModel.GetSiteInfoAsync(siteCB.SelectedItem as Site);
            Frame.Navigate(typeof(MapPage),viewModel);
         }

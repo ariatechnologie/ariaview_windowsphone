@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace AriaView.Model
 {
-    public class AriaViewDate
+    public class AriaViewDate : INotifyPropertyChanged
     {
         private Double north,east,south,west;
         private List<AriaViewDateTerm> dateTerms;
@@ -59,7 +60,11 @@ namespace AriaView.Model
         public List<AriaViewDateTerm> DateTerms
         {
             get { return dateTerms; }
-            set { dateTerms = value; }
+            set 
+            { 
+                dateTerms = value;
+                Notify("DateTerms");
+            }
         }
         public Double North
         {
@@ -126,6 +131,14 @@ namespace AriaView.Model
         }
 
 
-        
+        public void Notify(string propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

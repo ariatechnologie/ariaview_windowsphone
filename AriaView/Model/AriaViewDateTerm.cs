@@ -45,9 +45,9 @@ namespace AriaView.Model
         }
 
 
-        public override string ToString()
-        {
-            return RawName;
-        }
+        //public override string ToString()
+        //{
+        //    return RawName;
+        //}
     }
 }

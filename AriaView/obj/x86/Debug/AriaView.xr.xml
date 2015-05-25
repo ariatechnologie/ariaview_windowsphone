@@ -4,14 +4,13 @@
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Login" />
     <RootPropertyPathName Name="ViewModel" />
-    <RootPropertyPathName Name="datesList" />
-    <RootPropertyPathName Name="AriaViewDate" />
-    <RootPropertyPathName Name="DateTerms" />
-    <RootPropertyPathName Name="currentTermName" />
-    <RootPropertyPathName Name="NavigationHelper" />
-    <RootPropertyPathName Name="GoBackCommand" />
     <RootPropertyPathName Name="user" />
     <RootPropertyPathName Name="Sites" />
+    <RootPropertyPathName Name="datesList" />
+    <RootPropertyPathName Name="dateTerms" />
+    <RootPropertyPathName Name="StartDate" />
+    <RootPropertyPathName Name="NavigationHelper" />
+    <RootPropertyPathName Name="GoBackCommand" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -133,15 +132,15 @@
       <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Header" />
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Header" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="ItemsPanel" />
+      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Name" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">

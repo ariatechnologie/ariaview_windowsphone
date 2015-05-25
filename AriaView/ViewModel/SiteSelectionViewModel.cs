@@ -56,10 +56,10 @@ namespace AriaView.ViewModel
            var datesList = new List<String>();
            foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
                datesList.Add(date.Value);
-           var mostRecentDate = datesList.Last(); //XDocument.Parse(datesXml).Descendants("Folder").Descendants("name").Last().Value;
+           var mostRecentDate = datesList.Last();
            this["datesList"] = datesList;
            var kmlStorageFile = await appTempFolder.CreateFileAsync("kml");
-           var kml = await ws.GetDataAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
+           var kml = await ws.GetKmlAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
            await FileIO.WriteTextAsync(kmlStorageFile, kml);
            this["localdatefile"] = dateStorageFile;
            this["siteInfoUrl"] = url + "/" + mostRecentDate;
@@ -76,6 +76,13 @@ namespace AriaView.ViewModel
            var site = doc.Descendants("site").ElementAt(0).Value;
            var nest = doc.Descendants("nest").ElementAt(0).Value;
            var strBuilder = new StringBuilder(host);
+           var urlParts = new Dictionary<string,string>();
+           urlParts.Add("host", host);
+           urlParts.Add("url", url);
+           urlParts.Add("site", site);
+           urlParts.Add("model", model);
+           urlParts.Add("nest", nest);
+           this["urlParts"] = urlParts;
            return String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", host, url, site, model, nest);
        }
    }

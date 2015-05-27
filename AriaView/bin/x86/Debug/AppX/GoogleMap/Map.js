@@ -16,11 +16,12 @@ callMapViewMethod("SetScriptVariables");
 function initialize() {
 
 
-    var maProp = {
+    var options = {
         zoom: 0,
-        center: { lat: centerlat, lng: centerlng }
+        center: { lat: centerlat, lng: centerlng },
+        streetViewControl: false
     };
-    map = new google.maps.Map(document.getElementById('mapwindow'), maProp);
+    map = new google.maps.Map(document.getElementById('mapwindow'), options);
    
     var imageBounds = new google.maps.LatLngBounds(
      new google.maps.LatLng(south, west),
@@ -63,6 +64,7 @@ function changeOverlay(image)
          imageBounds
          );
     fogImageOverlay.setMap(map);
+    map.setCenter(new google.maps.LatLng(centerlat, centerlng));
 }
 
 

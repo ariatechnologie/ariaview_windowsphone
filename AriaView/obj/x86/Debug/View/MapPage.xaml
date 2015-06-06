@@ -54,7 +54,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <ComboBox x:ConnectionId='5' x:Name="datesCB" Header="Date"  Width="auto" ItemsSource="{Binding datesList}"                                            />
-                <ComboBox x:Name="sitesCB" Header="Site" Width="auto" ItemsSource="{Binding user.Sites}"/> 
+                <ComboBox x:ConnectionId='6' x:Name="sitesCB" Header="Site" Width="auto" ItemsSource="{Binding user.Sites}"                                            /> 
             </StackPanel>
             <Button x:ConnectionId='3' x:Name="nextTermBtn" HorizontalAlignment="Right" Content="next"                           Width="auto" Height="auto"/>
         </Grid>

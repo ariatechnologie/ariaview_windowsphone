@@ -148,7 +148,7 @@ namespace AriaView.Model
             });
         }
 
-        public async Task NextTermAsync()
+        public void NextTermAsync()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             var i = ariaViewDate.CurrentTermIndex + 1;
@@ -158,7 +158,7 @@ namespace AriaView.Model
             parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
-        public async Task PreviousTermAsync()
+        public void PreviousTermAsync()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             var i = ariaViewDate.CurrentTermIndex - 1;

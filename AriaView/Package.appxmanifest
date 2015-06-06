@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="02d6b977-af74-469c-930a-4866e1671d8c" Publisher="CN=jerome" Version="1.0.0.0" />
+  <Identity Name="02d6b977-af74-469c-930a-4866e1671d8c" Publisher="CN=jerome" Version="1.0.0.1" />
   <Properties>
     <DisplayName>AriaView</DisplayName>
     <PublisherDisplayName>jerome</PublisherDisplayName>
@@ -16,6 +16,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AriaView.App">
       <m2:VisualElements DisplayName="AriaView" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="AriaView" ForegroundText="light" BackgroundColor="#464646">
+        <m2:DefaultTile Square70x70Logo="logo-70x70.png">
+        </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
     </Application>

@@ -54,7 +54,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <ComboBox x:Name="datesCB" Header="Date"  Width="auto" ItemsSource="{Binding datesList}" SelectionChanged="datesCB_SelectionChanged"/>
-                <ComboBox x:Name="sitesCB" Header="Site" Width="auto" ItemsSource="{Binding user.Sites}"/> 
+                <ComboBox x:Name="sitesCB" Header="Site" Width="auto" ItemsSource="{Binding user.Sites}" SelectionChanged="sitesCB_SelectionChanged"/> 
             </StackPanel>
             <Button x:Name="nextTermBtn" HorizontalAlignment="Right" Content="next" Click="nextTermBtn_Click" Width="auto" Height="auto"/>
         </Grid>

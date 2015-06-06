@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="02d6b977-af74-469c-930a-4866e1671d8c" Publisher="CN=jerome" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="02d6b977-af74-469c-930a-4866e1671d8c" Publisher="CN=jerome" Version="1.0.0.1" ProcessorArchitecture="x86" />
   <Properties>
     <DisplayName>AriaView</DisplayName>
     <PublisherDisplayName>jerome</PublisherDisplayName>
@@ -18,11 +18,13 @@
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
   <Resources>
+    <Resource Language="EN-US" />
     <Resource Language="FR-FR" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="AriaView.exe" EntryPoint="AriaView.App">
       <m2:VisualElements DisplayName="AriaView" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="AriaView" ForegroundText="light" BackgroundColor="#464646">
+        <m2:DefaultTile Square70x70Logo="logo-70x70.png"></m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>
     </Application>
@@ -35,8 +37,6 @@
     <PackageDependency Name="Microsoft.VCLibs.120.00.Debug" MinVersion="12.0.21005.1" />
   </Dependencies>
   <build:Metadata>
-    <build:Item Name="SharedGUID" Value="40fa067e-8bbb-4376-b0ee-96605d72eac4" />
-    <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5.1" />
     <build:Item Name="VisualStudio" Version="12.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Ultimate 2013" />

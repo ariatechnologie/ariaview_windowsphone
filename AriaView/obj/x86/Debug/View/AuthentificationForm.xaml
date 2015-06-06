@@ -29,9 +29,9 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="CONNEXION" Margin="0,0,0,10"/>
-                <TextBlock Text="Login:" Height="Auto" Width="Auto" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Right"/>
+                <TextBlock x:Uid="login"  Height="Auto" Width="Auto" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Right"/>
                 <TextBox Name="tbLogin" Text="{Binding Login, Mode=TwoWay}" Height="Auto" Grid.Column="1" Grid.Row="1"/>
-                <TextBlock Text="Mot de passe:" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBlock x:Uid="password"  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                 <PasswordBox Name="tbPassword" Password="{Binding Path=Password, Mode=TwoWay}" PasswordChar="*" Height="Auto" Grid.Row="3" Grid.Column="1"/>
                 <TextBlock Name="MsgError"  Visibility="Collapsed" Grid.Row="4" Grid.ColumnSpan="2"
                    Margin="20,10,0,0"

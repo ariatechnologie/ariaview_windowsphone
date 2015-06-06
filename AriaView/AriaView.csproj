@@ -9,14 +9,15 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AriaView</RootNamespace>
     <AssemblyName>AriaView</AssemblyName>
-    <DefaultLanguage>fr-FR</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>AriaView_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxPackageDir>C:\Users\jerome\Desktop\Dev\deploy\</AppxPackageDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -149,14 +150,27 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="AriaView_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
     <None Include="Test\20130223.kml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AriaView-logo.png" />
+    <Content Include="Assets\AriaView-logo.scale-100.png" />
+    <Content Include="Assets\AriaView-logo150x150.png" />
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\logo-24x24.png" />
+    <Content Include="Assets\logo-30x30.png" />
+    <Content Include="Assets\logo-33x33.png" />
+    <Content Include="Assets\logo-43x43.png" />
+    <Content Include="Assets\logo-70x70.png" />
+    <Content Include="Assets\logo-90x90.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-140.png" />
+    <Content Include="Assets\StoreLogo.scale-180.png" />
     <Content Include="Common\ReadMe.txt" />
     <Content Include="GoogleMap\default.html" />
     <Content Include="GoogleMap\Map.css" />
@@ -202,7 +216,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
   </ItemGroup>
-  <Import Project="..\AriaView.Shared\AriaView.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

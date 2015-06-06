@@ -49,21 +49,17 @@ namespace AriaView.ViewModel
            var ws = new WebService.AriaViewWS();
            var url =  BuildUrl(await ws.GetSitesInfosAsync(site, (User)this["user"]));
            var folder = ApplicationData.Current.TemporaryFolder;
-           var appTempFolder = await folder.CreateFolderAsync("ariaView",CreationCollisionOption.ReplaceExisting);
-           var dateStorageFile = await appTempFolder.CreateFileAsync("dates");
+
            var datesXml = await ws.GetDatesAsync(url + (string)this["datefile"]);
-           await FileIO.WriteTextAsync(dateStorageFile,datesXml);
+           this["datesXml"] = datesXml;
            var datesList = new List<String>();
            foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
                datesList.Add(date.Value);
            var mostRecentDate = datesList.Last();
            this["datesList"] = datesList;
-           var kmlStorageFile = await appTempFolder.CreateFileAsync("kml");
-           var kml = await ws.GetKmlAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
-           await FileIO.WriteTextAsync(kmlStorageFile, kml);
-           this["localdatefile"] = dateStorageFile;
+           var kmlString = await ws.GetKmlAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
+           this["kmlString"] = kmlString;
            this["siteInfoUrl"] = url + "/" + mostRecentDate;
-           this["localkmlfile"] = kmlStorageFile;
        }
 
        private String BuildUrl(string xml)

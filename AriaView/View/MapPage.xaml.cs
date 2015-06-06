@@ -113,18 +113,10 @@ namespace AriaView.Model
 
         #endregion
 
-        private async void pageRoot_Loaded(object sender, RoutedEventArgs e)
+        private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
 
-            await InitMapAsync();
-
-            //Creation des binding ne pouvant pas etre executer
-            //lors de la construction de la page
-            //var selectedIndexBinding = new Binding { Path = new PropertyPath("initialSelectedDateIndex") };
-            //var selectedIndexBinding1 = new Binding { Path = new PropertyPath("InitialSelectedDateTerm") };
-            //datesCB.SetBinding(ComboBox.SelectedIndexProperty, selectedIndexBinding);
-            //dateTermsCB.SetBinding(ComboBox.SelectedIndexProperty, selectedIndexBinding1);
-
+            InitMapAsync();
             //Chargement de la map
             mapView.LoadMapAsync();
         }
@@ -135,7 +127,7 @@ namespace AriaView.Model
         /// dans le viewModel
         /// </summary>
         /// <returns></returns>
-        async Task InitMapAsync()
+        void InitMapAsync()
         {
             //Insertion des objet a binder dans le dictionnaire
             var user = ViewModel["user"] as User;
@@ -143,7 +135,8 @@ namespace AriaView.Model
             var datesList = ViewModel["datesList"] as List<String>;
 
             //creation de l'objet ariaviewdate
-            var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
+            //var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
+            var xmlString = ViewModel["kmlString"] as String;
             var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String
                 , user.Sites
                 , datesList);
@@ -171,14 +164,14 @@ namespace AriaView.Model
         }
 
 
-        private async void nextTermBtn_Click(object sender, RoutedEventArgs e)
+        private  void nextTermBtn_Click(object sender, RoutedEventArgs e)
         {
-           await mapView.NextTermAsync();
+            mapView.NextTermAsync();
         }
 
-        private async void previousTermBtn_Click(object sender, RoutedEventArgs e)
+        private  void previousTermBtn_Click(object sender, RoutedEventArgs e)
         {
-            await mapView.PreviousTermAsync();
+             mapView.PreviousTermAsync();
         }
 
         private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -196,7 +189,8 @@ namespace AriaView.Model
             if (mapView.ViewModel.Count == 0)
                 return;
             var currentSite = sitesCB.SelectedValue as Site;
-            var url = GetUrl(currentSite.Name, datesCB.SelectedValue as string);
+            var date = datesCB.SelectedValue as string;
+            var url = GetUrl(currentSite.Name) + date + "/";
             await ChangeDateAsync(url);
         }
 
@@ -234,16 +228,45 @@ namespace AriaView.Model
                 dateTermsCB.SelectedIndex = 0;
         }
 
-
-        private async Task ChangeSite()
+  
+        private async Task ChangeSiteAsync(String url)
         {
+            var newSite = sitesCB.SelectedValue as Site;
+            var siteInfoUrl = GetUrl(newSite.Name);
 
+            //Recupere la liste des date disponible pour le nouveau site
+            //et la stocke dans le dictionnaire
+            var datesList = await GetDates(siteInfoUrl);
+            ViewModel["datesList"] = datesList;
+
+            //Recupere les donnees du Kml du site
+            var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesList.Last() + ".kml");
+            //TODO
+            //Creer le nouvel ariaViewDate pour correspondant au nouveau site avec un KmlDataReader
         }
 
-        public String GetUrl(string siteName,string date)
+        private async Task<List<String>> GetDates(string siteRootUrl)
+        {
+            var ws = new AriaView.WebService.AriaViewWS();
+            var siteInfoXml = await ws.GetSitesInfosAsync(sitesCB.SelectedValue as Site, ViewModel["user"] as User);
+            var dateFilename = XDocument.Parse(siteInfoXml).Descendants("datefile").ElementAt(0).Value;
+            var datesXml = await ws.GetDatesAsync(siteRootUrl + dateFilename);
+            var datesList = new List<String>();
+            foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
+                datesList.Add(date.Value);
+            return datesList;
+        }
+
+        public String GetUrl(string siteName)
         {
             var urlParts = ViewModel["urlParts"] as Dictionary<string, string>;
-            return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["model"], urlParts["nest"] + "/" + date);
+            return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["model"], urlParts["nest"]);
+        }
+
+        private void sitesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+          
+
         }
 
     }

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AriaView</RootNamespace>
     <AssemblyName>AriaView</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>fr-fr</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -88,7 +88,7 @@
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
@@ -122,6 +122,7 @@
     <Compile Include="GoogleMap\KmlDataReader.cs" />
     <Compile Include="Model\AriaViewDate.cs" />
     <Compile Include="Model\AriaViewDateTerm.cs" />
+    <Compile Include="Model\Pollutant.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\AuthentificationViewModel.cs" />
@@ -150,13 +151,14 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="AriaView_TemporaryKey.pfx" />
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\fr-fr\Resources.resw" />
+    <PRIResource Include="Strings\es-en\Resources.resw" />
+    <PRIResource Include="Strings\pt-pt\Resources.resw" />
+    <PRIResource Include="Strings\zh-cn\Resources.resw" />
     <None Include="Test\20130223.kml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AriaView-logo.png" />
-    <Content Include="Assets\AriaView-logo.scale-100.png" />
     <Content Include="Assets\AriaView-logo150x150.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\logo-24x24.png" />

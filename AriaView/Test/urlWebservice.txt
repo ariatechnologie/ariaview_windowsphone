@@ -1,1 +1,4 @@
 ﻿http://web.aria.fr/awa/destination/ARIAVIEW/JUAREZ/GEARTH/RESULT_LcS/
+
+API key:
+AIzaSyAlq4cukgjdbc0DllxH6DrKgj066HdhM-A

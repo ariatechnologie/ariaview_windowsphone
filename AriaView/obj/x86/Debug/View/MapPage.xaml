@@ -38,25 +38,40 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" x:Uid="appName" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Height="auto" Width="auto">
-            <Button x:ConnectionId='2' x:Name="previousTermBtn" HorizontalAlignment="Left"  Content="previous"                               Width="auto" Height="auto"/>
+            <Button x:ConnectionId='2' x:Name="previousTermBtn" x:Uid="precedent" HorizontalAlignment="Left"                                Width="auto" Height="auto"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="auto">
-                <!--<TextBlock x:Name="termDateTB" Height="auto" Width="auto" Text="{Binding currentTermName}"/>-->
-                <ComboBox x:ConnectionId='4' x:Name="dateTermsCB" ItemsSource="{Binding dateTerms}" Header="Term"   Height="auto" Width="auto"
+                <ComboBox x:ConnectionId='4'  x:Name="dateTermsCB" ItemsSource="{Binding dateTerms}"  Height="auto" Width="auto"
                                                                          >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding StartDate}"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
+                    <ComboBox.Header>
+                        <TextBlock x:Uid="term" Text="Term" HorizontalAlignment="Center" />
+                    </ComboBox.Header>
                 </ComboBox>
-                <ComboBox x:ConnectionId='5' x:Name="datesCB" Header="Date"  Width="auto" ItemsSource="{Binding datesList}"                                            />
-                <ComboBox x:ConnectionId='6' x:Name="sitesCB" Header="Site" Width="auto" ItemsSource="{Binding user.Sites}"                                            /> 
+                <ComboBox x:ConnectionId='5' x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}"                                             Margin="20,0,0,0">
+                    <ComboBox.Header>
+                        <TextBlock x:Uid="date" Text="Date" HorizontalAlignment="Center"/>
+                    </ComboBox.Header>
+                </ComboBox>
+                <ComboBox x:ConnectionId='6' x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}"                                              Margin="20,0,0,0">
+                    <ComboBox.Header>
+                        <TextBlock x:Uid="site" Text="Site" HorizontalAlignment="Center"/>
+                    </ComboBox.Header>
+                </ComboBox>
+                <!--<ComboBox x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding PollutantsList}" SelectionChanged="pollutantsCB_SelectionChanged"  Margin="20,0,0,0">
+                    <ComboBox.Header>
+                        <TextBlock x:Uid="pollutant" Text="Pollutant" HorizontalAlignment="Center"/>
+                    </ComboBox.Header>
+                </ComboBox>-->
             </StackPanel>
-            <Button x:ConnectionId='3' x:Name="nextTermBtn" HorizontalAlignment="Right" Content="next"                           Width="auto" Height="auto"/>
+            <Button x:ConnectionId='3' x:Name="nextTermBtn" x:Uid="suivant" HorizontalAlignment="Right"                            Width="auto" Height="auto"/>
         </Grid>
         <local:MapView x:Name="mapView" Height="Auto" Width="Auto"  Grid.Row ="2"/>
     </Grid>

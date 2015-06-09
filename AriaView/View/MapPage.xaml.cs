@@ -164,14 +164,14 @@ namespace AriaView.Model
         }
 
 
-        private  void nextTermBtn_Click(object sender, RoutedEventArgs e)
+        private void nextTermBtn_Click(object sender, RoutedEventArgs e)
         {
-            mapView.NextTermAsync();
+           mapView.NextTerm();
         }
 
-        private  void previousTermBtn_Click(object sender, RoutedEventArgs e)
+        private void previousTermBtn_Click(object sender, RoutedEventArgs e)
         {
-             mapView.PreviousTermAsync();
+           mapView.PreviousTerm();
         }
 
         private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -242,7 +242,8 @@ namespace AriaView.Model
             //Recupere les donnees du Kml du site
             var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesList.Last() + ".kml");
             //TODO
-            //Creer le nouvel ariaViewDate pour correspondant au nouveau site avec un KmlDataReader
+            //Creer le nouvel ariaViewDate correspondant au nouveau site avec un KmlDataReader
+
         }
 
         private async Task<List<String>> GetDates(string siteRootUrl)
@@ -263,9 +264,17 @@ namespace AriaView.Model
             return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["model"], urlParts["nest"]);
         }
 
-        private void sitesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void sitesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
+            //Si le viewModel du mapView est vide
+            if (mapView.ViewModel.Count == 0)
+                return;
+            var newSite = sitesCB.SelectedItem as Site;
+            await ChangeSiteAsync(GetUrl(newSite.Name));
+        }
+
+        private void pollutantsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 

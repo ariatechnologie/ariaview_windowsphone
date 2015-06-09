@@ -117,10 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="appName.Text" xml:space="preserve">
+    <value>ARIA VIEW</value>
+  </data>
+  <data name="authentificationError.Text" xml:space="preserve">
+    <value>Le login ou le mot de passe est incorrect</value>
+  </data>
+  <data name="choixSite.Text" xml:space="preserve">
+    <value>Choix du site</value>
+  </data>
+  <data name="connexion.Text" xml:space="preserve">
+    <value>CONNECTION</value>
+  </data>
+  <data name="date.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="firmUrl.Text" xml:space="preserve">
+    <value>www.aria.fr</value>
+  </data>
   <data name="login.Text" xml:space="preserve">
     <value>Login:</value>
   </data>
+  <data name="memoriseMsg.Content" xml:space="preserve">
+    <value>Mémoriser mon login et mon mot de passe</value>
+  </data>
   <data name="password.Text" xml:space="preserve">
     <value>Mot de passe:</value>
+  </data>
+  <data name="precedent.Content" xml:space="preserve">
+    <value>precedent</value>
+  </data>
+  <data name="site.Text" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="sitesDispo.Text" xml:space="preserve">
+    <value>Sites</value>
+  </data>
+  <data name="suivant.Content" xml:space="preserve">
+    <value>suivant</value>
+  </data>
+  <data name="term.Text" xml:space="preserve">
+    <value>Echeance</value>
+  </data>
+  <data name="voirSite.Content" xml:space="preserve">
+    <value>Voir</value>
   </data>
 </root>

@@ -68,7 +68,6 @@ namespace AriaView.Model
             }
             else
             {
-                MsgError.Text = "Le login ou le mot de passe est incorrect";
                 MsgError.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
            

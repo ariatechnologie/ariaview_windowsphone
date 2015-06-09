@@ -18,8 +18,9 @@
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
   <Resources>
-    <Resource Language="EN-US" />
+    <Resource Language="ZH-CN" />
     <Resource Language="FR-FR" />
+    <Resource Language="PT-PT" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="AriaView.exe" EntryPoint="AriaView.App">

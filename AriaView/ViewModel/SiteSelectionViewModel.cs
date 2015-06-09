@@ -48,8 +48,6 @@ namespace AriaView.ViewModel
        {
            var ws = new WebService.AriaViewWS();
            var url =  BuildUrl(await ws.GetSitesInfosAsync(site, (User)this["user"]));
-           var folder = ApplicationData.Current.TemporaryFolder;
-
            var datesXml = await ws.GetDatesAsync(url + (string)this["datefile"]);
            this["datesXml"] = datesXml;
            var datesList = new List<String>();

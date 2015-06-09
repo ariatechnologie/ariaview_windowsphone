@@ -39,6 +39,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 function setValues(n, e, s, w, imagePath,x,y) {
     imageURL = imagePath;
+
+    if (x.indexOf(",") >= 0) {
+        x = x.replace(',', '.');
+    }
+    if (y.indexOf(",") >= 0) {
+        y = y.replace(',', '.');
+    }
+    if (n.indexOf(",") >= 0) {
+        n = n.replace(',', '.');
+    }
+    if (e.indexOf(",") >= 0) {
+        e = e.replace(',', '.');
+    }
+    if (s.indexOf(",") >= 0) {
+        s = s.replace(',', '.');
+    }
+    if (w.indexOf(",") >= 0) {
+        w = w.replace(',', '.');
+    }
+
     north = parseFloat(n);
     east = parseFloat(e);
     south = parseFloat(s);

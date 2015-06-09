@@ -48,7 +48,9 @@ namespace AriaView.Model
             DataContext = viewModel;
         }
 
-
+        /// <summary>
+        /// Permet la conversion d'un URI en flux de données
+        /// </summary>
         public sealed class UriToStreamResolver : Windows.Web.IUriToStreamResolver
         {
 
@@ -76,7 +78,11 @@ namespace AriaView.Model
 
         }
 
-
+        /// <summary>
+        /// Reception des notifications envoyées par le code javascript
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mapView_ScriptNotify(object sender, NotifyEventArgs e)
         {
             switch(e.Value)
@@ -148,7 +154,10 @@ namespace AriaView.Model
             });
         }
 
-        public void NextTermAsync()
+        /// <summary>
+        /// Affiche la prochaine échéance
+        /// </summary>
+        public void NextTerm()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             var i = ariaViewDate.CurrentTermIndex + 1;
@@ -158,7 +167,10 @@ namespace AriaView.Model
             parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
-        public void PreviousTermAsync()
+        /// <summary>
+        /// Affiche l'échéance précédente
+        /// </summary>
+        public void PreviousTerm()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             var i = ariaViewDate.CurrentTermIndex - 1;
@@ -168,6 +180,11 @@ namespace AriaView.Model
             parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
+        /// <summary>
+        /// Affiche l'échéance en fonction de l'indice passé en paramètre
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public async Task ChangeTerm(int i)
         {
             SetCurrentTerm(i);

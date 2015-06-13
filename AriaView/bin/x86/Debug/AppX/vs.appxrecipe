@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>PC-PERSO</Machine>
+    <Machine>JEROME</Machine>
     <WindowsUser>jerome</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>02d6b977-af74-469c-930a-4866e1671d8c</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>15C160386B4C237A490EC73D88E86D2397973967DBB01B0622B6647CB5BD15BC</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>EA172E8F1EFE4F371028F1808187E1D76B4F59E5DEE8FC201E432B6F99EE585F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>02d6b977-af74-469c-930a-4866e1671d8c_1.0.0.1_x86__s50wc3d62dg4g</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>02d6b977-af74-469c-930a-4866e1671d8c_s50wc3d62dg4g!App</RegisteredUserModeAppID>
     <RegisteredPackageID>02d6b977-af74-469c-930a-4866e1671d8c</RegisteredPackageID>
@@ -20,147 +20,155 @@
     <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-09T12:07:29.001</Modified>
+      <Modified>2015-06-13T21:13:46.718</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.exe">
       <PackagePath>AriaView.exe</PackagePath>
-      <Modified>2015-06-09T12:07:28.894</Modified>
+      <Modified>2015-06-13T21:49:53.729</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\AriaView-logo.png">
       <PackagePath>Assets\AriaView-logo.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.023</Modified>
+      <Modified>2015-06-10T08:11:35.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\AriaView-logo150x150.png">
       <PackagePath>Assets\AriaView-logo150x150.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.038</Modified>
+      <Modified>2015-06-10T08:11:35.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\BadgeLogo.scale-100.png">
       <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.038</Modified>
+      <Modified>2015-06-10T08:11:35.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-24x24.png">
       <PackagePath>Assets\logo-24x24.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.070</Modified>
+      <Modified>2015-06-10T08:11:35.456</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-30x30.png">
       <PackagePath>Assets\logo-30x30.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.070</Modified>
+      <Modified>2015-06-10T08:11:35.471</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-33x33.png">
       <PackagePath>Assets\logo-33x33.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.070</Modified>
+      <Modified>2015-06-10T08:11:35.471</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-43x43.png">
       <PackagePath>Assets\logo-43x43.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.085</Modified>
+      <Modified>2015-06-10T08:11:35.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-70x70.png">
       <PackagePath>Assets\logo-70x70.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.085</Modified>
+      <Modified>2015-06-10T08:11:35.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-90x90.png">
       <PackagePath>Assets\logo-90x90.png</PackagePath>
-      <Modified>2015-06-06T09:35:11.085</Modified>
+      <Modified>2015-06-10T08:11:35.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.038</Modified>
+      <Modified>2015-06-10T08:11:35.377</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.038</Modified>
+      <Modified>2015-06-10T08:11:35.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.054</Modified>
+      <Modified>2015-06-10T08:11:35.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.054</Modified>
+      <Modified>2015-06-10T08:11:35.409</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\StoreLogo.scale-140.png">
       <PackagePath>Assets\StoreLogo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.054</Modified>
+      <Modified>2015-06-10T08:11:35.424</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\StoreLogo.scale-180.png">
       <PackagePath>Assets\StoreLogo.scale-180.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-06T09:35:11.054</Modified>
+      <Modified>2015-06-10T08:11:35.424</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\cloud.jpg">
+      <PackagePath>Assets\cloud.jpg</PackagePath>
+      <Modified>2015-06-11T06:45:36.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
-      <Modified>2015-06-06T09:35:11.101</Modified>
+      <Modified>2015-06-10T08:11:35.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\urlWebservice.txt">
       <PackagePath>Test\urlWebservice.txt</PackagePath>
-      <Modified>2015-06-09T06:52:32.389</Modified>
+      <Modified>2015-06-13T08:57:38.121</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\default.html">
       <PackagePath>GoogleMap\default.html</PackagePath>
-      <Modified>2015-06-06T09:35:11.132</Modified>
+      <Modified>2015-06-10T08:11:35.612</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.html">
       <PackagePath>GoogleMap\Map.html</PackagePath>
-      <Modified>2015-06-09T06:55:39.356</Modified>
+      <Modified>2015-06-10T08:11:35.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.css">
       <PackagePath>GoogleMap\Map.css</PackagePath>
-      <Modified>2015-06-06T09:35:11.117</Modified>
+      <Modified>2015-06-10T08:11:35.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.js">
       <PackagePath>GoogleMap\Map.js</PackagePath>
-      <Modified>2015-06-09T10:29:09.227</Modified>
+      <Modified>2015-06-10T08:11:35.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\dates.xml">
       <PackagePath>Test\dates.xml</PackagePath>
-      <Modified>2015-06-06T09:35:11.163</Modified>
+      <Modified>2015-06-10T08:11:35.727</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\login.xml">
       <PackagePath>Test\login.xml</PackagePath>
-      <Modified>2015-06-06T09:35:11.179</Modified>
+      <Modified>2015-06-10T08:11:35.727</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\login2.xml">
       <PackagePath>Test\login2.xml</PackagePath>
-      <Modified>2015-06-06T09:35:11.179</Modified>
+      <Modified>2015-06-10T08:11:35.727</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-06-06T09:36:05.559</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\Style\AppStyle.xbf">
+      <PackagePath>Style\AppStyle.xbf</PackagePath>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2015-06-09T11:32:36.764</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\AuthentificationForm.xbf">
       <PackagePath>View\AuthentificationForm.xbf</PackagePath>
-      <Modified>2015-06-09T11:16:41.279</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapPage.xbf">
       <PackagePath>View\MapPage.xbf</PackagePath>
-      <Modified>2015-06-09T11:59:29.939</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapView.xbf">
       <PackagePath>View\MapView.xbf</PackagePath>
-      <Modified>2015-06-06T09:36:05.559</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\SiteSelectionPage.xbf">
       <PackagePath>View\SiteSelectionPage.xbf</PackagePath>
-      <Modified>2015-06-09T11:32:36.764</Modified>
+      <Modified>2015-06-13T21:13:45.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.xr.xml">
       <PackagePath>AriaView.xr.xml</PackagePath>
-      <Modified>2015-06-08T22:54:26.457</Modified>
+      <Modified>2015-06-13T09:28:09.571</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-09T12:07:28.943</Modified>
+      <Modified>2015-06-13T21:13:46.374</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

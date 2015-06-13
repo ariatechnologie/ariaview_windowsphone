@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AriaView</RootNamespace>
     <AssemblyName>AriaView</AssemblyName>
-    <DefaultLanguage>fr-fr</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -155,12 +155,16 @@
     <PRIResource Include="Strings\es-en\Resources.resw" />
     <PRIResource Include="Strings\pt-pt\Resources.resw" />
     <PRIResource Include="Strings\zh-cn\Resources.resw" />
-    <None Include="Test\20130223.kml" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <None Include="Test\20130223.kml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AriaView-logo.png" />
     <Content Include="Assets\AriaView-logo150x150.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\cloud.jpg" />
     <Content Include="Assets\logo-24x24.png" />
     <Content Include="Assets\logo-30x30.png" />
     <Content Include="Assets\logo-33x33.png" />
@@ -194,6 +198,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Style\AppStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

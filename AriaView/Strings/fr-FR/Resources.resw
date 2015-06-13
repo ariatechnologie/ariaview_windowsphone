@@ -127,7 +127,7 @@
     <value>Choix du site</value>
   </data>
   <data name="connexion.Text" xml:space="preserve">
-    <value>CONNECTION</value>
+    <value>CONNEXION</value>
   </data>
   <data name="date.Text" xml:space="preserve">
     <value>Date</value>
@@ -144,17 +144,11 @@
   <data name="password.Text" xml:space="preserve">
     <value>Mot de passe:</value>
   </data>
-  <data name="precedent.Content" xml:space="preserve">
-    <value>precedent</value>
-  </data>
   <data name="site.Text" xml:space="preserve">
     <value>Site</value>
   </data>
   <data name="sitesDispo.Text" xml:space="preserve">
     <value>Sites</value>
-  </data>
-  <data name="suivant.Content" xml:space="preserve">
-    <value>suivant</value>
   </data>
   <data name="term.Text" xml:space="preserve">
     <value>Echeance</value>

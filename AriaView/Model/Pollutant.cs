@@ -9,13 +9,13 @@ namespace AriaView.Model
     public class Pollutant
     {
         public string Name { get; set; }
-        public List<string> ImagesList { get; set; }
+        public List<AriaViewDateTerm> DateTerms { get; set; }
 
 
-        public Pollutant(String name, List<string> imagesList)
+        public Pollutant(String name, List<AriaViewDateTerm> dateTerms)
         {
             Name = name;
-            ImagesList = imagesList;
+            DateTerms = dateTerms;
         }
     }
 }

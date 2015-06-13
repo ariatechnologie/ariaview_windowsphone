@@ -49,7 +49,7 @@ namespace AriaView.GoogleMap
                 .Select(X => X.Value).ToList();
         }
 
-        public AriaViewDate CreateDate()
+        public AriaViewDate CreateAriaViewDate()
         {
             try
             {
@@ -68,7 +68,7 @@ namespace AriaView.GoogleMap
                 var west = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "west")
                     .ElementAt(0)
                     .Value);
-                var termsList = CreateDateTermsList();
+                var termsList = CreateDateTermsList(null);
                 return new AriaViewDate(north, east, south, west, termsList,sites,dates);
             }
             catch(Exception e)
@@ -77,11 +77,40 @@ namespace AriaView.GoogleMap
             }
         }
 
-        private List<AriaViewDateTerm> CreateDateTermsList()
+        //private List<AriaViewDateTerm> CreateDateTermsList()
+        //{
+        //    XNamespace xmlns = doc.Root.Name.Namespace;
+        //    var termsList = new List<AriaViewDateTerm>();
+        //    foreach(var groundOverlayElement in doc.Descendants(xmlns + "GroundOverlay"))
+        //    {
+        //        var rawName = groundOverlayElement.Descendants(xmlns + "name")
+        //            .ElementAt(0)
+        //            .Value;
+        //        var startDate = groundOverlayElement.Descendants(xmlns + "TimeSpan")
+        //            .ElementAt(0)
+        //            .Descendants(xmlns + "begin")
+        //            .ElementAt(0)
+        //            .Value;
+        //        var endDate = groundOverlayElement.Descendants(xmlns + "TimeSpan")
+        //          .ElementAt(0)
+        //          .Descendants(xmlns + "end")
+        //          .ElementAt(0)
+        //          .Value;
+        //        var imgName = groundOverlayElement.Descendants(xmlns + "Icon")
+        //         .ElementAt(0)
+        //         .Descendants(xmlns + "href")
+        //         .ElementAt(0)
+        //         .Value;
+        //        termsList.Add(new AriaViewDateTerm(rawName, startDate, endDate, webServiceURL + "/" + imgName));
+        //    }
+        //    return termsList;
+        //}
+
+        private List<AriaViewDateTerm> CreateDateTermsList(XElement FolderElement)
         {
             XNamespace xmlns = doc.Root.Name.Namespace;
             var termsList = new List<AriaViewDateTerm>();
-            foreach(var groundOverlayElement in doc.Descendants(xmlns + "GroundOverlay"))
+            foreach (var groundOverlayElement in FolderElement.Descendants(xmlns + "GroundOverlay"))
             {
                 var rawName = groundOverlayElement.Descendants(xmlns + "name")
                     .ElementAt(0)
@@ -104,6 +133,36 @@ namespace AriaView.GoogleMap
                 termsList.Add(new AriaViewDateTerm(rawName, startDate, endDate, webServiceURL + "/" + imgName));
             }
             return termsList;
+        }
+
+        private List<Pollutant> CreatePollutantList()
+        {
+            var list = new List<Pollutant>();
+            XNamespace xmlns = doc.Root.Name.Namespace;
+            var FolderNodes = doc.Descendants(xmlns + "Folder")
+                .Where(X => X.Descendants(xmlns + "ScreenOverlay").Count() > 0);
+            foreach(var node in FolderNodes)
+            {
+                var pollutantName = node
+                    .Descendants(xmlns + "href").ElementAt(0).Value;
+                var dateTerms = CreateDateTermsList(node);
+                list.Add(new Pollutant(pollutantName, dateTerms));
+            }
+            return list;
+        }
+
+
+
+        public String GetLegendImage()
+        {
+             XNamespace xmlns = doc.Root.Name.Namespace;
+             var imageUrl = doc.Descendants(xmlns + "Folder")
+                 .ElementAt(0)
+                 .Descendants(xmlns + "ScreenOverlay")
+                 .Descendants(xmlns + "href")
+                 .ElementAt(0)
+                 .Value;
+                return webServiceURL + "/" + imageUrl;
         }
 
     }

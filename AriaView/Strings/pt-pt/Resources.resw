@@ -144,17 +144,11 @@
   <data name="password.Text" xml:space="preserve">
     <value>Senha:</value>
   </data>
-  <data name="precedent.Content" xml:space="preserve">
-    <value>anterior</value>
-  </data>
   <data name="site.Text" xml:space="preserve">
     <value>Site</value>
   </data>
   <data name="sitesDispo.Text" xml:space="preserve">
     <value>Localizações</value>
-  </data>
-  <data name="suivant.Content" xml:space="preserve">
-    <value>Seguinte</value>
   </data>
   <data name="term.Text" xml:space="preserve">
     <value>Echeance</value>

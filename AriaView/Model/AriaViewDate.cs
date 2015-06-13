@@ -14,6 +14,7 @@ namespace AriaView.Model
         private List<Site> sites;
         private List<string> dates;
         private int currentTermIndex;
+        private List<Pollutant> pollutantsList;
         public int CurrentTermIndex
         {
             get
@@ -56,7 +57,6 @@ namespace AriaView.Model
                 dates = value;
             }
         }
-
         public List<AriaViewDateTerm> DateTerms
         {
             get { return dateTerms; }
@@ -112,6 +112,18 @@ namespace AriaView.Model
             set
             {
                 west = value;
+            }
+        }
+        public List<Pollutant> PollutantsList
+        {
+            get
+            {
+                return pollutantsList;
+            }
+
+            set
+            {
+                pollutantsList = value;
             }
         }
 

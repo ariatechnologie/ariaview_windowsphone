@@ -1,6 +1,7 @@
 Scale=180
 Scale=140
 Scale=100
-Language=ZH-CN
+Language=EN-US
 Language=FR-FR
 Language=PT-PT
+Language=ZH-CN

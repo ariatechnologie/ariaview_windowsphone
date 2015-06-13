@@ -14,7 +14,7 @@
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">AriaView</x:String>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid >
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -41,8 +41,8 @@
             <TextBlock x:Name="pageTitle" x:Uid="appName" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-        <Grid Grid.Row="1" Height="auto" Width="auto">
-            <Button x:Name="previousTermBtn" x:Uid="precedent" HorizontalAlignment="Left"  Click="previousTermBtn_Click" Width="auto" Height="auto"/>
+        <Grid Grid.Row="1" Height="auto" Width="1366" HorizontalAlignment="Left" Background="Transparent">
+            <Button x:Name="previousTermBtn"  Content="-" HorizontalAlignment="Left"  Click="previousTermBtn_Click" Width="auto" Height="auto"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="auto">
                 <ComboBox  x:Name="dateTermsCB" ItemsSource="{Binding dateTerms}"  Height="auto" Width="auto"
                           SelectionChanged="dateTermsCB_SelectionChanged">
@@ -71,8 +71,13 @@
                     </ComboBox.Header>
                 </ComboBox>-->
             </StackPanel>
-            <Button x:Name="nextTermBtn" x:Uid="suivant" HorizontalAlignment="Right"  Click="nextTermBtn_Click" Width="auto" Height="auto"/>
+            <Button x:Name="nextTermBtn"  Content="+"  HorizontalAlignment="Right"  Click="nextTermBtn_Click" Width="auto" Height="auto"/>
         </Grid>
         <local:MapView x:Name="mapView" Height="Auto" Width="Auto"  Grid.Row ="2"/>
+        <Image x:Name="legendImage" Grid.Row="2" Source="{Binding legendImage}"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Right"
+               Height="300"
+               Width="150"/>
     </Grid>
 </Page>

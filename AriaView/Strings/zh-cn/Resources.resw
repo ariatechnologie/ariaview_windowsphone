@@ -144,16 +144,10 @@
   <data name="password.Text" xml:space="preserve">
     <value>密码：</value>
   </data>
-  <data name="precedent.Content" xml:space="preserve">
-    <value>前</value>
-  </data>
   <data name="site.Text" xml:space="preserve">
     <value>现场</value>
   </data>
   <data name="sitesDispo.Text" xml:space="preserve">
-    <value>网站</value>
-  </data>
-  <data name="suivant.Content" xml:space="preserve">
     <value>网站</value>
   </data>
   <data name="term.Text" xml:space="preserve">

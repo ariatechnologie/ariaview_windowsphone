@@ -1,6 +1,7 @@
 Assets\AriaView-logo.png
 Assets\AriaView-logo150x150.png
 Assets\BadgeLogo.scale-100.png
+Assets\cloud.jpg
 Assets\Logo.scale-100.png
 Assets\logo-24x24.png
 Assets\logo-30x30.png
@@ -15,6 +16,7 @@ Assets\StoreLogo.scale-140.png
 Assets\StoreLogo.scale-180.png
 App.xbf
 AriaView.xr.xml
+Style\AppStyle.xbf
 View\AuthentificationForm.xbf
 View\MainPage.xbf
 View\MapPage.xbf

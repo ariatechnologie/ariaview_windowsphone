@@ -8,13 +8,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="grid">-->
+    <Grid x:Name="grid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.2*"/>
+            <!--<RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>-->
         </Grid.RowDefinitions>
-        <TextBlock x:Uid="appName" Text="ARIA VIEW" HorizontalAlignment="Center"  FontSize="35" Height="Auto" Width="Auto"/>
-        <model:AuthentificationForm x:Name="AuthForm" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock x:Uid="firmUrl" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,50,0" FontSize="30"/>
+        <!--<TextBlock x:Uid="appName" Text="ARIA VIEW" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="35" Height="Auto" Width="Auto"/>-->
+        <Image x:Name="logo" Height="200" Width="200" Stretch="Fill" Margin="0,30,0,0"
+               Source="ms-appx:///Assets/AriaView-logo.png" VerticalAlignment="Top"/>
+
+        <model:AuthentificationForm x:Name="AuthForm" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Height="auto"
+                                    Width="auto"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,0,0,50">
+            <TextBlock x:Name="firmInfo" FontSize="20">
+                <Run Text="ARIA Technologies"/>
+                <LineBreak/>
+                 <Run Text="8-10 rue de la Ferme"/>
+                <LineBreak/>
+                 <Run Text="92100 Boulogne-Billancourt"/>
+                <LineBreak/>
+                  <Run Text="FRANCE"/>  
+            </TextBlock>
+            <TextBlock x:Uid="firmUrl" FontSize="20" Margin="0,10,0,0" Text="www.aria.fr"/>
+        </StackPanel>
     </Grid>
 </Page>

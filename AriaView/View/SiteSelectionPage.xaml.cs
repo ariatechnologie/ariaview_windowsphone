@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using AriaView.ViewModel;
 using Windows.Data.Xml.Dom;
 using AriaView.Model;
+using Windows.Storage;
 
 
 // Pour en savoir plus sur le modèle d'élément Page de base, consultez la page http://go.microsoft.com/fwlink/?LinkId=234237
@@ -96,7 +97,6 @@ namespace AriaView
             navigationHelper.OnNavigatedTo(e);
             var viewModelBase = e.Parameter as ObservableDictionary;
             viewModel.SetDictionary(viewModelBase);
-            //viewModel["user"] = (User)viewModelBase["user"];
             viewModel.ParseResponse((string)viewModel["xml"]);
         }
 
@@ -111,8 +111,14 @@ namespace AriaView
         {
             if (siteCB.SelectedItem == null)
                 return;
-            viewModel["defaultSite"] = siteCB.SelectedItem as Site;
+            
            await viewModel.GetSiteInfoAsync(siteCB.SelectedItem as Site);
+           var defaultSite = siteCB.SelectedItem as Site;
+           viewModel["defaultSite"] = defaultSite;
+           if ((bool)viewModel["saveSite"] == true)
+           {
+               ApplicationData.Current.LocalSettings.Values["lastSite"] = defaultSite.Name;
+           }  
            Frame.Navigate(typeof(MapPage),viewModel);
         }
 

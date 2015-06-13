@@ -140,8 +140,11 @@ namespace AriaView.Model
             var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String
                 , user.Sites
                 , datesList);
-            ViewModel["AriaViewDate"] = kmlReader.CreateDate();
+            ViewModel["AriaViewDate"] = kmlReader.CreateAriaViewDate();
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+
+            //Insertion de l'url de la legend dans le dictionnaire
+            ViewModel["legendImage"] = kmlReader.GetLegendImage();
 
             //observablecollection pour l'affichage des echeances
             ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(ariaViewDate.DateTerms);
@@ -217,7 +220,7 @@ namespace AriaView.Model
 
                 //Mise à jour l'objet ariaviewdate avec la nouvelle date
                 var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-                ariaViewDate.DateTerms = kmlReader.CreateDate().DateTerms;
+                ariaViewDate.DateTerms = kmlReader.CreateAriaViewDate().DateTerms;
                 ViewModel["currentTermName"] = ariaViewDate.DateTerms[0].StartDate;
                  var dateTermCBContent = ViewModel["dateTerms"] as ObservableCollection<AriaViewDateTerm>;
                  dateTermCBContent.Clear();
@@ -233,6 +236,7 @@ namespace AriaView.Model
         {
             var newSite = sitesCB.SelectedValue as Site;
             var siteInfoUrl = GetUrl(newSite.Name);
+            var user = ViewModel["user"] as User;
 
             //Recupere la liste des date disponible pour le nouveau site
             //et la stocke dans le dictionnaire
@@ -241,9 +245,24 @@ namespace AriaView.Model
 
             //Recupere les donnees du Kml du site
             var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesList.Last() + ".kml");
-            //TODO
-            //Creer le nouvel ariaViewDate correspondant au nouveau site avec un KmlDataReader
 
+            //Creation du nouvel ariaViewDate correspondant au nouveau site avec un KmlDataReader
+            var kmlReader = new KmlDataReader(XDocument.Parse(kmlString)
+            , siteInfoUrl
+            , user.Sites
+            , datesList);
+            var newAriaViewDate = kmlReader.CreateAriaViewDate();
+            ViewModel["ariaViewDate"] = newAriaViewDate;
+
+            //observablecollection pour l'affichage des echeances
+            ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(newAriaViewDate.DateTerms);
+            ViewModel["currentTermName"] = newAriaViewDate.CurrentTerm.StartDate;
+
+            //Valeurs par defaut des combobox
+            datesCB.SelectedValue = datesList.Last();
+            var defaultSite = ViewModel["defaultSite"] as Site;
+            sitesCB.SelectedValue = defaultSite;
+            dateTermsCB.SelectedIndex = 0;
         }
 
         private async Task<List<String>> GetDates(string siteRootUrl)

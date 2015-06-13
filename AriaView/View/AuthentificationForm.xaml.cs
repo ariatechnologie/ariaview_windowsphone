@@ -52,6 +52,8 @@ namespace AriaView.Model
        async private void Button_Click(object sender, RoutedEventArgs e)
         {
             var result = await viewModel.AuthentificationAsync();
+            ViewModel["lastSiteName"] = ApplicationData.Current.LocalSettings.Values["lastSite"];
+            
             if (result != null)
             {
                 viewModel["user"] = new User
@@ -61,10 +63,31 @@ namespace AriaView.Model
                 };
                 viewModel["xml"] = result;
                 if (cbMemoriser.IsChecked == true)
+                {
                     viewModel.SaveCredentials();
+                    ViewModel["saveSite"] = true;
+                }
                 else
+                {
+                    ViewModel["saveSite"] = false;
                     viewModel.RemoveCredentials();
-                Caller.Frame.Navigate(typeof(SiteSelectionPage), viewModel);
+                    ApplicationData.Current.LocalSettings.Values["lastSite"] = string.Empty;
+                }
+                if (ApplicationData.Current.LocalSettings.Values["lastSite"].ToString() != string.Empty)
+                {
+                    ViewModel.ParseResponse((string)ViewModel["xml"]);
+                    var user = viewModel["user"] as User;
+                    var site = user.Sites.First(X => X.Name == ApplicationData.Current.LocalSettings.Values["lastSite"].ToString());
+                    viewModel["defaultSite"] = site;
+                    await viewModel.GetSiteInfoAsync(site);
+                    if ((bool)viewModel["saveSite"] == true)
+                    {
+                        ApplicationData.Current.LocalSettings.Values["lastSite"] = site.Name;
+                    }
+                    Caller.Frame.Navigate(typeof(MapPage), viewModel);
+                }
+                else
+                    Caller.Frame.Navigate(typeof(SiteSelectionPage), viewModel);
             }
             else
             {
@@ -72,6 +95,8 @@ namespace AriaView.Model
             }
            
         }
+
+     
 
 
        

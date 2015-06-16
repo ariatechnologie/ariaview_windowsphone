@@ -152,7 +152,7 @@
     </AppxManifest>
     <None Include="AriaView_TemporaryKey.pfx" />
     <PRIResource Include="Strings\fr-fr\Resources.resw" />
-    <PRIResource Include="Strings\es-en\Resources.resw" />
+    <PRIResource Include="Strings\es-ES\Resources.resw" />
     <PRIResource Include="Strings\pt-pt\Resources.resw" />
     <PRIResource Include="Strings\zh-cn\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
@@ -164,7 +164,12 @@
     <Content Include="Assets\AriaView-logo.png" />
     <Content Include="Assets\AriaView-logo150x150.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\biohazard.png" />
+    <Content Include="Assets\calendar.png" />
+    <Content Include="Assets\China.png" />
     <Content Include="Assets\cloud.jpg" />
+    <Content Include="Assets\English.png" />
+    <Content Include="Assets\France.png" />
     <Content Include="Assets\logo-24x24.png" />
     <Content Include="Assets\logo-30x30.png" />
     <Content Include="Assets\logo-33x33.png" />
@@ -172,7 +177,9 @@
     <Content Include="Assets\logo-70x70.png" />
     <Content Include="Assets\logo-90x90.png" />
     <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Portugal.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\Spain.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-140.png" />

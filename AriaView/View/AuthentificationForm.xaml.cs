@@ -73,10 +73,13 @@ namespace AriaView.Model
                     viewModel.RemoveCredentials();
                     ApplicationData.Current.LocalSettings.Values["lastSite"] = string.Empty;
                 }
-                if (ApplicationData.Current.LocalSettings.Values["lastSite"].ToString() != string.Empty)
+
+                ViewModel.ParseResponse((string)ViewModel["xml"]);
+                var user = viewModel["user"] as User;
+
+                if (ApplicationData.Current.LocalSettings.Values["lastSite"].ToString() != string.Empty
+                    && user.Sites.Where(X => X.Name == ApplicationData.Current.LocalSettings.Values["lastSite"].ToString()).Count() > 0)
                 {
-                    ViewModel.ParseResponse((string)ViewModel["xml"]);
-                    var user = viewModel["user"] as User;
                     var site = user.Sites.First(X => X.Name == ApplicationData.Current.LocalSettings.Values["lastSite"].ToString());
                     viewModel["defaultSite"] = site;
                     await viewModel.GetSiteInfoAsync(site);

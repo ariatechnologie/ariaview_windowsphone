@@ -144,6 +144,9 @@
   <data name="password.Text" xml:space="preserve">
     <value>Mot de passe:</value>
   </data>
+  <data name="pollutant.Text" xml:space="preserve">
+    <value>polluant</value>
+  </data>
   <data name="site.Text" xml:space="preserve">
     <value>Site</value>
   </data>

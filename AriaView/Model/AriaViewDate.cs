@@ -13,24 +13,24 @@ namespace AriaView.Model
         private List<AriaViewDateTerm> dateTerms;
         private List<Site> sites;
         private List<string> dates;
-        private int currentTermIndex;
+        private int currentPollutantIndex;
         private List<Pollutant> pollutantsList;
-        public int CurrentTermIndex
+        public int CurrentPollutantIndex
         {
             get
             {
-                return currentTermIndex;
+                return currentPollutantIndex;
             }
             set
             {
-                currentTermIndex = value;
+                currentPollutantIndex = value;
             }
         }
-        public AriaViewDateTerm CurrentTerm
+        public Pollutant CurrentPollutant
         {
             get
             {
-                return DateTerms[currentTermIndex];
+                return PollutantsList[currentPollutantIndex];
             }
         }
         public List<Site> Sites
@@ -57,15 +57,15 @@ namespace AriaView.Model
                 dates = value;
             }
         }
-        public List<AriaViewDateTerm> DateTerms
-        {
-            get { return dateTerms; }
-            set 
-            { 
-                dateTerms = value;
-                Notify("DateTerms");
-            }
-        }
+        //public List<AriaViewDateTerm> DateTerms
+        //{
+        //    get { return dateTerms; }
+        //    set
+        //    {
+        //        dateTerms = value;
+        //        Notify("DateTerms");
+        //    }
+        //}
         public Double North
         {
             get
@@ -124,22 +124,23 @@ namespace AriaView.Model
             set
             {
                 pollutantsList = value;
+                Notify("PollutantsList");
             }
         }
 
         public AriaViewDate(Double north,Double east,Double south,Double west
-            ,List<AriaViewDateTerm> dateTermsList,
+            ,List<Pollutant> pollutants,
             List<Site> sitesList
             ,List<String> datesList)
         {
-            dateTerms = dateTermsList;
+            pollutantsList = pollutants;
             Sites = sitesList;
             Dates = datesList;
             North = north;
             East = east;
             South = south;
             West = west;
-            currentTermIndex = 0;
+            currentPollutantIndex = 0;
         }
 
 

@@ -41,10 +41,11 @@
             <TextBlock x:Name="pageTitle" x:Uid="appName" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-        <Grid Grid.Row="1" Height="auto" Width="1366" HorizontalAlignment="Left" Background="Transparent">
-            <Button x:ConnectionId='2' x:Name="previousTermBtn"  Content="-" HorizontalAlignment="Left"                                Width="auto" Height="auto"/>
+        <Grid x:Name="controlsGrid" Grid.Row="1" Height="55" Width="{Binding ElementName=pageRoot, Path=ActualWidth}" HorizontalAlignment="Left" Background="Transparent" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="auto">
-                <ComboBox x:ConnectionId='4'  x:Name="dateTermsCB" ItemsSource="{Binding dateTerms}"  Height="auto" Width="auto"
+                <Button x:ConnectionId='2' x:Name="previousTermBtn"  Content="-"                                 Width="auto" Height="auto" VerticalAlignment="Bottom"/>
+                <ComboBox x:ConnectionId='3'  x:Name="dateTermsCB" ItemsSource="{Binding dateTerms}"  Height="auto" Width="auto"
+                           Margin="20,0,0,0"
                                                                          >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -52,26 +53,38 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                     <ComboBox.Header>
-                        <TextBlock x:Uid="term" Text="Term" HorizontalAlignment="Center" />
+                        <TextBlock x:Uid="term" Text="Term" HorizontalAlignment="Center" TextAlignment="Center"/>
                     </ComboBox.Header>
                 </ComboBox>
-                <ComboBox x:ConnectionId='5' x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}"                                             Margin="20,0,0,0">
-                    <ComboBox.Header>
+                <Button x:ConnectionId='4' x:Name="nextTermBtn"  Content="+" Margin="20,0,0,0"                             Width="auto" Height="auto" VerticalAlignment="Bottom" />
+                <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                    <Image Source="/Assets/calendar.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <ComboBox x:ConnectionId='8' x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}"                                             >
+                        <!--<ComboBox.Header>
                         <TextBlock x:Uid="date" Text="Date" HorizontalAlignment="Center"/>
+                    </ComboBox.Header>-->
+                    </ComboBox>
+                </StackPanel>
+                <ComboBox x:ConnectionId='5' x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}"                                              Margin="20,0,0,0">
+                    <ComboBox.Header>
+                        <TextBlock x:Uid="site" Text="Site" HorizontalAlignment="Center" TextAlignment="Center"/>
                     </ComboBox.Header>
                 </ComboBox>
-                <ComboBox x:ConnectionId='6' x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}"                                              Margin="20,0,0,0">
-                    <ComboBox.Header>
-                        <TextBlock x:Uid="site" Text="Site" HorizontalAlignment="Center"/>
-                    </ComboBox.Header>
-                </ComboBox>
-                <!--<ComboBox x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding PollutantsList}" SelectionChanged="pollutantsCB_SelectionChanged"  Margin="20,0,0,0">
-                    <ComboBox.Header>
-                        <TextBlock x:Uid="pollutant" Text="Pollutant" HorizontalAlignment="Center"/>
-                    </ComboBox.Header>
-                </ComboBox>-->
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Assets/biohazard.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <ComboBox x:ConnectionId='7' x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding pollutantsList}"                                                   Margin="20,0,0,0">
+                        <!--<ComboBox.Header>
+                            <TextBlock x:Uid="pollutant" Text="Pollutant" HorizontalAlignment="Center"/>
+                        </ComboBox.Header>-->
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <Button x:ConnectionId='6' x:Name="playBtn" Content="Play" Height="auto" Width="auto" Margin="20,0,0,0"                      />
             </StackPanel>
-            <Button x:ConnectionId='3' x:Name="nextTermBtn"  Content="+"  HorizontalAlignment="Right"                            Width="auto" Height="auto"/>
         </Grid>
         <local:MapView x:Name="mapView" Height="Auto" Width="Auto"  Grid.Row ="2"/>
         <Image x:Name="legendImage" Grid.Row="2" Source="{Binding legendImage}"

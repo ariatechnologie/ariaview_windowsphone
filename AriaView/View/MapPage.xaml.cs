@@ -31,6 +31,9 @@ namespace AriaView.Model
 
         private NavigationHelper navigationHelper;
         private MapPageViewModel viewModel = new MapPageViewModel();
+        private DispatcherTimer timer;
+        private int termScrollingIndex, termScrollingLimit;
+        private bool IstermScrollingEnable;
         
 
         /// <summary>
@@ -57,6 +60,47 @@ namespace AriaView.Model
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 3);
+            timer.Tick += TermScrolling;
+            IstermScrollingEnable = false;
+        }
+
+        async void TermScrolling(object sender, object e)
+        {
+            if (++termScrollingIndex == termScrollingLimit - 1)
+                await mapView.ChangeTerm(0);
+            else
+                mapView.NextTerm();
+                
+        }
+
+
+       async void StartTermScrolling()
+        {
+            sitesCB.IsEnabled = false;
+            dateTermsCB.IsEnabled = false;
+            datesCB.IsEnabled = false;
+            nextTermBtn.IsEnabled = false;
+            previousTermBtn.IsEnabled = false;
+            pollutantsCB.IsEnabled = false;
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            termScrollingLimit = ariaViewDate.CurrentPollutant.DateTerms.Count;
+            await mapView.ChangeTerm(0);
+            timer.Start();
+        }
+
+       async void StopTermScrolling()
+        {
+            timer.Stop();
+            await mapView.ChangeTerm(0);
+            termScrollingIndex = 0;
+            sitesCB.IsEnabled = true;
+            dateTermsCB.IsEnabled = true;
+            datesCB.IsEnabled = true;
+            nextTermBtn.IsEnabled = true;
+            previousTermBtn.IsEnabled = true;
+            pollutantsCB.IsEnabled = true;
         }
 
 
@@ -147,14 +191,17 @@ namespace AriaView.Model
             ViewModel["legendImage"] = kmlReader.GetLegendImage();
 
             //observablecollection pour l'affichage des echeances
-            ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(ariaViewDate.DateTerms);
-            ViewModel["currentTermName"] = ariaViewDate.CurrentTerm.StartDate;
+            ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(ariaViewDate.CurrentPollutant.DateTerms);
+            ViewModel["pollutantsList"] = ariaViewDate.PollutantsList;
+            //ViewModel["currentPollutantName"] = ariaViewDate.CurrentPollutant.Name;
+            ViewModel["currentTermName"] = ariaViewDate.CurrentPollutant.CurrentTerm.StartDate;
 
             //Valeurs par defaut des combobox
             datesCB.SelectedValue = datesList.Last();
             var defaultSite = ViewModel["defaultSite"] as Site;
             sitesCB.SelectedValue = defaultSite;
             dateTermsCB.SelectedIndex = 0;
+            pollutantsCB.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -163,7 +210,7 @@ namespace AriaView.Model
         public void UpdateUI()
         {
             var ariaViewDate = viewModel["AriaViewDate"] as AriaViewDate;
-            dateTermsCB.SelectedIndex = ariaViewDate.CurrentTermIndex;
+            dateTermsCB.SelectedIndex = ariaViewDate.CurrentPollutant.CurrentTermIndex;
         }
 
 
@@ -220,11 +267,11 @@ namespace AriaView.Model
 
                 //Mise à jour l'objet ariaviewdate avec la nouvelle date
                 var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-                ariaViewDate.DateTerms = kmlReader.CreateAriaViewDate().DateTerms;
-                ViewModel["currentTermName"] = ariaViewDate.DateTerms[0].StartDate;
+                ariaViewDate.PollutantsList = kmlReader.CreateAriaViewDate().PollutantsList;
+                ViewModel["currentTermName"] = ariaViewDate.PollutantsList[0].DateTerms[0].StartDate;
                  var dateTermCBContent = ViewModel["dateTerms"] as ObservableCollection<AriaViewDateTerm>;
                  dateTermCBContent.Clear();
-                 foreach(AriaViewDateTerm t in ariaViewDate.DateTerms)
+                 foreach(AriaViewDateTerm t in ariaViewDate.PollutantsList[0].DateTerms)
                  {
                      dateTermCBContent.Add(t);
                  }
@@ -252,11 +299,11 @@ namespace AriaView.Model
             , user.Sites
             , datesList);
             var newAriaViewDate = kmlReader.CreateAriaViewDate();
-            ViewModel["ariaViewDate"] = newAriaViewDate;
+            ViewModel["AriaViewDate"] = newAriaViewDate;
 
             //observablecollection pour l'affichage des echeances
-            ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(newAriaViewDate.DateTerms);
-            ViewModel["currentTermName"] = newAriaViewDate.CurrentTerm.StartDate;
+            ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(newAriaViewDate.CurrentPollutant.DateTerms);
+            ViewModel["currentTermName"] = newAriaViewDate.CurrentPollutant.CurrentTerm.StartDate;
 
             //Valeurs par defaut des combobox
             datesCB.SelectedValue = datesList.Last();
@@ -294,7 +341,36 @@ namespace AriaView.Model
 
         private void pollutantsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Si le viewModel du mapView est vide
+            if (mapView.ViewModel.Count == 0)
+                return;
+            var newPollutantIndex = pollutantsCB.SelectedIndex;
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            ariaViewDate.CurrentPollutantIndex = newPollutantIndex;
+            ViewModel["currentTermName"] = ariaViewDate.PollutantsList[newPollutantIndex].DateTerms[0].StartDate;
+            var dateTermCBContent = ViewModel["dateTerms"] as ObservableCollection<AriaViewDateTerm>;
+            dateTermCBContent.Clear();
+            foreach (AriaViewDateTerm t in ariaViewDate.PollutantsList[newPollutantIndex].DateTerms)
+            {
+                dateTermCBContent.Add(t);
+            }
+            dateTermsCB.SelectedIndex = 0;
+        }
 
+       
+
+        private void playBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!IstermScrollingEnable)
+            {
+                StartTermScrolling();
+                IstermScrollingEnable = true;
+            }
+            else
+            {
+                StopTermScrolling();
+                IstermScrollingEnable = false;
+            }
         }
 
     }

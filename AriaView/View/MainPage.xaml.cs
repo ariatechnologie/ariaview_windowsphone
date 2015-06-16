@@ -35,6 +35,36 @@ namespace AriaView
             ApplicationData.Current.LocalSettings.Values["wsurl"] = "http://web.aria.fr";
         }
 
+        private void btnPortugese_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["lang"] = "pt-PT";
+            throw new Exception();
+        }
+
+        private void btnFrench_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["lang"] = "fr-FR";
+            throw new Exception();
+        }
+
+        private void btnSpanish_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["lang"] = "es-ES";
+            throw new Exception();
+        }
+
+        private void btnChinese_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["lang"] = "zh-Hans-CN";
+            throw new Exception();
+        }
+
+        private void btnEnglish_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["lang"] = "en-US";
+            throw new Exception();
+        }
+
 
         
       

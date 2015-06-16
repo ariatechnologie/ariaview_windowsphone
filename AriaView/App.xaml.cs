@@ -9,6 +9,8 @@ using Windows.ApplicationModel.Activation;
 using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -39,6 +41,18 @@ namespace AriaView
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            try
+            {
+                var lang = ApplicationLanguages.PrimaryLanguageOverride = ApplicationData.Current.LocalSettings.Values["lang"].ToString();
+                if (lang != null)
+                    ApplicationLanguages.PrimaryLanguageOverride = lang;
+                    
+            }
+            catch(NullReferenceException e)
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            }
+          
         }
 
         /// <summary>

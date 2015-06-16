@@ -8,6 +8,26 @@ namespace AriaView.Model
 {
     public class Pollutant
     {
+        private int currentTermIndex;
+        public int CurrentTermIndex
+        {
+            get
+            {
+                return currentTermIndex;
+            }
+
+            set
+            {
+                currentTermIndex = value;
+            }
+        }
+        public AriaViewDateTerm CurrentTerm
+        {
+            get
+            {
+                return DateTerms[currentTermIndex];
+            }
+        }
         public string Name { get; set; }
         public List<AriaViewDateTerm> DateTerms { get; set; }
 
@@ -16,6 +36,7 @@ namespace AriaView.Model
         {
             Name = name;
             DateTerms = dateTerms;
+            currentTermIndex = 0;
         }
     }
 }

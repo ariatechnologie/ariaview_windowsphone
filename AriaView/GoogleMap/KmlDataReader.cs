@@ -21,15 +21,15 @@ namespace AriaView.GoogleMap
         private string webServiceURL;
         private List<Site> sites;
         private List<string> dates;
-        public List<String> ImagesNameList
-        {
-            get { return imagesNameList; }
-            set
-            {
-                imagesNameList = value;
-            }
-        }
-        private List<string> imagesNameList;
+        //public List<String> ImagesNameList
+        //{
+        //    get { return imagesNameList; }
+        //    set
+        //    {
+        //        imagesNameList = value;
+        //    }
+        //}
+        //private List<string> imagesNameList;
 
         public KmlDataReader(XDocument doc,string webServiceURL,List<Site> sites,List<String> dates)
         {
@@ -37,7 +37,7 @@ namespace AriaView.GoogleMap
             this.webServiceURL = webServiceURL;
             this.dates = dates;
             this.sites = sites;
-            imagesNameList = GetImagesName();
+            //imagesNameList = GetImagesName();
         }
 
         private List<string> GetImagesName()
@@ -68,8 +68,8 @@ namespace AriaView.GoogleMap
                 var west = XmlConvert.ToDouble(latLonBoxElement.Descendants(xmlns + "west")
                     .ElementAt(0)
                     .Value);
-                var termsList = CreateDateTermsList(null);
-                return new AriaViewDate(north, east, south, west, termsList,sites,dates);
+                
+                return new AriaViewDate(north, east, south, west, CreatePollutantList(),sites,dates);
             }
             catch(Exception e)
             {
@@ -144,7 +144,8 @@ namespace AriaView.GoogleMap
             foreach(var node in FolderNodes)
             {
                 var pollutantName = node
-                    .Descendants(xmlns + "href").ElementAt(0).Value;
+                    .Descendants(xmlns + "Folder")
+                    .Descendants(xmlns + "name").ElementAt(0).Value;
                 var dateTerms = CreateDateTermsList(node);
                 list.Add(new Pollutant(pollutantName, dateTerms));
             }
@@ -152,7 +153,10 @@ namespace AriaView.GoogleMap
         }
 
 
-
+        /// <summary>
+        /// Renvoie l'URL de l'image en légende
+        /// </summary>
+        /// <returns></returns>
         public String GetLegendImage()
         {
              XNamespace xmlns = doc.Root.Name.Namespace;

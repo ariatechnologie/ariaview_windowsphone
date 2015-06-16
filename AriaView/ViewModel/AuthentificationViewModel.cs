@@ -40,7 +40,7 @@ namespace AriaView.ViewModel
         {
            
             if (vault.RetrieveAll().Count(X => X.Resource == VAULT_RESOURCE) > 0)
-                return;
+                RemoveCredentials();
             vault.Add(new PasswordCredential(VAULT_RESOURCE, (string)this["Login"], (string)this["Password"]));
         }
 

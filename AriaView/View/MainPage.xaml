@@ -22,7 +22,24 @@
                                     Height="auto"
                                     Width="auto"/>
         <StackPanel Grid.Row="1" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,0,0,50">
-            <TextBlock x:Name="firmInfo" FontSize="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Button x:Name="btnPortugese" Height="auto" Width="auto" Click="btnPortugese_Click" Padding="0" BorderBrush="Transparent">
+                    <Image Source="/Assets/Portugal.png" Height="20" Width="30" Stretch="Fill"/>
+                </Button>
+                <Button x:Name="btnFrench"  Height="auto" Width="auto" Click="btnFrench_Click" Padding="0" BorderBrush="Transparent">
+                    <Image Source="/Assets/France.png" Height="20" Width="30" Stretch="Fill"/>
+                </Button>
+                <Button x:Name="btnSpanish" Height="auto" Width="auto" Click="btnSpanish_Click" Padding="0" BorderBrush="Transparent">
+                    <Image Source="/Assets/Spain.png" Height="20" Width="30" Stretch="Fill"/>
+                </Button>
+                <Button x:Name="btnChinese"  Height="auto" Width="auto" Click="btnChinese_Click" Padding="0" BorderBrush="Transparent">
+                    <Image Source="/Assets/China.png" Height="20" Width="30" Stretch="Fill"/>
+                </Button>
+                <Button x:Name="btnEnglish"  Height="auto" Width="auto" Click="btnEnglish_Click" Padding="0" BorderBrush="Transparent">
+                    <Image Source="/Assets/English.png" Height="20" Width="30" Stretch="Fill"/>
+                </Button>
+            </StackPanel>
+            <TextBlock x:Name="firmInfo" FontSize="20" HorizontalAlignment="Center">
                 <Run Text="ARIA Technologies"/>
                 <LineBreak/>
                  <Run Text="8-10 rue de la Ferme"/>
@@ -31,7 +48,7 @@
                 <LineBreak/>
                   <Run Text="FRANCE"/>  
             </TextBlock>
-            <TextBlock x:Uid="firmUrl" FontSize="20" Margin="0,10,0,0" Text="www.aria.fr"/>
+            <TextBlock x:Uid="firmUrl" FontSize="20" Margin="0,10,0,0" Text="www.aria.fr" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>

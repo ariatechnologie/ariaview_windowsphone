@@ -112,9 +112,9 @@ namespace AriaView.Model
         public void SetCurrentTerm(int i)
         {
             var ariaViewDate = viewModel["AriaViewDate"] as AriaViewDate;
-            ariaViewDate.CurrentTermIndex = i;
-            parentView.ViewModel["currentTermName"] = ariaViewDate.CurrentTerm.StartDate;
-            parentView.ViewModel["InitialSelectedDateTerm"] = ariaViewDate.CurrentTermIndex;
+            ariaViewDate.CurrentPollutant.CurrentTermIndex = i;
+            parentView.ViewModel["currentTermName"] = ariaViewDate.CurrentPollutant.CurrentTerm.StartDate;
+            parentView.ViewModel["InitialSelectedDateTerm"] = ariaViewDate.CurrentPollutant.CurrentTermIndex;
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace AriaView.Model
                     ariaViewDate.East.ToString(),
                     ariaViewDate.South.ToString(),
                     ariaViewDate.West.ToString(),
-                    ariaViewDate.CurrentTerm.ImgName,
+                    ariaViewDate.CurrentPollutant.CurrentTerm.ImgName,
                     centerLat.ToString(),
                     centerlong.ToString()
             });
@@ -160,8 +160,8 @@ namespace AriaView.Model
         public void NextTerm()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-            var i = ariaViewDate.CurrentTermIndex + 1;
-            if (i < 0 || i == ariaViewDate.DateTerms.Count)
+            var i = ariaViewDate.CurrentPollutant.CurrentTermIndex + 1;
+            if (i < 0 || i == ariaViewDate.CurrentPollutant.DateTerms.Count)
                 return;
             //await ChangeTerm(i);
             parentView.GetDateTermsComboBox().SelectedIndex = i;
@@ -173,8 +173,8 @@ namespace AriaView.Model
         public void PreviousTerm()
         {
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-            var i = ariaViewDate.CurrentTermIndex - 1;
-            if (i < 0 || i == ariaViewDate.DateTerms.Count)
+            var i = ariaViewDate.CurrentPollutant.CurrentTermIndex - 1;
+            if (i < 0 || i == ariaViewDate.CurrentPollutant.DateTerms.Count)
                 return;
             //await ChangeTerm(i);
             parentView.GetDateTermsComboBox().SelectedIndex = i;
@@ -189,7 +189,7 @@ namespace AriaView.Model
         {
             SetCurrentTerm(i);
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentTerm.ImgName });
+            await webView.InvokeScriptAsync("changeOverlay", new String[] { ariaViewDate.CurrentPollutant.CurrentTerm.ImgName });
             parentView.UpdateUI();
         }
 

@@ -135,6 +135,9 @@
   <data name="firmUrl.Text" xml:space="preserve">
     <value>www.aria.fr</value>
   </data>
+  <data name="identifier.Content" xml:space="preserve">
+    <value>logueado</value>
+  </data>
   <data name="login.Text" xml:space="preserve">
     <value>Iniciar Sesión:</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="password.Text" xml:space="preserve">
     <value>Contraseña:</value>
+  </data>
+  <data name="restartMsg.Text" xml:space="preserve">
+    <value>Cambio de idioma registrado. Por favor, reinicie la aplicación</value>
   </data>
   <data name="site.Text" xml:space="preserve">
     <value>sitio</value>

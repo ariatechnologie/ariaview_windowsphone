@@ -177,10 +177,12 @@
     <Content Include="Assets\logo-70x70.png" />
     <Content Include="Assets\logo-90x90.png" />
     <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\play.png" />
     <Content Include="Assets\Portugal.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\Spain.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\stop.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-140.png" />
     <Content Include="Assets\StoreLogo.scale-180.png" />

@@ -19,7 +19,18 @@ function initialize() {
     var options = {
         zoom: 0,
         center: { lat: centerlat, lng: centerlng },
+        disableDefaultUI: true,
         streetViewControl: false
+        //zoomControl: true,
+        //mapTypeId: google.maps.MapTypeId.ROADMAP,
+        //styles: [
+        //  {
+        //      "featureType": "poi",
+        //      "stylers": [
+        //        { "visibility": "off" }
+        //      ]
+        //  }
+        //]
     };
     map = new google.maps.Map(document.getElementById('mapwindow'), options);
    
@@ -33,6 +44,7 @@ function initialize() {
     fogImageOverlay.setMap(map);
     map.setZoom(11);
 }
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -85,6 +97,39 @@ function changeOverlay(image)
          );
     fogImageOverlay.setMap(map);
     map.setCenter(new google.maps.LatLng(centerlat, centerlng));
+}
+
+function changeLocationInfos(n, e, s, w, x, y) {
+    if (x.indexOf(",") >= 0) {
+        x = x.replace(',', '.');
+    }
+    if (y.indexOf(",") >= 0) {
+        y = y.replace(',', '.');
+    }
+    if (n.indexOf(",") >= 0) {
+        n = n.replace(',', '.');
+    }
+    if (e.indexOf(",") >= 0) {
+        e = e.replace(',', '.');
+    }
+    if (s.indexOf(",") >= 0) {
+        s = s.replace(',', '.');
+    }
+    if (w.indexOf(",") >= 0) {
+        w = w.replace(',', '.');
+    }
+
+    north = parseFloat(n);
+    east = parseFloat(e);
+    south = parseFloat(s);
+    west = parseFloat(w);
+    centerlat = parseFloat(x);
+    centerlng = parseFloat(y);
+
+
+
+
+    
 }
 
 

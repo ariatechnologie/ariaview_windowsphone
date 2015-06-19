@@ -26,16 +26,16 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Foreground" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Inlines" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Text" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Style" />
       <RootProperty Name="IsHitTestVisible" />
@@ -63,6 +63,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
+      <RootProperty Name="BottomAppBar" />
       <RootProperty Name="DataContext" />
       <RootProperty Name="Resources" />
       <RootEvent Name="Loaded" />
@@ -72,7 +73,6 @@
       <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
-      <RootProperty Name="Foreground" />
       <RootProperty Name="FlowDirection" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="IsChecked" />
@@ -85,9 +85,11 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Command" />
       <RootProperty Name="Style" />
       <RootProperty Name="Name" />
@@ -127,6 +129,9 @@
       <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBar">
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="AriaView.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />

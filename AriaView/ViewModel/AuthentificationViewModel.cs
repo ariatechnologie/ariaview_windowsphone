@@ -106,7 +106,12 @@ namespace AriaView.ViewModel
         public void ParseResponse(string xml)
         {
             var doc = XDocument.Parse(xml);
-            var list = doc.Descendants("sites").Select(X => X.Value);
+            var list = new List<String>();
+            foreach(var s in doc.Descendants("sites").Descendants())
+            {
+                list.Add(s.Value);
+            }
+
             foreach (var sitename in list)
             {
                 var user = (User)this["user"];

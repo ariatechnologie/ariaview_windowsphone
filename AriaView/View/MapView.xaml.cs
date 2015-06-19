@@ -41,6 +41,11 @@ namespace AriaView.Model
         }
         
 
+        public WebView GetWebView()
+        {
+            return webView;
+        }
+
 
         public MapView()
         {

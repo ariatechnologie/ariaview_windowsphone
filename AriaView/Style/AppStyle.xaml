@@ -5,14 +5,7 @@
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
     </Style>
-    <!--<Style TargetType="TextBox">
-        <Setter Property="BorderBrush" Value="Black"/>
-    </Style>-->
-    <!--<Style TargetType="PasswordBox">
-        <Setter Property="BorderBrush" Value="Black"/>
-    </Style>-->
     <Style TargetType="Grid">
-        <!--<Setter Property="Background" Value="#FF53A3FC"/>-->
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="ms-appx:///Assets/cloud.jpg"/>
@@ -27,7 +20,6 @@
     </Style>
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
-        <!--<Setter Property="BorderBrush" Value="Black"/>-->
     </Style>
 
 </ResourceDictionary>

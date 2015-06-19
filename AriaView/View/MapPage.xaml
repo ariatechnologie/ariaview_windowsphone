@@ -83,7 +83,9 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-                <Button x:Name="playBtn" Content="Play" Height="auto" Width="auto" Margin="20,0,0,0" Click="playBtn_Click"/>
+                <Button x:Name="playBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent" Click="playBtn_Click">
+                    <Image x:Name="btnStartStop" Source="/Assets/play.png"/>
+                </Button>
             </StackPanel>
         </Grid>
         <local:MapView x:Name="mapView" Height="Auto" Width="Auto"  Grid.Row ="2"/>
@@ -93,4 +95,11 @@
                Height="300"
                Width="150"/>
     </Grid>
+    <Page.BottomAppBar>
+        <AppBar>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Uid="exit" Content="Quit" Click="Button_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

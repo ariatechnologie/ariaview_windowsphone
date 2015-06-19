@@ -38,31 +38,36 @@ namespace AriaView
         private void btnPortugese_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "pt-PT";
-            throw new Exception();
+            restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
         private void btnFrench_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "fr-FR";
-            throw new Exception();
+            restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
         private void btnSpanish_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "es-ES";
-            throw new Exception();
+            restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
         private void btnChinese_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "zh-Hans-CN";
-            throw new Exception();
+            restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
         private void btnEnglish_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "en-US";
-            throw new Exception();
+            restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
         }
 
 

@@ -135,6 +135,9 @@
   <data name="firmUrl.Text" xml:space="preserve">
     <value>www.aria.fr</value>
   </data>
+  <data name="identifier.Content" xml:space="preserve">
+    <value>S'identifier</value>
+  </data>
   <data name="login.Text" xml:space="preserve">
     <value>Login:</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="pollutant.Text" xml:space="preserve">
     <value>polluant</value>
+  </data>
+  <data name="restartMsg.Text" xml:space="preserve">
+    <value>Changement de langue enregistré. Veuillez redemarrer l'application</value>
   </data>
   <data name="site.Text" xml:space="preserve">
     <value>Site</value>

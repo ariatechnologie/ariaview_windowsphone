@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Uid="connexion" Text="CONNEXION" Margin="0,0,0,10"/>
+            <TextBlock x:Uid="connexion" Text="CONNECTION" Margin="0,0,0,10"/>
             <TextBlock x:Uid="login" Text="Login:" Height="Auto" Width="Auto" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Right"/>
             <TextBox Name="tbLogin" Text="{Binding Login, Mode=TwoWay}" Height="Auto" Grid.Column="1" Grid.Row="1"/>
             <TextBlock x:Uid="password" Text="Password:"  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
@@ -33,8 +33,8 @@
             <TextBlock x:Uid="authentificationError"  Name="MsgError"  Visibility="Collapsed" Grid.Row="4" Grid.ColumnSpan="2"
                    Margin="20,10,0,0"
                    Foreground="red"/>
-            <Button  x:Name="btnOK" Content="OK" Height="Auto" Width="Auto" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Click="Button_Click"/>
-            <CheckBox x:Uid="memoriseMsg" x:Name="cbMemoriser" Foreground="Black" FlowDirection="LeftToRight" FontSize="11" IsChecked="True" Margin="0,10,0,0"
+            <Button  x:Name="btnOK" x:Uid="identifier" Content="OK" Height="Auto" Width="auto" Padding="5,5,10,5" Margin="0,5,0,0"  Grid.Column="1" Grid.Row="5" HorizontalAlignment="left" Background="Black" BorderThickness="0" Click="Button_Click"/>
+            <CheckBox x:Uid="memoriseMsg" x:Name="cbMemoriser"  FlowDirection="LeftToRight" FontSize="11" IsChecked="True" Margin="0,10,0,0"
                           Content="Remember me"  Grid.Row="6"  Grid.ColumnSpan="2"/>
         </Grid>
     </Frame>

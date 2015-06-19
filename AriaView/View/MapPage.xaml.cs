@@ -20,6 +20,7 @@ using AriaView.GoogleMap;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace AriaView.Model
 {
@@ -87,6 +88,7 @@ namespace AriaView.Model
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             termScrollingLimit = ariaViewDate.CurrentPollutant.DateTerms.Count;
             await mapView.ChangeTerm(0);
+            btnStartStop.Source = new BitmapImage(new Uri("ms-appx:///Assets/stop.png"));
             timer.Start();
         }
 
@@ -94,6 +96,7 @@ namespace AriaView.Model
         {
             timer.Stop();
             await mapView.ChangeTerm(0);
+            btnStartStop.Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
             termScrollingIndex = 0;
             sitesCB.IsEnabled = true;
             dateTermsCB.IsEnabled = true;
@@ -226,17 +229,18 @@ namespace AriaView.Model
 
         private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Si le viewModel du mapView est vide
-            if (mapView.ViewModel.Count == 0 || ((ObservableCollection<AriaViewDateTerm>)ViewModel["dateTerms"]).Count == 0)
-                return;
             var source = sender as ComboBox;
+            //Si le viewModel du mapView est vide
+            if (mapView.ViewModel.Count == 0 || ((ObservableCollection<AriaViewDateTerm>)ViewModel["dateTerms"]).Count == 0
+                || source.SelectedIndex < 0)
+                return;
             await mapView.ChangeTerm(source.SelectedIndex);
         }
 
         private async void datesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Si le viewModel du mapView est vide
-            if (mapView.ViewModel.Count == 0)
+            if (mapView.ViewModel.Count == 0 || datesCB.SelectedValue == null)
                 return;
             var currentSite = sitesCB.SelectedValue as Site;
             var date = datesCB.SelectedValue as string;
@@ -291,11 +295,11 @@ namespace AriaView.Model
             ViewModel["datesList"] = datesList;
 
             //Recupere les donnees du Kml du site
-            var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesList.Last() + ".kml");
+            var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + "/" + datesList.Last() + "/" + datesList.Last() + ".kml");
 
             //Creation du nouvel ariaViewDate correspondant au nouveau site avec un KmlDataReader
             var kmlReader = new KmlDataReader(XDocument.Parse(kmlString)
-            , siteInfoUrl
+            , siteInfoUrl + "/" + datesList.Last() 
             , user.Sites
             , datesList);
             var newAriaViewDate = kmlReader.CreateAriaViewDate();
@@ -305,11 +309,32 @@ namespace AriaView.Model
             ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(newAriaViewDate.CurrentPollutant.DateTerms);
             ViewModel["currentTermName"] = newAriaViewDate.CurrentPollutant.CurrentTerm.StartDate;
 
+            //Mise a jour de la legende des polluants
+            ViewModel["legendImage"] = kmlReader.GetLegendImage();
+
             //Valeurs par defaut des combobox
             datesCB.SelectedValue = datesList.Last();
             var defaultSite = ViewModel["defaultSite"] as Site;
-            sitesCB.SelectedValue = defaultSite;
+            //sitesCB.SelectedValue = defaultSite;
             dateTermsCB.SelectedIndex = 0;
+            
+            //relocalisation le centre de la carte et le overlay sur le nouveau site
+            var ariaViewDate = this.viewModel["AriaViewDate"] as AriaViewDate;
+            var n = ariaViewDate.North;
+            var e = ariaViewDate.East;
+            var s = ariaViewDate.South;
+            var w = ariaViewDate.West;
+            var centerLat = (n + s) / 2;
+            var centerlong = (e + w) / 2;
+            await mapView.GetWebView().InvokeScriptAsync("changeLocationInfos", new List<String> {
+                    ariaViewDate.North.ToString(),
+                    ariaViewDate.East.ToString(),
+                    ariaViewDate.South.ToString(),
+                    ariaViewDate.West.ToString(),
+                    centerLat.ToString(),
+                    centerlong.ToString()
+            });
+            await mapView.ChangeTerm(0);
         }
 
         private async Task<List<String>> GetDates(string siteRootUrl)
@@ -371,6 +396,11 @@ namespace AriaView.Model
                 StopTermScrolling();
                 IstermScrollingEnable = false;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
         }
 
     }

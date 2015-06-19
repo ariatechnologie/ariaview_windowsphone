@@ -135,6 +135,9 @@
   <data name="firmUrl.Text" xml:space="preserve">
     <value>www.aria.fr</value>
   </data>
+  <data name="identifier.Content" xml:space="preserve">
+    <value>鉴定</value>
+  </data>
   <data name="login.Text" xml:space="preserve">
     <value>登录：</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="password.Text" xml:space="preserve">
     <value>密码：</value>
+  </data>
+  <data name="restartMsg.Text" xml:space="preserve">
+    <value>注册语言的变化。请重新启动应用程序</value>
   </data>
   <data name="site.Text" xml:space="preserve">
     <value>现场</value>

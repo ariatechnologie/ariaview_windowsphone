@@ -65,6 +65,9 @@
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\play.png">
+      <PackagePath>Assets\play.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\Portugal.png">
       <PackagePath>Assets\Portugal.png</PackagePath>
     </AppxPackagedFile>
@@ -78,6 +81,9 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\stop.png">
+      <PackagePath>Assets\stop.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>

@@ -16,8 +16,9 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>AriaView_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppxPackageDir>C:\Users\jerome\Desktop\Dev\deploy\</AppxPackageDir>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -177,6 +178,7 @@
     <Content Include="Assets\logo-70x70.png" />
     <Content Include="Assets\logo-90x90.png" />
     <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\multisite.png" />
     <Content Include="Assets\play.png" />
     <Content Include="Assets\Portugal.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />

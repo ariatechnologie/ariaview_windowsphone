@@ -77,6 +77,18 @@ namespace AriaView.Model
                 ViewModel.ParseResponse((string)ViewModel["xml"]);
                 var user = viewModel["user"] as User;
 
+                //Teste l'existance du conteneur de site par defaut sur le terminal
+                //et le cree s'il n'existe pas
+                try
+                {
+                   var temp = ApplicationData.Current.LocalSettings.Values["lastSite"].ToString();
+                }
+                catch
+                {
+                    ApplicationData.Current.LocalSettings.Values["lastSite"] = string.Empty;
+                }
+
+
                 if (ApplicationData.Current.LocalSettings.Values["lastSite"].ToString() != string.Empty
                     && user.Sites.Where(X => X.Name == ApplicationData.Current.LocalSettings.Values["lastSite"].ToString()).Count() > 0)
                 {

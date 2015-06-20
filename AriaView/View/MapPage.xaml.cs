@@ -190,9 +190,6 @@ namespace AriaView.Model
             ViewModel["AriaViewDate"] = kmlReader.CreateAriaViewDate();
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
 
-            //Insertion de l'url de la legend dans le dictionnaire
-            ViewModel["legendImage"] = kmlReader.GetLegendImage();
-
             //observablecollection pour l'affichage des echeances
             ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(ariaViewDate.CurrentPollutant.DateTerms);
             ViewModel["pollutantsList"] = ariaViewDate.PollutantsList;
@@ -205,6 +202,10 @@ namespace AriaView.Model
             sitesCB.SelectedValue = defaultSite;
             dateTermsCB.SelectedIndex = 0;
             pollutantsCB.SelectedIndex = 0;
+
+            //Insertion de l'url de la legend dans le dictionnaire
+            var currentSite = sitesCB.SelectedValue as Site;
+            ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
         }
 
         /// <summary>
@@ -308,15 +309,16 @@ namespace AriaView.Model
             //observablecollection pour l'affichage des echeances
             ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(newAriaViewDate.CurrentPollutant.DateTerms);
             ViewModel["currentTermName"] = newAriaViewDate.CurrentPollutant.CurrentTerm.StartDate;
+            ViewModel["pollutantsList"] = newAriaViewDate.PollutantsList;
 
             //Mise a jour de la legende des polluants
-            ViewModel["legendImage"] = kmlReader.GetLegendImage();
+            //ViewModel["legendImage"] = newAriaViewDate.CurrentPollutant.LegendImage;
 
             //Valeurs par defaut des combobox
             datesCB.SelectedValue = datesList.Last();
             var defaultSite = ViewModel["defaultSite"] as Site;
-            //sitesCB.SelectedValue = defaultSite;
             dateTermsCB.SelectedIndex = 0;
+            pollutantsCB.SelectedIndex = 0;
             
             //relocalisation le centre de la carte et le overlay sur le nouveau site
             var ariaViewDate = this.viewModel["AriaViewDate"] as AriaViewDate;
@@ -334,6 +336,11 @@ namespace AriaView.Model
                     centerLat.ToString(),
                     centerlong.ToString()
             });
+
+            //Mise a jour de la legend du polluant
+            var currentSite = sitesCB.SelectedValue as Site;
+            ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
+
             await mapView.ChangeTerm(0);
         }
 
@@ -367,7 +374,8 @@ namespace AriaView.Model
         private void pollutantsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Si le viewModel du mapView est vide
-            if (mapView.ViewModel.Count == 0)
+            if (mapView.ViewModel.Count == 0
+                || pollutantsCB.SelectedIndex < 0)
                 return;
             var newPollutantIndex = pollutantsCB.SelectedIndex;
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
@@ -380,6 +388,11 @@ namespace AriaView.Model
                 dateTermCBContent.Add(t);
             }
             dateTermsCB.SelectedIndex = 0;
+
+            //Mise a jour de la legende du polluant
+            var currentSite = sitesCB.SelectedValue as Site;
+            var datesList = ViewModel["datesList"] as List<string>;
+            ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
         }
 
        

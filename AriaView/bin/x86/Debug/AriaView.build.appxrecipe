@@ -57,6 +57,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-70x70.png">
       <PackagePath>Assets\logo-70x70.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-90x90.png">
       <PackagePath>Assets\logo-90x90.png</PackagePath>
@@ -64,6 +65,9 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\multisite.png">
+      <PackagePath>Assets\multisite.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\play.png">
       <PackagePath>Assets\play.png</PackagePath>

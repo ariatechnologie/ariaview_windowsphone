@@ -60,22 +60,16 @@
                 <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                     <Image Source="/Assets/calendar.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
                     <ComboBox x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}" SelectionChanged="datesCB_SelectionChanged" >
-                        <!--<ComboBox.Header>
-                        <TextBlock x:Uid="date" Text="Date" HorizontalAlignment="Center"/>
-                    </ComboBox.Header>-->
                     </ComboBox>
                 </StackPanel>
-                <ComboBox x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}" SelectionChanged="sitesCB_SelectionChanged"  Margin="20,0,0,0">
-                    <ComboBox.Header>
-                        <TextBlock x:Uid="site" Text="Site" HorizontalAlignment="Center" TextAlignment="Center"/>
-                    </ComboBox.Header>
-                </ComboBox>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Assets/multisite.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <ComboBox x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}" SelectionChanged="sitesCB_SelectionChanged"  Margin="20,0,0,0">
+                    </ComboBox>
+                </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Image Source="/Assets/biohazard.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
                     <ComboBox x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding pollutantsList}" SelectionChanged="pollutantsCB_SelectionChanged"  Margin="20,0,0,0">
-                        <!--<ComboBox.Header>
-                            <TextBlock x:Uid="pollutant" Text="Pollutant" HorizontalAlignment="Center"/>
-                        </ComboBox.Header>-->
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}"/>

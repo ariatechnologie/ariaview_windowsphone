@@ -102,3 +102,8 @@ C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\qualif
 C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Debug\Style\AppStyle.xbf
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\Style\AppStyle.g.i.cs
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\Style\AppStyle.g.cs
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\Style\AppStyle.xaml
+C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Debug\Style\AppStyle.xbf

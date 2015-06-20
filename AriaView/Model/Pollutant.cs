@@ -21,6 +21,7 @@ namespace AriaView.Model
                 currentTermIndex = value;
             }
         }
+        public String LegendImage { get; set; }
         public AriaViewDateTerm CurrentTerm
         {
             get
@@ -32,11 +33,12 @@ namespace AriaView.Model
         public List<AriaViewDateTerm> DateTerms { get; set; }
 
 
-        public Pollutant(String name, List<AriaViewDateTerm> dateTerms)
+        public Pollutant(String name, List<AriaViewDateTerm> dateTerms, string legendImage)
         {
             Name = name;
             DateTerms = dateTerms;
             currentTermIndex = 0;
+            LegendImage = legendImage;
         }
     }
 }

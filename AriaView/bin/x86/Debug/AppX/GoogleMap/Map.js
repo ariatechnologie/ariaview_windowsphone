@@ -20,8 +20,8 @@ function initialize() {
         zoom: 0,
         center: { lat: centerlat, lng: centerlng },
         disableDefaultUI: true,
-        streetViewControl: false
-        //zoomControl: true,
+        streetViewControl: false,
+        zoomControl: true
         //mapTypeId: google.maps.MapTypeId.ROADMAP,
         //styles: [
         //  {

@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AriaView.App">
       <m2:VisualElements DisplayName="AriaView" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="AriaView" ForegroundText="light" BackgroundColor="#464646">
-        <m2:DefaultTile Square70x70Logo="logo-70x70.png">
+        <m2:DefaultTile Square70x70Logo="Assets\logo-70x70.png">
         </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
       </m2:VisualElements>

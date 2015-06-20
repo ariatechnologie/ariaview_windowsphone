@@ -8,7 +8,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>02d6b977-af74-469c-930a-4866e1671d8c</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>840B1E16F316EC5C814CC2460301262D8BB6ED6DF3EA07F357AB2801E5E0C184</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>57A2BE7F19A755620FEE34AF6C89D4B0616FA1DAD820F7B59239EE43ECCDE40C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>02d6b977-af74-469c-930a-4866e1671d8c_1.0.0.1_x86__s50wc3d62dg4g</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>02d6b977-af74-469c-930a-4866e1671d8c_s50wc3d62dg4g!App</RegisteredUserModeAppID>
     <RegisteredPackageID>02d6b977-af74-469c-930a-4866e1671d8c</RegisteredPackageID>
@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-19T18:15:05.648</Modified>
+      <Modified>2015-06-20T10:19:02.276</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.exe">
       <PackagePath>AriaView.exe</PackagePath>
-      <Modified>2015-06-19T18:39:05.926</Modified>
+      <Modified>2015-06-20T17:03:41.368</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\AriaView-logo.png">
       <PackagePath>Assets\AriaView-logo.png</PackagePath>
@@ -78,6 +78,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-70x70.png">
       <PackagePath>Assets\logo-70x70.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-06-10T08:11:35.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\logo-90x90.png">
@@ -88,6 +89,10 @@
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-06-10T08:11:35.377</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\multisite.png">
+      <PackagePath>Assets\multisite.png</PackagePath>
+      <Modified>2015-06-20T07:23:06.225</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\play.png">
       <PackagePath>Assets\play.png</PackagePath>
@@ -156,7 +161,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.js">
       <PackagePath>GoogleMap\Map.js</PackagePath>
-      <Modified>2015-06-19T17:03:10.577</Modified>
+      <Modified>2015-06-20T09:57:02.918</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\dates.xml">
       <PackagePath>Test\dates.xml</PackagePath>
@@ -188,7 +193,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapPage.xbf">
       <PackagePath>View\MapPage.xbf</PackagePath>
-      <Modified>2015-06-19T18:37:40.321</Modified>
+      <Modified>2015-06-20T07:31:22.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapView.xbf">
       <PackagePath>View\MapView.xbf</PackagePath>
@@ -204,7 +209,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-19T18:37:04.700</Modified>
+      <Modified>2015-06-20T10:19:02.041</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -162,7 +162,6 @@ namespace AriaView.Model
 
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-
             InitMapAsync();
             //Chargement de la map
             mapView.LoadMapAsync();
@@ -176,6 +175,7 @@ namespace AriaView.Model
         /// <returns></returns>
         void InitMapAsync()
         {
+            progressRing.IsActive = true;
             //Insertion des objet a binder dans le dictionnaire
             var user = ViewModel["user"] as User;
             ViewModel["sites"] = user.Sites;
@@ -206,6 +206,7 @@ namespace AriaView.Model
             //Insertion de l'url de la legend dans le dictionnaire
             var currentSite = sitesCB.SelectedValue as Site;
             ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
+            progressRing.IsActive = false;
         }
 
         /// <summary>
@@ -240,6 +241,7 @@ namespace AriaView.Model
 
         private async void datesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+ 
             //Si le viewModel du mapView est vide
             if (mapView.ViewModel.Count == 0 || datesCB.SelectedValue == null)
                 return;
@@ -262,7 +264,7 @@ namespace AriaView.Model
 
         private async Task ChangeDateAsync(string url)
         {
-
+            progressRing.IsActive = true;
                 var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesCB.SelectedValue + ".kml");
                 var dates = ViewModel["datesList"] as List<string>;
                 var user = ViewModel["user"] as User;
@@ -281,11 +283,13 @@ namespace AriaView.Model
                      dateTermCBContent.Add(t);
                  }
                 dateTermsCB.SelectedIndex = 0;
+                progressRing.IsActive = false;
         }
 
   
         private async Task ChangeSiteAsync(String url)
         {
+            progressRing.IsActive = true;
             var newSite = sitesCB.SelectedValue as Site;
             var siteInfoUrl = GetUrl(newSite.Name);
             var user = ViewModel["user"] as User;
@@ -342,6 +346,7 @@ namespace AriaView.Model
             ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
 
             await mapView.ChangeTerm(0);
+            progressRing.IsActive = false;
         }
 
         private async Task<List<String>> GetDates(string siteRootUrl)
@@ -415,6 +420,5 @@ namespace AriaView.Model
         {
             Application.Current.Exit();
         }
-
     }
 }

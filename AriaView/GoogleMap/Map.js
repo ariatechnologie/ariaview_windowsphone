@@ -22,15 +22,7 @@ function initialize() {
         disableDefaultUI: true,
         streetViewControl: false,
         zoomControl: true
-        //mapTypeId: google.maps.MapTypeId.ROADMAP,
-        //styles: [
-        //  {
-        //      "featureType": "poi",
-        //      "stylers": [
-        //        { "visibility": "off" }
-        //      ]
-        //  }
-        //]
+      
     };
     map = new google.maps.Map(document.getElementById('mapwindow'), options);
    
@@ -143,3 +135,13 @@ function changeLocationInfos(n, e, s, w, x, y) {
 //        map: map
 //    });
 //}
+
+//mapTypeId: google.maps.MapTypeId.ROADMAP,
+//styles: [
+//  {
+//      "featureType": "poi",
+//      "stylers": [
+//        { "visibility": "off" }
+//      ]
+//  }
+//]

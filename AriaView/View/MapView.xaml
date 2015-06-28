@@ -11,7 +11,6 @@
     d:DesignWidth="400">
     
     <Grid>
-        <WebView Name="webView"  Width="Auto" Height="Auto" ScriptNotify="mapView_ScriptNotify" Canvas.ZIndex="1"/>
-        <!--<Image x:Name="polutantImage" HorizontalAlignment="Center" Height="250" VerticalAlignment="Center" Width="250" Canvas.ZIndex="2" Source="{Binding currentTermImage}"/>-->
+        <WebView Name="webView"  Width="Auto" Height="Auto" ScriptNotify="mapView_ScriptNotify"/>
     </Grid>
 </UserControl>

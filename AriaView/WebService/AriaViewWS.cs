@@ -22,6 +22,7 @@ namespace AriaView.WebService
             {
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(Url);
+                client.DefaultRequestHeaders.ExpectContinue = false;
                 var content = new FormUrlEncodedContent(new[] 
             {
                 new KeyValuePair<string, string>("login", login),
@@ -45,6 +46,8 @@ namespace AriaView.WebService
                 
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(Url);
+                client.DefaultRequestHeaders.ExpectContinue = false;
+
                 var content = new FormUrlEncodedContent(new[] 
             {
                 new KeyValuePair<string, string>("site", site.Name),

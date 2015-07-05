@@ -6,7 +6,9 @@
     imageURL,
     centerlat,
     centerlng,
-    fogImageOverlay
+    fogImageOverlay,
+    pinMode,
+    marker;
 
 
 
@@ -15,6 +17,7 @@ callMapViewMethod("SetScriptVariables");
 
 function initialize() {
 
+    pinMode = "false"
 
     var options = {
         zoom: 0,
@@ -33,12 +36,35 @@ function initialize() {
          imageURL,
          imageBounds
          );
+
+    google.maps.event.addListener(fogImageOverlay, 'click', function (event) {
+        placeMarker(event.latLng);
+    });
+
+    google.maps.event.addListener(map, 'click', function (event) {
+        placeMarker(event.latLng);
+    });
+
     fogImageOverlay.setMap(map);
     map.setZoom(11);
 }
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+function placeMarker(location) {
+    if (pinMode == "false")
+        return;
+    if (marker != null)
+        marker.setMap(null);
+    marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+    callMapViewMethod("UnsetPinMode");
+}
 
 
 function setValues(n, e, s, w, imagePath,x,y) {
@@ -88,6 +114,9 @@ function changeOverlay(image)
          imageBounds
          );
     fogImageOverlay.setMap(map);
+    google.maps.event.addListener(fogImageOverlay, 'click', function (event) {
+        placeMarker(event.latLng);
+    });
     map.setCenter(new google.maps.LatLng(centerlat, centerlng));
 }
 
@@ -116,12 +145,18 @@ function changeLocationInfos(n, e, s, w, x, y) {
     south = parseFloat(s);
     west = parseFloat(w);
     centerlat = parseFloat(x);
-    centerlng = parseFloat(y);
+    centerlng = parseFloat(y);   
+}
 
+function setPinMode(value) {
+    pinMode = value;
+}
 
-
-
-    
+function ExtractMarkerData(){
+    if (marker == null)
+        return;
+    var position = "GetExtractionData" + "," + marker.getPosition().lat().toString() + "," + marker.getPosition().lng().toString();
+    window.external.notify(position);
 }
 
 

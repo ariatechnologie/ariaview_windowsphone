@@ -149,8 +149,9 @@ namespace AriaView.GoogleMap
                 var pollutantLegendName = node.Descendants(xmlns + "href")
                     .ElementAt(0)
                     .Value;
+                var scientificName = node.Descendants(xmlns + "name").ElementAt(0).Value;
                 var dateTerms = CreateDateTermsList(node);
-                list.Add(new Pollutant(pollutantName, dateTerms,pollutantLegendName));
+                list.Add(new Pollutant(pollutantName,scientificName, dateTerms,pollutantLegendName));
             }
             return list;
         }

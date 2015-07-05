@@ -22,6 +22,11 @@ using Windows.UI.Xaml.Media.Imaging;
 using System.ComponentModel;
 using AriaView.Common;
 using System.Reflection;
+using AriaView.WebService;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using AriaView.View;
+using Windows.UI.Popups;
 
 // Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -32,6 +37,11 @@ namespace AriaView.Model
 
         private ObservableDictionary viewModel = new ObservableDictionary();
         private MapPage parentView;
+        public Site CurrentSite { get; set; }
+        public String FirstDayDate { get; set; }
+        public String LastDayDate { get; set; }
+        public Pollutant CurrentPollutant { get; set; }
+        public AriaViewDateTerm CurrentTerm { get; set; }
         public ObservableDictionary ViewModel
         {
             get
@@ -88,12 +98,20 @@ namespace AriaView.Model
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void mapView_ScriptNotify(object sender, NotifyEventArgs e)
+        private async void mapView_ScriptNotify(object sender, NotifyEventArgs e)
         {
-            switch(e.Value)
+            var methodName = e.Value.Split(',')[0];
+            switch(methodName)
             {
                 case "SetScriptVariables":
                     SetScriptVariables();
+                    break;
+                case "GetExtractionData":
+                    var splittedValue = e.Value.Split(',');
+                    await GetExtractionData(splittedValue[1],splittedValue[2]);
+                    break;
+                case "UnsetPinMode":
+                    await parentView.UnsetPinMode();
                     break;
             }
         }
@@ -198,5 +216,82 @@ namespace AriaView.Model
             parentView.UpdateUI();
         }
 
+        public async Task SetPinModeValue(string value)
+        {
+            await webView.InvokeScriptAsync("setPinMode", new List<String> {value});
+        }
+
+
+        public async Task ExtractMarkerData()
+        {
+            await webView.InvokeScriptAsync("ExtractMarkerData", new List<String> {});
+        }
+
+        public async Task GetExtractionData(String lat, String lng)
+        {
+            parentView.GetProgressRing().IsActive = true;
+            var urlParts = parentView.ViewModel["urlParts"] as Dictionary<String, String>;
+            var webServiceUrl = urlParts["host"] + "/OpenDapServicesRESTAT/GridGetTimeSerieByPointDomainVariablePeriod";
+            //var url =  webServiceUrl +  "?longitude="
+            //+ lng.ToString() + "&latitude=" + lat.ToString() + "&domainid=_LENVIS_" + urlParts["model"] + "_" + CurrentSite.Name + "_reference_"
+            //+ urlParts["nest"] + "_dataset&variableid=" + CurrentPollutant.ScientificName + "&startdate=" + FirstDayDate + "&enddate=" + LastDayDate;
+           
+            var requestContent = new List<KeyValuePair<String,String>>();
+            requestContent.Add(new KeyValuePair<string,string>("longitude",lng.ToString()));
+            requestContent.Add(new KeyValuePair<string,string>("latitude",lat.ToString()));
+            requestContent.Add(new KeyValuePair<string,string>("domainid","_LENVIS_"+  urlParts["model"] + "_" + CurrentSite.Name + "_reference_"
+            + urlParts["nest"] + "_dataset"));
+            requestContent.Add(new KeyValuePair<string,string>("variableid",CurrentPollutant.ScientificName));
+            requestContent.Add(new KeyValuePair<string,string>("startdate",FirstDayDate));
+             requestContent.Add(new KeyValuePair<string,string>("enddate",LastDayDate));
+            var extractDatas = await AriaViewWS.GetExtractionData(webServiceUrl,requestContent);
+            if(extractDatas == "Exception null\n")
+            {
+               await  new MessageDialog("No data found for this location").ShowAsync();
+               parentView.GetProgressRing().IsActive = false;
+               return;
+            }
+            parentView.ViewModel["chartPoints"]  = ParseExtratedData(extractDatas);
+            parentView.Frame.Navigate(typeof(ChartPage),parentView.ViewModel);
+        }
+
+        List<ChartPoint> ParseExtratedData(String json)
+        {
+            var dataValuesField = JObject.Parse(json)["GetDataResult"]["dataValuesField"];
+            var values = new List<ChartPoint>();
+            parentView.ViewModel["pollutantScientificName"] = CurrentPollutant.ScientificName;
+            ViewModel["currentSite"] = CurrentSite;
+            ViewModel["day"] = String.Format("{0:MM/dd/yyyy}", ConvertFirstDayDate());
+            foreach (var value in dataValuesField)
+            {
+                var date =  System.Text.RegularExpressions.Regex.Match(value["dateTimeField"].ToString(),@"\d+").Value;
+                var millisecondes = Double.Parse(date);
+                //var minute = (millisecondes / (1000 * 60)) % 60;
+                //if(minute == 30)
+                //    minute = 0.5;
+                var hour =  (millisecondes / (1000 * 60 * 60)) % 24;
+                //var pointDate = startDate.Add(new TimeSpan(0, 0, 0, 0, (int)millisecondes));
+                //var toHourDate = Double.Parse(date) / (3600 * 1000);
+                var val = Math.Round(Double.Parse(value["valueField"].ToString()),2);
+                if(val < 0)
+                val = 0;
+                values.Add(new ChartPoint(
+                       hour
+                    , Math.Round(Math.Abs(val),4))
+                    );
+            }
+            return values;
+        }
+
+
+        private DateTime ConvertFirstDayDate()
+        {
+            var year = int.Parse(FirstDayDate.Substring(0, 4));
+            var month = int.Parse(FirstDayDate.Substring(5, 2));
+            var day = int.Parse(FirstDayDate.Substring(8, 2));
+            var hour = int.Parse(FirstDayDate.Substring(11, 2));
+            var minute = int.Parse(FirstDayDate.Substring(14, 2));
+            return new DateTime(year, month, day, hour, minute, 0);
+        }
     }
 }

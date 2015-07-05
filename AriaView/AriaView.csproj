@@ -123,12 +123,17 @@
     <Compile Include="GoogleMap\KmlDataReader.cs" />
     <Compile Include="Model\AriaViewDate.cs" />
     <Compile Include="Model\AriaViewDateTerm.cs" />
+    <Compile Include="Model\ChartPoint.cs" />
     <Compile Include="Model\Pollutant.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\AuthentificationViewModel.cs" />
     <Compile Include="ViewModel\MapPageViewModel.cs" />
     <Compile Include="ViewModel\SiteSelectionViewModel.cs" />
+    <Compile Include="View\ChartPage.xaml.cs">
+      <DependentUpon>ChartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ChartViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +162,7 @@
     <PRIResource Include="Strings\pt-pt\Resources.resw" />
     <PRIResource Include="Strings\zh-cn\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
+    <None Include="packages.config" />
     <None Include="Test\20130223.kml">
       <SubType>Designer</SubType>
     </None>
@@ -170,6 +176,7 @@
     <Content Include="Assets\China.png" />
     <Content Include="Assets\cloud.jpg" />
     <Content Include="Assets\English.png" />
+    <Content Include="Assets\extract.png" />
     <Content Include="Assets\France.png" />
     <Content Include="Assets\logo-24x24.png" />
     <Content Include="Assets\logo-30x30.png" />
@@ -179,6 +186,7 @@
     <Content Include="Assets\logo-90x90.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\multisite.png" />
+    <Content Include="Assets\pin.png" />
     <Content Include="Assets\play.png" />
     <Content Include="Assets\Portugal.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
@@ -214,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="View\ChartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -237,6 +249,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit.Controls.DataVisualization">
+      <HintPath>..\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

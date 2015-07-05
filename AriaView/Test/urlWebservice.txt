@@ -1,5 +1,7 @@
 ﻿http://web.aria.fr/awa/destination/ARIAVIEW/JUAREZ/GEARTH/RESULT_LcS/
 
+http://web.aria.fr/OpenDapServicesRESTAT/GridGetTimeSerieByPointDomainVariablePeriod?longitude=-106,40675&latitude=31,7142&domainid=_LENVIS_CHIMERE_JUAREZDEV_reference_p02_dataset&variableid=M001S001&startdate=2013-2-25%201:30:00&enddate=2013-2-26%200:0:00
+
 Google map API key:
 AIzaSyAlq4cukgjdbc0DllxH6DrKgj066HdhM-A
 

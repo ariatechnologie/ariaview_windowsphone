@@ -67,41 +67,41 @@ namespace AriaView.ViewModel
             vault.Remove(credential);
         }
 
-        public async Task GetSiteInfoAsync(Site site)
-        {
-            var ws = new WebService.AriaViewWS();
-            var url = BuildUrl(await ws.GetSitesInfosAsync(site, (User)this["user"]));
-            var datesXml = await ws.GetDatesAsync(url + (string)this["datefile"]);
-            this["datesXml"] = datesXml;
-            var datesList = new List<String>();
-            foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
-                datesList.Add(date.Value);
-            var mostRecentDate = datesList.Last();
-            this["datesList"] = datesList;
-            var kmlString = await ws.GetKmlAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
-            this["kmlString"] = kmlString;
-            this["siteInfoUrl"] = url + "/" + mostRecentDate;
-        }
+        //public async Task GetSiteInfoAsync(Site site)
+        //{
+        //    var ws = new WebService.AriaViewWS();
+        //    var url = BuildUrl(await ws.GetSitesInfosAsync(site, (User)this["user"]));
+        //    var datesXml = await ws.GetDatesAsync(url + (string)this["datefile"]);
+        //    this["datesXml"] = datesXml;
+        //    var datesList = new List<String>();
+        //    foreach (var date in XDocument.Parse(datesXml).Descendants("Folder").Descendants("name"))
+        //        datesList.Add(date.Value);
+        //    var mostRecentDate = datesList.Last();
+        //    this["datesList"] = datesList;
+        //    var kmlString = await ws.GetKmlAsync(url + "/" + mostRecentDate + "/" + mostRecentDate + ".kml");
+        //    this["kmlString"] = kmlString;
+        //    this["siteInfoUrl"] = url + "/" + mostRecentDate;
+        //}
 
-        private String BuildUrl(string xml)
-        {
-            var doc = XDocument.Parse(xml);
-            this["datefile"] = doc.Descendants("datefile").ElementAt(0).Value;
-            var host = doc.Descendants("host").ElementAt(0).Value;
-            var url = doc.Descendants("url").ElementAt(0).Value;
-            var model = doc.Descendants("model").ElementAt(0).Value;
-            var site = doc.Descendants("site").ElementAt(0).Value;
-            var nest = doc.Descendants("nest").ElementAt(0).Value;
-            var strBuilder = new StringBuilder(host);
-            var urlParts = new Dictionary<string, string>();
-            urlParts.Add("host", host);
-            urlParts.Add("url", url);
-            urlParts.Add("site", site);
-            urlParts.Add("model", model);
-            urlParts.Add("nest", nest);
-            this["urlParts"] = urlParts;
-            return String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", host, url, site, model, nest);
-        }
+        //private String BuildUrl(string xml)
+        //{
+        //    var doc = XDocument.Parse(xml);
+        //    this["datefile"] = doc.Descendants("datefile").ElementAt(0).Value;
+        //    var host = doc.Descendants("host").ElementAt(0).Value;
+        //    var url = doc.Descendants("url").ElementAt(0).Value;
+        //    var model = doc.Descendants("type").ElementAt(0).Value;
+        //    var site = doc.Descendants("site").ElementAt(0).Value;
+        //    var nest = doc.Descendants("scale").ElementAt(0).Value;
+        //    var strBuilder = new StringBuilder(host);
+        //    var urlParts = new Dictionary<string, string>();
+        //    urlParts.Add("host", host);
+        //    urlParts.Add("url", url);
+        //    urlParts.Add("site", site);
+        //    urlParts.Add("model", model);
+        //    urlParts.Add("nest", nest);
+        //    this["urlParts"] = urlParts;
+        //    return String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", host, url, site, model, nest);
+        //}
 
         public void ParseResponse(string xml)
         {

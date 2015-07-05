@@ -20,6 +20,7 @@ using Windows.Storage;
 using System.Security;
 using Windows.Security.Credentials;
 using AriaView.ViewModel;
+using Windows.UI.Popups;
 
 
 namespace AriaView.Model
@@ -51,6 +52,14 @@ namespace AriaView.Model
 
        async private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
+                
+
             var result = await viewModel.AuthentificationAsync();
             ViewModel["lastSiteName"] = ApplicationData.Current.LocalSettings.Values["lastSite"];
             

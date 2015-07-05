@@ -20,13 +20,25 @@
     <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-28T14:57:38.059</Modified>
+      <Modified>2015-07-05T15:27:37.382</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.exe">
       <PackagePath>AriaView.exe</PackagePath>
-      <Modified>2015-06-28T14:57:37.458</Modified>
+      <Modified>2015-07-05T21:46:58.466</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2015-07-01T15:26:31.117</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization.dll">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization.dll</PackagePath>
+      <Modified>2015-07-02T20:25:38.046</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit.dll">
+      <PackagePath>WinRTXamlToolkit.dll</PackagePath>
+      <Modified>2015-07-02T20:25:37.497</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\AriaView-logo.png">
       <PackagePath>Assets\AriaView-logo.png</PackagePath>
@@ -55,6 +67,10 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\English.png">
       <PackagePath>Assets\English.png</PackagePath>
       <Modified>2015-06-16T20:46:13.413</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\extract.png">
+      <PackagePath>Assets\extract.png</PackagePath>
+      <Modified>2015-06-28T21:26:51.700</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\France.png">
       <PackagePath>Assets\France.png</PackagePath>
@@ -93,6 +109,10 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\multisite.png">
       <PackagePath>Assets\multisite.png</PackagePath>
       <Modified>2015-06-20T07:23:06.225</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\pin.png">
+      <PackagePath>Assets\pin.png</PackagePath>
+      <Modified>2015-06-29T19:28:08.154</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Assets\play.png">
       <PackagePath>Assets\play.png</PackagePath>
@@ -145,7 +165,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\urlWebservice.txt">
       <PackagePath>Test\urlWebservice.txt</PackagePath>
-      <Modified>2015-06-16T19:14:22.124</Modified>
+      <Modified>2015-07-05T15:59:32.661</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\default.html">
       <PackagePath>GoogleMap\default.html</PackagePath>
@@ -161,7 +181,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\GoogleMap\Map.js">
       <PackagePath>GoogleMap\Map.js</PackagePath>
-      <Modified>2015-06-20T21:37:01.062</Modified>
+      <Modified>2015-07-05T18:58:15.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\dates.xml">
       <PackagePath>Test\dates.xml</PackagePath>
@@ -177,39 +197,243 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.498</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\Style\AppStyle.xbf">
       <PackagePath>Style\AppStyle.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.499</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\ChartPage.xbf">
+      <PackagePath>View\ChartPage.xbf</PackagePath>
+      <Modified>2015-07-05T21:46:56.990</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.500</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\AuthentificationForm.xbf">
       <PackagePath>View\AuthentificationForm.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.501</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapPage.xbf">
       <PackagePath>View\MapPage.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.501</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\MapView.xbf">
       <PackagePath>View\MapView.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\View\SiteSelectionPage.xbf">
       <PackagePath>View\SiteSelectionPage.xbf</PackagePath>
-      <Modified>2015-06-28T14:57:37.114</Modified>
+      <Modified>2015-07-05T15:27:32.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\AriaView.xr.xml">
       <PackagePath>AriaView.xr.xml</PackagePath>
-      <Modified>2015-06-28T14:57:37.020</Modified>
+      <Modified>2015-07-05T21:34:28.186</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\WinRTXamlToolkit.xr.xml">
+      <PackagePath>WinRTXamlToolkit\WinRTXamlToolkit.xr.xml</PackagePath>
+      <Modified>2015-07-02T20:25:37.711</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\AlternativeFrame\AlternativeFrame.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\AlternativeFrame\AlternativeFrame.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.515</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\AnimatingContainer\AnimatingContainer.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer\AnimatingContainer.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.523</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.537</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.545</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CascadingTextBlock\CascadingTextBlock.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingTextBlock\CascadingTextBlock.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.553</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.560</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CountdownControl\CountdownControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CountdownControl\CountdownControl.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.567</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.575</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\CustomGridSplitter\CustomGridSplitter.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CustomGridSplitter\CustomGridSplitter.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.583</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.590</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\FxContentControl\FxContentControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\FxContentControl\FxContentControl.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.598</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\ImageButton\ImageButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageButton\ImageButton.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.606</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.614</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\InputDialog\InputDialog.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\InputDialog\InputDialog.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.622</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\ListItemButton\ListItemButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ListItemButton\ListItemButton.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.636</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.644</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\ToolWindow\ToolWindow.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ToolWindow\ToolWindow.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.652</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\TreeView\TreeView.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeView.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.659</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.665</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.684</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.691</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.698</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\Themes\Generic.xbf">
+      <PackagePath>WinRTXamlToolkit\Themes\Generic.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:37.705</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\WinRTXamlToolkit.Controls.DataVisualization.xr.xml">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\WinRTXamlToolkit.Controls.DataVisualization.xr.xml</PackagePath>
+      <Modified>2015-07-02T20:25:38.230</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\AxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\AxisLabel.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.069</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DateTimeAxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DateTimeAxisLabel.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.074</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DisplayAxis.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DisplayAxis.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.081</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\NumericAxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\NumericAxisLabel.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.086</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\RangeAxis.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\RangeAxis.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.091</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Chart\Chart.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Chart\Chart.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.098</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\AreaDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\AreaDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.106</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BarDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BarDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.119</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BubbleDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BubbleDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.126</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ColumnDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ColumnDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.132</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\LineDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\LineDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.137</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\PieDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\PieDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.142</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ScatterDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ScatterDataPoint.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.148</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Primitives\DelegatingListBox.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Primitives\DelegatingListBox.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.155</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\AreaSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\AreaSeries.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.163</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DataPointSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DataPointSeries.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.168</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DefinitionSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DefinitionSeries.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.175</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LegendItem.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LegendItem.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.180</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LineSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LineSeries.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.185</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\PieSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\PieSeries.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.198</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Legend\Legend.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Legend\Legend.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.206</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Themes\Generic.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Themes\Generic.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.215</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf</PackagePath>
+      <Modified>2015-07-02T20:25:38.223</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-28T14:57:37.676</Modified>
+      <Modified>2015-07-05T21:34:32.165</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

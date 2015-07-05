@@ -35,6 +35,7 @@ namespace AriaView.Model
         private DispatcherTimer timer;
         private int termScrollingIndex, termScrollingLimit;
         private bool IstermScrollingEnable;
+        public bool PinMode { get; private set; }
         
 
         /// <summary>
@@ -62,9 +63,10 @@ namespace AriaView.Model
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 3);
+            timer.Interval = new TimeSpan(0, 0, 2);
             timer.Tick += TermScrolling;
             IstermScrollingEnable = false;
+            PinMode = false;
         }
 
         async void TermScrolling(object sender, object e)
@@ -85,6 +87,7 @@ namespace AriaView.Model
             nextTermBtn.IsEnabled = false;
             previousTermBtn.IsEnabled = false;
             pollutantsCB.IsEnabled = false;
+            pinBtn.IsEnabled = false;
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             termScrollingLimit = ariaViewDate.CurrentPollutant.DateTerms.Count;
             await mapView.ChangeTerm(0);
@@ -104,6 +107,7 @@ namespace AriaView.Model
             nextTermBtn.IsEnabled = true;
             previousTermBtn.IsEnabled = true;
             pollutantsCB.IsEnabled = true;
+            pinBtn.IsEnabled = true;
         }
 
 
@@ -364,7 +368,7 @@ namespace AriaView.Model
         public String GetUrl(string siteName)
         {
             var urlParts = ViewModel["urlParts"] as Dictionary<string, string>;
-            return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["model"], urlParts["nest"]);
+            return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["type"], urlParts["scale"]);
         }
 
         private async void sitesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -420,5 +424,68 @@ namespace AriaView.Model
         {
             Application.Current.Exit();
         }
+
+        private async void extractionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mapView.CurrentSite = sitesCB.SelectedItem as Site;
+            var dateTermsList = dateTermsCB.Items.ToList();
+            var firstDate = dateTermsList.First() as AriaViewDateTerm;
+            var lastDate = dateTermsList.Last() as AriaViewDateTerm;
+            mapView.FirstDayDate = firstDate.StartDate.Split('+')[0].Replace("T"," ");
+            mapView.LastDayDate = lastDate.EndDate.Split('+')[0].Replace("T"," ");
+            mapView.CurrentPollutant = pollutantsCB.SelectedItem as Pollutant;
+            mapView.CurrentTerm = dateTermsCB.SelectedItem as AriaViewDateTerm;
+           await  mapView.ExtractMarkerData();
+        }
+
+        public ProgressRing GetProgressRing()
+        {
+            return progressRing;
+        }
+
+        private async void pinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!PinMode)
+            {
+                PinMode = true;
+                //Enable addMarker on tje map
+                await mapView.SetPinModeValue("true");
+                sitesCB.IsEnabled = false;
+                dateTermsCB.IsEnabled = false;
+                datesCB.IsEnabled = false;
+                nextTermBtn.IsEnabled = false;
+                previousTermBtn.IsEnabled = false;
+                pollutantsCB.IsEnabled = false;
+                playBtn.IsEnabled = false;
+            }
+            else
+            {
+                PinMode = false;
+                //Disable addMarker on the map
+                await mapView.SetPinModeValue("false");
+                sitesCB.IsEnabled = true;
+                dateTermsCB.IsEnabled = true;
+                datesCB.IsEnabled = true;
+                nextTermBtn.IsEnabled = true;
+                previousTermBtn.IsEnabled = true;
+                pollutantsCB.IsEnabled = true;
+                playBtn.IsEnabled = true;
+            }
+        }
+
+        public async  Task UnsetPinMode()
+        {
+            PinMode = false;
+            //Disable addMarker on the map
+            await mapView.SetPinModeValue("false");
+            sitesCB.IsEnabled = true;
+            dateTermsCB.IsEnabled = true;
+            datesCB.IsEnabled = true;
+            nextTermBtn.IsEnabled = true;
+            previousTermBtn.IsEnabled = true;
+            pollutantsCB.IsEnabled = true;
+            playBtn.IsEnabled = true;
+        }
+
     }
 }

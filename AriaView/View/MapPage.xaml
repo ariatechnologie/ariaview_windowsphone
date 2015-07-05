@@ -77,6 +77,12 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
+                <Button x:Name="pinBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent" Click="pinBtn_Click">
+                    <Image x:Name="pinImg" Source="/Assets/pin.png"/>
+                </Button>
+                <Button x:Name="extractionBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent" Click="extractionBtn_Click">
+                    <Image x:Name="extractImg" Source="/Assets/extract.png"/>
+                </Button>
                 <Button x:Name="playBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent" Click="playBtn_Click">
                     <Image x:Name="btnStartStop" Source="/Assets/play.png"/>
                 </Button>

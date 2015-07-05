@@ -9,6 +9,8 @@ using Windows.Data.Xml.Dom;
 using AriaView.Model;
 using Windows.Storage;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Net;
+using Windows.Networking.Connectivity;
 
 namespace AriaView.WebService
 {
@@ -69,6 +71,26 @@ namespace AriaView.WebService
         public async Task<string> GetKmlAsync(string url)
         {
             return await new HttpClient().PostAsync(url, null).Result.Content.ReadAsStringAsync();
+        }
+
+        public static async Task<String> GetExtractionData(String request, List<KeyValuePair<String,String>> values)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.ExpectContinue = true;
+                var content = new FormUrlEncodedContent(values);
+                var response = await client.PostAsync(request, content);
+                return  await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
+            { return null; }
+        }
+
+        public static bool IsConnectedToInternet()
+        {
+            ConnectionProfile connectionProfile = NetworkInformation.GetInternetConnectionProfile();
+            return (connectionProfile != null && connectionProfile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
         }
        
     }

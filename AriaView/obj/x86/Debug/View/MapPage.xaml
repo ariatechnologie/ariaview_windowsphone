@@ -59,17 +59,17 @@
                 <Button x:ConnectionId='4' x:Name="nextTermBtn"  Content="+" Margin="20,0,0,0"                             Width="auto" Height="auto" VerticalAlignment="Bottom" />
                 <StackPanel Orientation="Vertical" Margin="40,0,0,0">
                     <Image Source="/Assets/calendar.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='8' x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}"                                             >
+                    <ComboBox x:ConnectionId='10' x:Name="datesCB"   Width="auto" ItemsSource="{Binding datesList}"                                             >
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Image Source="/Assets/multisite.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='7' x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}"                                              Margin="20,0,0,0">
+                    <ComboBox x:ConnectionId='9' x:Name="sitesCB" Width="auto" ItemsSource="{Binding user.Sites}"                                              Margin="20,0,0,0">
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Image Source="/Assets/biohazard.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <ComboBox x:ConnectionId='6' x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding pollutantsList}"                                                   Margin="20,0,0,0">
+                    <ComboBox x:ConnectionId='8' x:Name="pollutantsCB" Width="auto" ItemsSource="{Binding pollutantsList}"                                                   Margin="20,0,0,0">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}"/>
@@ -77,7 +77,13 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-                <Button x:ConnectionId='5' x:Name="playBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent"                      >
+                <Button x:ConnectionId='5' x:Name="pinBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent"                     >
+                    <Image x:Name="pinImg" Source="/Assets/pin.png"/>
+                </Button>
+                <Button x:ConnectionId='6' x:Name="extractionBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent"                            >
+                    <Image x:Name="extractImg" Source="/Assets/extract.png"/>
+                </Button>
+                <Button x:ConnectionId='7' x:Name="playBtn" Height="auto" Width="auto" Margin="20,0,0,0" Padding="0" BorderBrush="Transparent"                      >
                     <Image x:Name="btnStartStop" Source="/Assets/play.png"/>
                 </Button>
             </StackPanel>
@@ -93,7 +99,7 @@
     <Page.BottomAppBar>
         <AppBar>
             <StackPanel Orientation="Horizontal">
-                <Button x:ConnectionId='9' x:Uid="exit" Content="Quit"                     />
+                <Button x:ConnectionId='11' x:Uid="exit" Content="Quit"                     />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>

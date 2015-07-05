@@ -17,6 +17,7 @@ using AriaView.ViewModel;
 using Windows.Data.Xml.Dom;
 using AriaView.Model;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 
 // Pour en savoir plus sur le modèle d'élément Page de base, consultez la page http://go.microsoft.com/fwlink/?LinkId=234237
@@ -111,7 +112,11 @@ namespace AriaView
         {
             if (siteCB.SelectedItem == null)
                 return;
-            
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
            await viewModel.GetSiteInfoAsync(siteCB.SelectedItem as Site);
            var defaultSite = siteCB.SelectedItem as Site;
            viewModel["defaultSite"] = defaultSite;

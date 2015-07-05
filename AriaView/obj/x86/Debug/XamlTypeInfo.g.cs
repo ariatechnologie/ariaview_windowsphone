@@ -59,6 +59,18 @@ namespace AriaView.AriaView_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
+            var userXamlType = xamlType as global::AriaView.AriaView_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
+            }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -82,6 +94,18 @@ namespace AriaView.AriaView_XamlTypeInfo
             if(typeIndex != -1)
             {
                 xamlType = CreateXamlType(typeIndex);
+            }
+            var userXamlType = xamlType as global::AriaView.AriaView_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
             }
             if (xamlType != null)
             {
@@ -124,37 +148,121 @@ namespace AriaView.AriaView_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[14];
-            _typeNameTable[0] = "AriaView.Model.AuthentificationForm";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[3] = "AriaView.ViewModel.AuthentificationViewModel";
-            _typeNameTable[4] = "AriaView.Common.ObservableDictionary";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "String";
-            _typeNameTable[7] = "AriaView.MainPage";
-            _typeNameTable[8] = "AriaView.Model.MapView";
-            _typeNameTable[9] = "AriaView.Model.MapPage";
-            _typeNameTable[10] = "AriaView.ViewModel.MapPageViewModel";
-            _typeNameTable[11] = "AriaView.Common.NavigationHelper";
-            _typeNameTable[12] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[13] = "AriaView.SiteSelectionPage";
+            _typeNameTable = new string[56];
+            _typeNameTable[0] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[2] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>";
+            _typeNameTable[3] = "Object";
+            _typeNameTable[4] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries";
+            _typeNameTable[5] = "System.Collections.ObjectModel.ObservableCollection`1<Object>";
+            _typeNameTable[6] = "System.Collections.ObjectModel.Collection`1<Object>";
+            _typeNameTable[7] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[8] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis";
+            _typeNameTable[9] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation";
+            _typeNameTable[10] = "System.Enum";
+            _typeNameTable[11] = "System.ValueType";
+            _typeNameTable[12] = "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>";
+            _typeNameTable[13] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>";
+            _typeNameTable[14] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener";
+            _typeNameTable[15] = "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[16] = "System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[17] = "Windows.UI.Xaml.Style";
+            _typeNameTable[18] = "System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>";
+            _typeNameTable[19] = "Windows.UI.Xaml.ResourceDictionary";
+            _typeNameTable[20] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries";
+            _typeNameTable[21] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>";
+            _typeNameTable[22] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes";
+            _typeNameTable[23] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeriesWithAxes";
+            _typeNameTable[24] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries";
+            _typeNameTable[25] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.Series";
+            _typeNameTable[26] = "Windows.UI.Xaml.Data.Binding";
+            _typeNameTable[27] = "Windows.UI.Xaml.Media.PointCollection";
+            _typeNameTable[28] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis";
+            _typeNameTable[29] = "System.Nullable`1<Int32>";
+            _typeNameTable[30] = "String";
+            _typeNameTable[31] = "System.Collections.IEnumerable";
+            _typeNameTable[32] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence";
+            _typeNameTable[33] = "Windows.UI.Xaml.Media.Animation.EasingFunctionBase";
+            _typeNameTable[34] = "Boolean";
+            _typeNameTable[35] = "TimeSpan";
+            _typeNameTable[36] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeriesHost";
+            _typeNameTable[37] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint";
+            _typeNameTable[38] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint";
+            _typeNameTable[39] = "Double";
+            _typeNameTable[40] = "AriaView.View.ChartPage";
+            _typeNameTable[41] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[42] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[43] = "AriaView.Common.ObservableDictionary";
+            _typeNameTable[44] = "AriaView.Common.NavigationHelper";
+            _typeNameTable[45] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[46] = "AriaView.Model.AuthentificationForm";
+            _typeNameTable[47] = "AriaView.ViewModel.AuthentificationViewModel";
+            _typeNameTable[48] = "AriaView.MainPage";
+            _typeNameTable[49] = "AriaView.Model.MapView";
+            _typeNameTable[50] = "AriaView.Model.Site";
+            _typeNameTable[51] = "AriaView.Model.Pollutant";
+            _typeNameTable[52] = "AriaView.Model.AriaViewDateTerm";
+            _typeNameTable[53] = "AriaView.Model.MapPage";
+            _typeNameTable[54] = "AriaView.ViewModel.MapPageViewModel";
+            _typeNameTable[55] = "AriaView.SiteSelectionPage";
 
-            _typeTable = new global::System.Type[14];
-            _typeTable[0] = typeof(global::AriaView.Model.AuthentificationForm);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[3] = typeof(global::AriaView.ViewModel.AuthentificationViewModel);
-            _typeTable[4] = typeof(global::AriaView.Common.ObservableDictionary);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::System.String);
-            _typeTable[7] = typeof(global::AriaView.MainPage);
-            _typeTable[8] = typeof(global::AriaView.Model.MapView);
-            _typeTable[9] = typeof(global::AriaView.Model.MapPage);
-            _typeTable[10] = typeof(global::AriaView.ViewModel.MapPageViewModel);
-            _typeTable[11] = typeof(global::AriaView.Common.NavigationHelper);
-            _typeTable[12] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[13] = typeof(global::AriaView.SiteSelectionPage);
+            _typeTable = new global::System.Type[56];
+            _typeTable[0] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[2] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>);
+            _typeTable[3] = typeof(global::System.Object);
+            _typeTable[4] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries);
+            _typeTable[5] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>);
+            _typeTable[6] = typeof(global::System.Collections.ObjectModel.Collection<global::System.Object>);
+            _typeTable[7] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[8] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis);
+            _typeTable[9] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation);
+            _typeTable[10] = typeof(global::System.Enum);
+            _typeTable[11] = typeof(global::System.ValueType);
+            _typeTable[12] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>);
+            _typeTable[13] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>);
+            _typeTable[14] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener);
+            _typeTable[15] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[16] = typeof(global::System.Collections.ObjectModel.ReadOnlyCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[17] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[18] = typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.ResourceDictionary);
+            _typeTable[20] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries);
+            _typeTable[21] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>);
+            _typeTable[22] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes);
+            _typeTable[23] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeriesWithAxes);
+            _typeTable[24] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries);
+            _typeTable[25] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series);
+            _typeTable[26] = typeof(global::Windows.UI.Xaml.Data.Binding);
+            _typeTable[27] = typeof(global::Windows.UI.Xaml.Media.PointCollection);
+            _typeTable[28] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis);
+            _typeTable[29] = typeof(global::System.Nullable<global::System.Int32>);
+            _typeTable[30] = typeof(global::System.String);
+            _typeTable[31] = typeof(global::System.Collections.IEnumerable);
+            _typeTable[32] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence);
+            _typeTable[33] = typeof(global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase);
+            _typeTable[34] = typeof(global::System.Boolean);
+            _typeTable[35] = typeof(global::System.TimeSpan);
+            _typeTable[36] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeriesHost);
+            _typeTable[37] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint);
+            _typeTable[38] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint);
+            _typeTable[39] = typeof(global::System.Double);
+            _typeTable[40] = typeof(global::AriaView.View.ChartPage);
+            _typeTable[41] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[42] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[43] = typeof(global::AriaView.Common.ObservableDictionary);
+            _typeTable[44] = typeof(global::AriaView.Common.NavigationHelper);
+            _typeTable[45] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[46] = typeof(global::AriaView.Model.AuthentificationForm);
+            _typeTable[47] = typeof(global::AriaView.ViewModel.AuthentificationViewModel);
+            _typeTable[48] = typeof(global::AriaView.MainPage);
+            _typeTable[49] = typeof(global::AriaView.Model.MapView);
+            _typeTable[50] = typeof(global::AriaView.Model.Site);
+            _typeTable[51] = typeof(global::AriaView.Model.Pollutant);
+            _typeTable[52] = typeof(global::AriaView.Model.AriaViewDateTerm);
+            _typeTable[53] = typeof(global::AriaView.Model.MapPage);
+            _typeTable[54] = typeof(global::AriaView.ViewModel.MapPageViewModel);
+            _typeTable[55] = typeof(global::AriaView.SiteSelectionPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -189,29 +297,96 @@ namespace AriaView.AriaView_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_AuthentificationForm() { return new global::AriaView.Model.AuthentificationForm(); }
-        private object Activate_3_AuthentificationViewModel() { return new global::AriaView.ViewModel.AuthentificationViewModel(); }
-        private object Activate_4_ObservableDictionary() { return new global::AriaView.Common.ObservableDictionary(); }
-        private object Activate_7_MainPage() { return new global::AriaView.MainPage(); }
-        private object Activate_8_MapView() { return new global::AriaView.Model.MapView(); }
-        private object Activate_9_MapPage() { return new global::AriaView.Model.MapPage(); }
-        private object Activate_10_MapPageViewModel() { return new global::AriaView.ViewModel.MapPageViewModel(); }
-        private object Activate_13_SiteSelectionPage() { return new global::AriaView.SiteSelectionPage(); }
-        private void MapAdd_3_AuthentificationViewModel(object instance, object key, object item)
+        private object Activate_0_Chart() { return new global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart(); }
+        private object Activate_2_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>(); }
+        private object Activate_5_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>(); }
+        private object Activate_6_Collection() { return new global::System.Collections.ObjectModel.Collection<global::System.Object>(); }
+        private object Activate_7_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>(); }
+        private object Activate_12_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>(); }
+        private object Activate_13_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>(); }
+        private object Activate_15_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>(); }
+        private object Activate_18_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>(); }
+        private object Activate_20_LineSeries() { return new global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries(); }
+        private object Activate_37_LineDataPoint() { return new global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint(); }
+        private object Activate_40_ChartPage() { return new global::AriaView.View.ChartPage(); }
+        private object Activate_43_ObservableDictionary() { return new global::AriaView.Common.ObservableDictionary(); }
+        private object Activate_46_AuthentificationForm() { return new global::AriaView.Model.AuthentificationForm(); }
+        private object Activate_47_AuthentificationViewModel() { return new global::AriaView.ViewModel.AuthentificationViewModel(); }
+        private object Activate_48_MainPage() { return new global::AriaView.MainPage(); }
+        private object Activate_49_MapView() { return new global::AriaView.Model.MapView(); }
+        private object Activate_50_Site() { return new global::AriaView.Model.Site(); }
+        private object Activate_53_MapPage() { return new global::AriaView.Model.MapPage(); }
+        private object Activate_54_MapPageViewModel() { return new global::AriaView.ViewModel.MapPageViewModel(); }
+        private object Activate_55_SiteSelectionPage() { return new global::AriaView.SiteSelectionPage(); }
+        private void VectorAdd_2_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_5_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_6_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_7_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_12_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_13_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_15_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_16_ReadOnlyCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_18_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.ResourceDictionary>)instance;
+            var newItem = (global::Windows.UI.Xaml.ResourceDictionary)item;
+            collection.Add(newItem);
+        }
+        private void MapAdd_43_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void MapAdd_4_ObservableDictionary(object instance, object key, object item)
+        private void MapAdd_47_AuthentificationViewModel(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void MapAdd_10_MapPageViewModel(object instance, object key, object item)
+        private void MapAdd_54_MapPageViewModel(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -229,93 +404,390 @@ namespace AriaView.AriaView_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  AriaView.Model.AuthentificationForm
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_AuthentificationForm;
-                userType.AddMemberName("Caller");
-                userType.AddMemberName("ViewModel");
-                userType.SetIsLocalType();
+            case 0:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_0_Chart;
+                userType.SetContentPropertyName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Series");
+                userType.AddMemberName("Series");
+                userType.AddMemberName("Axes");
+                userType.AddMemberName("ActualAxes");
+                userType.AddMemberName("ChartAreaStyle");
+                userType.AddMemberName("LegendItems");
+                userType.AddMemberName("LegendStyle");
+                userType.AddMemberName("LegendTitle");
+                userType.AddMemberName("PlotAreaStyle");
+                userType.AddMemberName("Palette");
+                userType.AddMemberName("Title");
+                userType.AddMemberName("TitleStyle");
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.UserControl
+            case 1:   //  Windows.UI.Xaml.Controls.Control
                 xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 3:   //  AriaView.ViewModel.AuthentificationViewModel
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AriaView.Common.ObservableDictionary"));
-                userType.DictionaryAdd = MapAdd_3_AuthentificationViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  AriaView.Common.ObservableDictionary
+            case 2:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_4_ObservableDictionary;
-                userType.DictionaryAdd = MapAdd_4_ObservableDictionary;
-                userType.SetIsLocalType();
+                userType.CollectionAdd = VectorAdd_2_Collection;
+                userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Object
+            case 3:   //  Object
                 xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  String
+            case 4:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.AddMemberName("LegendItems");
+                xamlType = userType;
+                break;
+
+            case 5:   //  System.Collections.ObjectModel.ObservableCollection`1<Object>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Object>"));
+                userType.CollectionAdd = VectorAdd_5_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 6:   //  System.Collections.ObjectModel.Collection`1<Object>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_6_Collection;
+                userType.CollectionAdd = VectorAdd_6_Collection;
+                xamlType = userType;
+                break;
+
+            case 7:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_7_Collection;
+                userType.CollectionAdd = VectorAdd_7_Collection;
+                xamlType = userType;
+                break;
+
+            case 8:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.AddMemberName("Orientation");
+                userType.AddMemberName("RegisteredListeners");
+                userType.AddMemberName("DependentAxes");
+                xamlType = userType;
+                break;
+
+            case 9:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("None", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.None);
+                userType.AddEnumValue("X", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.X);
+                userType.AddEnumValue("Y", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.Y);
+                xamlType = userType;
+                break;
+
+            case 10:   //  System.Enum
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 11:   //  System.ValueType
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 12:   //  System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>"));
+                userType.CollectionAdd = VectorAdd_12_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 13:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_13_Collection;
+                userType.CollectionAdd = VectorAdd_13_Collection;
+                xamlType = userType;
+                break;
+
+            case 14:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                xamlType = userType;
+                break;
+
+            case 15:   //  System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>"));
+                userType.CollectionAdd = VectorAdd_15_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 16:   //  System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_16_ReadOnlyCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 17:   //  Windows.UI.Xaml.Style
                 xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  AriaView.MainPage
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_MainPage;
-                userType.SetIsLocalType();
+            case 18:   //  System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_18_Collection;
+                userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 8:   //  AriaView.Model.MapView
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_8_MapView;
-                userType.AddMemberName("ViewModel");
-                userType.SetIsLocalType();
+            case 19:   //  Windows.UI.Xaml.ResourceDictionary
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>"));
+                userType.Activator = Activate_20_LineSeries;
+                userType.AddMemberName("Points");
+                userType.AddMemberName("PolylineStyle");
                 xamlType = userType;
                 break;
 
-            case 9:   //  AriaView.Model.MapPage
+            case 21:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes"));
+                userType.AddMemberName("DependentRangeAxis");
+                userType.AddMemberName("IndependentAxis");
+                userType.AddMemberName("ActualIndependentAxis");
+                userType.AddMemberName("ActualDependentRangeAxis");
+                xamlType = userType;
+                break;
+
+            case 22:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeriesWithAxes"));
+                userType.AddMemberName("GlobalSeriesIndex");
+                xamlType = userType;
+                break;
+
+            case 23:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeriesWithAxes
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries"));
+                xamlType = userType;
+                break;
+
+            case 24:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Series"));
+                userType.AddMemberName("DependentValueBinding");
+                userType.AddMemberName("IndependentValueBinding");
+                userType.AddMemberName("DataPointStyle");
+                userType.AddMemberName("DependentValuePath");
+                userType.AddMemberName("IndependentValuePath");
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("AnimationSequence");
+                userType.AddMemberName("TransitionEasingFunction");
+                userType.AddMemberName("IsSelectionEnabled");
+                userType.AddMemberName("SelectedItem");
+                userType.AddMemberName("LegendItemStyle");
+                userType.AddMemberName("TransitionDuration");
+                xamlType = userType;
+                break;
+
+            case 25:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.Series
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.AddMemberName("SeriesHost");
+                userType.AddMemberName("LegendItems");
+                userType.AddMemberName("Title");
+                xamlType = userType;
+                break;
+
+            case 26:   //  Windows.UI.Xaml.Data.Binding
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 27:   //  Windows.UI.Xaml.Media.PointCollection
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 28:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 29:   //  System.Nullable`1<Int32>
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 30:   //  String
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 31:   //  System.Collections.IEnumerable
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 32:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Simultaneous", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence.Simultaneous);
+                userType.AddEnumValue("FirstToLast", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence.FirstToLast);
+                userType.AddEnumValue("LastToFirst", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence.LastToFirst);
+                xamlType = userType;
+                break;
+
+            case 33:   //  Windows.UI.Xaml.Media.Animation.EasingFunctionBase
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 34:   //  Boolean
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 35:   //  TimeSpan
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 36:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeriesHost
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 37:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint"));
+                userType.Activator = Activate_37_LineDataPoint;
+                xamlType = userType;
+                break;
+
+            case 38:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.AddMemberName("IsSelectionEnabled");
+                userType.AddMemberName("ActualDependentValue");
+                userType.AddMemberName("DependentValue");
+                userType.AddMemberName("DependentValueStringFormat");
+                userType.AddMemberName("FormattedDependentValue");
+                userType.AddMemberName("FormattedIndependentValue");
+                userType.AddMemberName("IndependentValue");
+                userType.AddMemberName("IndependentValueStringFormat");
+                userType.AddMemberName("ActualIndependentValue");
+                xamlType = userType;
+                break;
+
+            case 39:   //  Double
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 40:   //  AriaView.View.ChartPage
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_MapPage;
+                userType.Activator = Activate_40_ChartPage;
                 userType.AddMemberName("ViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  AriaView.ViewModel.MapPageViewModel
-                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AriaView.Common.ObservableDictionary"));
-                userType.DictionaryAdd = MapAdd_10_MapPageViewModel;
-                userType.SetIsReturnTypeStub();
+            case 41:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 42:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 43:   //  AriaView.Common.ObservableDictionary
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_43_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_43_ObservableDictionary;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  AriaView.Common.NavigationHelper
+            case 44:   //  AriaView.Common.NavigationHelper
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Windows.UI.Xaml.DependencyObject
+            case 45:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::AriaView.AriaView_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  AriaView.SiteSelectionPage
+            case 46:   //  AriaView.Model.AuthentificationForm
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_46_AuthentificationForm;
+                userType.AddMemberName("Caller");
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 47:   //  AriaView.ViewModel.AuthentificationViewModel
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AriaView.Common.ObservableDictionary"));
+                userType.DictionaryAdd = MapAdd_47_AuthentificationViewModel;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 48:   //  AriaView.MainPage
                 userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_SiteSelectionPage;
+                userType.Activator = Activate_48_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 49:   //  AriaView.Model.MapView
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_49_MapView;
+                userType.AddMemberName("CurrentSite");
+                userType.AddMemberName("FirstDayDate");
+                userType.AddMemberName("LastDayDate");
+                userType.AddMemberName("CurrentPollutant");
+                userType.AddMemberName("CurrentTerm");
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 50:   //  AriaView.Model.Site
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 51:   //  AriaView.Model.Pollutant
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 52:   //  AriaView.Model.AriaViewDateTerm
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 53:   //  AriaView.Model.MapPage
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_53_MapPage;
+                userType.AddMemberName("PinMode");
+                userType.AddMemberName("ViewModel");
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 54:   //  AriaView.ViewModel.MapPageViewModel
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AriaView.Common.ObservableDictionary"));
+                userType.DictionaryAdd = MapAdd_54_MapPageViewModel;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 55:   //  AriaView.SiteSelectionPage
+                userType = new global::AriaView.AriaView_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_55_SiteSelectionPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -324,43 +796,563 @@ namespace AriaView.AriaView_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    _otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::WinRTXamlToolkit.Controls.DataVisualization.WinRTXamlToolkit_Controls_DataVisualization_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                    provider = new global::WinRTXamlToolkit.WinRTXamlToolkit_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                }
+                return _otherProviders;
+            }
+        }
 
-        private object get_0_AuthentificationForm_Caller(object instance)
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_Chart_Series(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Series;
+        }
+        private void set_0_Chart_Series(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Series = (global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>)Value;
+        }
+        private object get_1_ISeries_LegendItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries)instance;
+            return that.LegendItems;
+        }
+        private object get_2_Chart_Axes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Axes;
+        }
+        private void set_2_Chart_Axes(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Axes = (global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)Value;
+        }
+        private object get_3_IAxis_Orientation(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.Orientation;
+        }
+        private void set_3_IAxis_Orientation(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            that.Orientation = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation)Value;
+        }
+        private object get_4_IAxis_RegisteredListeners(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.RegisteredListeners;
+        }
+        private object get_5_IAxis_DependentAxes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.DependentAxes;
+        }
+        private object get_6_Chart_ActualAxes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.ActualAxes;
+        }
+        private object get_7_Chart_ChartAreaStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.ChartAreaStyle;
+        }
+        private void set_7_Chart_ChartAreaStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.ChartAreaStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_8_Chart_LegendItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendItems;
+        }
+        private object get_9_Chart_LegendStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendStyle;
+        }
+        private void set_9_Chart_LegendStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.LegendStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_10_Chart_LegendTitle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendTitle;
+        }
+        private void set_10_Chart_LegendTitle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.LegendTitle = (global::System.Object)Value;
+        }
+        private object get_11_Chart_PlotAreaStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.PlotAreaStyle;
+        }
+        private void set_11_Chart_PlotAreaStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.PlotAreaStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_12_Chart_Palette(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Palette;
+        }
+        private void set_12_Chart_Palette(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Palette = (global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>)Value;
+        }
+        private object get_13_Chart_Title(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Title;
+        }
+        private void set_13_Chart_Title(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Title = (global::System.Object)Value;
+        }
+        private object get_14_Chart_TitleStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.TitleStyle;
+        }
+        private void set_14_Chart_TitleStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.TitleStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_15_DataPointSeries_DependentValueBinding(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.DependentValueBinding;
+        }
+        private void set_15_DataPointSeries_DependentValueBinding(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.DependentValueBinding = (global::Windows.UI.Xaml.Data.Binding)Value;
+        }
+        private object get_16_DataPointSeries_IndependentValueBinding(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.IndependentValueBinding;
+        }
+        private void set_16_DataPointSeries_IndependentValueBinding(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.IndependentValueBinding = (global::Windows.UI.Xaml.Data.Binding)Value;
+        }
+        private object get_17_DataPointSeries_DataPointStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.DataPointStyle;
+        }
+        private void set_17_DataPointSeries_DataPointStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.DataPointStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_18_LineSeries_Points(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries)instance;
+            return that.Points;
+        }
+        private object get_19_LineSeries_PolylineStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries)instance;
+            return that.PolylineStyle;
+        }
+        private void set_19_LineSeries_PolylineStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries)instance;
+            that.PolylineStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_20_LineAreaBaseSeries_DependentRangeAxis(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            return that.DependentRangeAxis;
+        }
+        private void set_20_LineAreaBaseSeries_DependentRangeAxis(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            that.DependentRangeAxis = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis)Value;
+        }
+        private object get_21_LineAreaBaseSeries_IndependentAxis(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            return that.IndependentAxis;
+        }
+        private void set_21_LineAreaBaseSeries_IndependentAxis(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            that.IndependentAxis = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)Value;
+        }
+        private object get_22_LineAreaBaseSeries_ActualIndependentAxis(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            return that.ActualIndependentAxis;
+        }
+        private object get_23_LineAreaBaseSeries_ActualDependentRangeAxis(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>)instance;
+            return that.ActualDependentRangeAxis;
+        }
+        private object get_24_DataPointSingleSeriesWithAxes_GlobalSeriesIndex(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes)instance;
+            return that.GlobalSeriesIndex;
+        }
+        private object get_25_DataPointSeries_DependentValuePath(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.DependentValuePath;
+        }
+        private void set_25_DataPointSeries_DependentValuePath(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.DependentValuePath = (global::System.String)Value;
+        }
+        private object get_26_DataPointSeries_IndependentValuePath(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.IndependentValuePath;
+        }
+        private void set_26_DataPointSeries_IndependentValuePath(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.IndependentValuePath = (global::System.String)Value;
+        }
+        private object get_27_DataPointSeries_ItemsSource(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.ItemsSource;
+        }
+        private void set_27_DataPointSeries_ItemsSource(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.ItemsSource = (global::System.Collections.IEnumerable)Value;
+        }
+        private object get_28_DataPointSeries_AnimationSequence(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.AnimationSequence;
+        }
+        private void set_28_DataPointSeries_AnimationSequence(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.AnimationSequence = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence)Value;
+        }
+        private object get_29_DataPointSeries_TransitionEasingFunction(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.TransitionEasingFunction;
+        }
+        private void set_29_DataPointSeries_TransitionEasingFunction(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.TransitionEasingFunction = (global::Windows.UI.Xaml.Media.Animation.EasingFunctionBase)Value;
+        }
+        private object get_30_DataPointSeries_IsSelectionEnabled(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.IsSelectionEnabled;
+        }
+        private void set_30_DataPointSeries_IsSelectionEnabled(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.IsSelectionEnabled = (global::System.Boolean)Value;
+        }
+        private object get_31_DataPointSeries_SelectedItem(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.SelectedItem;
+        }
+        private void set_31_DataPointSeries_SelectedItem(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.SelectedItem = (global::System.Object)Value;
+        }
+        private object get_32_DataPointSeries_LegendItemStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.LegendItemStyle;
+        }
+        private void set_32_DataPointSeries_LegendItemStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.LegendItemStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_33_DataPointSeries_TransitionDuration(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            return that.TransitionDuration;
+        }
+        private void set_33_DataPointSeries_TransitionDuration(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries)instance;
+            that.TransitionDuration = (global::System.TimeSpan)Value;
+        }
+        private object get_34_Series_SeriesHost(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series)instance;
+            return that.SeriesHost;
+        }
+        private void set_34_Series_SeriesHost(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series)instance;
+            that.SeriesHost = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeriesHost)Value;
+        }
+        private object get_35_Series_LegendItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series)instance;
+            return that.LegendItems;
+        }
+        private object get_36_Series_Title(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series)instance;
+            return that.Title;
+        }
+        private void set_36_Series_Title(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Series)instance;
+            that.Title = (global::System.Object)Value;
+        }
+        private object get_37_DataPoint_IsSelectionEnabled(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.IsSelectionEnabled;
+        }
+        private void set_37_DataPoint_IsSelectionEnabled(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.IsSelectionEnabled = (global::System.Boolean)Value;
+        }
+        private object get_38_DataPoint_ActualDependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.ActualDependentValue;
+        }
+        private void set_38_DataPoint_ActualDependentValue(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.ActualDependentValue = (global::System.Double)Value;
+        }
+        private object get_39_DataPoint_DependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.DependentValue;
+        }
+        private void set_39_DataPoint_DependentValue(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.DependentValue = (global::System.Double)Value;
+        }
+        private object get_40_DataPoint_DependentValueStringFormat(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.DependentValueStringFormat;
+        }
+        private void set_40_DataPoint_DependentValueStringFormat(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.DependentValueStringFormat = (global::System.String)Value;
+        }
+        private object get_41_DataPoint_FormattedDependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.FormattedDependentValue;
+        }
+        private object get_42_DataPoint_FormattedIndependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.FormattedIndependentValue;
+        }
+        private object get_43_DataPoint_IndependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.IndependentValue;
+        }
+        private void set_43_DataPoint_IndependentValue(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.IndependentValue = (global::System.Object)Value;
+        }
+        private object get_44_DataPoint_IndependentValueStringFormat(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.IndependentValueStringFormat;
+        }
+        private void set_44_DataPoint_IndependentValueStringFormat(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.IndependentValueStringFormat = (global::System.String)Value;
+        }
+        private object get_45_DataPoint_ActualIndependentValue(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            return that.ActualIndependentValue;
+        }
+        private void set_45_DataPoint_ActualIndependentValue(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint)instance;
+            that.ActualIndependentValue = (global::System.Object)Value;
+        }
+        private object get_46_ChartPage_ViewModel(object instance)
+        {
+            var that = (global::AriaView.View.ChartPage)instance;
+            return that.ViewModel;
+        }
+        private object get_47_ChartPage_NavigationHelper(object instance)
+        {
+            var that = (global::AriaView.View.ChartPage)instance;
+            return that.NavigationHelper;
+        }
+        private object get_48_AuthentificationForm_Caller(object instance)
         {
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             return that.Caller;
         }
-        private void set_0_AuthentificationForm_Caller(object instance, object Value)
+        private void set_48_AuthentificationForm_Caller(object instance, object Value)
         {
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             that.Caller = (global::Windows.UI.Xaml.Controls.Page)Value;
         }
-        private object get_1_AuthentificationForm_ViewModel(object instance)
+        private object get_49_AuthentificationForm_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             return that.ViewModel;
         }
-        private void set_1_AuthentificationForm_ViewModel(object instance, object Value)
+        private void set_49_AuthentificationForm_ViewModel(object instance, object Value)
         {
             var that = (global::AriaView.Model.AuthentificationForm)instance;
             that.ViewModel = (global::AriaView.ViewModel.AuthentificationViewModel)Value;
         }
-        private object get_2_MapView_ViewModel(object instance)
+        private object get_50_MapView_CurrentSite(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.CurrentSite;
+        }
+        private void set_50_MapView_CurrentSite(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.CurrentSite = (global::AriaView.Model.Site)Value;
+        }
+        private object get_51_MapView_FirstDayDate(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.FirstDayDate;
+        }
+        private void set_51_MapView_FirstDayDate(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.FirstDayDate = (global::System.String)Value;
+        }
+        private object get_52_MapView_LastDayDate(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.LastDayDate;
+        }
+        private void set_52_MapView_LastDayDate(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.LastDayDate = (global::System.String)Value;
+        }
+        private object get_53_MapView_CurrentPollutant(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.CurrentPollutant;
+        }
+        private void set_53_MapView_CurrentPollutant(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.CurrentPollutant = (global::AriaView.Model.Pollutant)Value;
+        }
+        private object get_54_MapView_CurrentTerm(object instance)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            return that.CurrentTerm;
+        }
+        private void set_54_MapView_CurrentTerm(object instance, object Value)
+        {
+            var that = (global::AriaView.Model.MapView)instance;
+            that.CurrentTerm = (global::AriaView.Model.AriaViewDateTerm)Value;
+        }
+        private object get_55_MapView_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.MapView)instance;
             return that.ViewModel;
         }
-        private object get_3_MapPage_ViewModel(object instance)
+        private object get_56_MapPage_PinMode(object instance)
+        {
+            var that = (global::AriaView.Model.MapPage)instance;
+            return that.PinMode;
+        }
+        private object get_57_MapPage_ViewModel(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.ViewModel;
         }
-        private object get_4_MapPage_NavigationHelper(object instance)
+        private object get_58_MapPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.Model.MapPage)instance;
             return that.NavigationHelper;
         }
-        private object get_5_SiteSelectionPage_NavigationHelper(object instance)
+        private object get_59_SiteSelectionPage_NavigationHelper(object instance)
         {
             var that = (global::AriaView.SiteSelectionPage)instance;
             return that.NavigationHelper;
@@ -373,40 +1365,394 @@ namespace AriaView.AriaView_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Series":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Series", "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>");
+                xamlMember.Getter = get_0_Chart_Series;
+                xamlMember.Setter = set_0_Chart_Series;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries.LegendItems":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendItems", "System.Collections.ObjectModel.ObservableCollection`1<Object>");
+                xamlMember.Getter = get_1_ISeries_LegendItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Axes":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Axes", "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_2_Chart_Axes;
+                xamlMember.Setter = set_2_Chart_Axes;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.Orientation":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Orientation", "WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation");
+                xamlMember.Getter = get_3_IAxis_Orientation;
+                xamlMember.Setter = set_3_IAxis_Orientation;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.RegisteredListeners":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "RegisteredListeners", "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>");
+                xamlMember.Getter = get_4_IAxis_RegisteredListeners;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.DependentAxes":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentAxes", "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_5_IAxis_DependentAxes;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.ActualAxes":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ActualAxes", "System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_6_Chart_ActualAxes;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.ChartAreaStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ChartAreaStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_Chart_ChartAreaStyle;
+                xamlMember.Setter = set_7_Chart_ChartAreaStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendItems":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendItems", "System.Collections.ObjectModel.Collection`1<Object>");
+                xamlMember.Getter = get_8_Chart_LegendItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_Chart_LegendStyle;
+                xamlMember.Setter = set_9_Chart_LegendStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendTitle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendTitle", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_Chart_LegendTitle;
+                xamlMember.Setter = set_10_Chart_LegendTitle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.PlotAreaStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "PlotAreaStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_Chart_PlotAreaStyle;
+                xamlMember.Setter = set_11_Chart_PlotAreaStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Palette":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Palette", "System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_Chart_Palette;
+                xamlMember.Setter = set_12_Chart_Palette;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Title":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Title", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_13_Chart_Title;
+                xamlMember.Setter = set_13_Chart_Title;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.TitleStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "TitleStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_Chart_TitleStyle;
+                xamlMember.Setter = set_14_Chart_TitleStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.DependentValueBinding":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentValueBinding", "Windows.UI.Xaml.Data.Binding");
+                xamlMember.Getter = get_15_DataPointSeries_DependentValueBinding;
+                xamlMember.Setter = set_15_DataPointSeries_DependentValueBinding;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.IndependentValueBinding":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IndependentValueBinding", "Windows.UI.Xaml.Data.Binding");
+                xamlMember.Getter = get_16_DataPointSeries_IndependentValueBinding;
+                xamlMember.Setter = set_16_DataPointSeries_IndependentValueBinding;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.DataPointStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DataPointStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_17_DataPointSeries_DataPointStyle;
+                xamlMember.Setter = set_17_DataPointSeries_DataPointStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries.Points":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Points", "Windows.UI.Xaml.Media.PointCollection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_18_LineSeries_Points;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries.PolylineStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "PolylineStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_19_LineSeries_PolylineStyle;
+                xamlMember.Setter = set_19_LineSeries_PolylineStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>.DependentRangeAxis":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentRangeAxis", "WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_20_LineAreaBaseSeries_DependentRangeAxis;
+                xamlMember.Setter = set_20_LineAreaBaseSeries_DependentRangeAxis;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>.IndependentAxis":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IndependentAxis", "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_21_LineAreaBaseSeries_IndependentAxis;
+                xamlMember.Setter = set_21_LineAreaBaseSeries_IndependentAxis;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>.ActualIndependentAxis":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ActualIndependentAxis", "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember.Getter = get_22_LineAreaBaseSeries_ActualIndependentAxis;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>.ActualDependentRangeAxis":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.LineAreaBaseSeries`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.LineDataPoint>");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ActualDependentRangeAxis", "WinRTXamlToolkit.Controls.DataVisualization.Charting.IRangeAxis");
+                xamlMember.Getter = get_23_LineAreaBaseSeries_ActualDependentRangeAxis;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes.GlobalSeriesIndex":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSingleSeriesWithAxes");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "GlobalSeriesIndex", "System.Nullable`1<Int32>");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_24_DataPointSingleSeriesWithAxes_GlobalSeriesIndex;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.DependentValuePath":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentValuePath", "String");
+                xamlMember.Getter = get_25_DataPointSeries_DependentValuePath;
+                xamlMember.Setter = set_25_DataPointSeries_DependentValuePath;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.IndependentValuePath":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IndependentValuePath", "String");
+                xamlMember.Getter = get_26_DataPointSeries_IndependentValuePath;
+                xamlMember.Setter = set_26_DataPointSeries_IndependentValuePath;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.ItemsSource":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ItemsSource", "System.Collections.IEnumerable");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_27_DataPointSeries_ItemsSource;
+                xamlMember.Setter = set_27_DataPointSeries_ItemsSource;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.AnimationSequence":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "AnimationSequence", "WinRTXamlToolkit.Controls.DataVisualization.Charting.AnimationSequence");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_28_DataPointSeries_AnimationSequence;
+                xamlMember.Setter = set_28_DataPointSeries_AnimationSequence;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.TransitionEasingFunction":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "TransitionEasingFunction", "Windows.UI.Xaml.Media.Animation.EasingFunctionBase");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_29_DataPointSeries_TransitionEasingFunction;
+                xamlMember.Setter = set_29_DataPointSeries_TransitionEasingFunction;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.IsSelectionEnabled":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IsSelectionEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_30_DataPointSeries_IsSelectionEnabled;
+                xamlMember.Setter = set_30_DataPointSeries_IsSelectionEnabled;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.SelectedItem":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_31_DataPointSeries_SelectedItem;
+                xamlMember.Setter = set_31_DataPointSeries_SelectedItem;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.LegendItemStyle":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendItemStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_32_DataPointSeries_LegendItemStyle;
+                xamlMember.Setter = set_32_DataPointSeries_LegendItemStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries.TransitionDuration":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPointSeries");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "TransitionDuration", "TimeSpan");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_33_DataPointSeries_TransitionDuration;
+                xamlMember.Setter = set_33_DataPointSeries_TransitionDuration;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Series.SeriesHost":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Series");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "SeriesHost", "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeriesHost");
+                xamlMember.Getter = get_34_Series_SeriesHost;
+                xamlMember.Setter = set_34_Series_SeriesHost;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Series.LegendItems":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Series");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LegendItems", "System.Collections.ObjectModel.ObservableCollection`1<Object>");
+                xamlMember.Getter = get_35_Series_LegendItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Series.Title":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Series");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Title", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_36_Series_Title;
+                xamlMember.Setter = set_36_Series_Title;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.IsSelectionEnabled":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IsSelectionEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_37_DataPoint_IsSelectionEnabled;
+                xamlMember.Setter = set_37_DataPoint_IsSelectionEnabled;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.ActualDependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ActualDependentValue", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_38_DataPoint_ActualDependentValue;
+                xamlMember.Setter = set_38_DataPoint_ActualDependentValue;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.DependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentValue", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_39_DataPoint_DependentValue;
+                xamlMember.Setter = set_39_DataPoint_DependentValue;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.DependentValueStringFormat":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "DependentValueStringFormat", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_40_DataPoint_DependentValueStringFormat;
+                xamlMember.Setter = set_40_DataPoint_DependentValueStringFormat;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.FormattedDependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "FormattedDependentValue", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_41_DataPoint_FormattedDependentValue;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.FormattedIndependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "FormattedIndependentValue", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_42_DataPoint_FormattedIndependentValue;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.IndependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IndependentValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_43_DataPoint_IndependentValue;
+                xamlMember.Setter = set_43_DataPoint_IndependentValue;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.IndependentValueStringFormat":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "IndependentValueStringFormat", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_44_DataPoint_IndependentValueStringFormat;
+                xamlMember.Setter = set_44_DataPoint_IndependentValueStringFormat;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint.ActualIndependentValue":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.DataPoint");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ActualIndependentValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_45_DataPoint_ActualIndependentValue;
+                xamlMember.Setter = set_45_DataPoint_ActualIndependentValue;
+                break;
+            case "AriaView.View.ChartPage.ViewModel":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.View.ChartPage");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.Common.ObservableDictionary");
+                xamlMember.Getter = get_46_ChartPage_ViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "AriaView.View.ChartPage.NavigationHelper":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.View.ChartPage");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
+                xamlMember.Getter = get_47_ChartPage_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
             case "AriaView.Model.AuthentificationForm.Caller":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.AuthentificationForm");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "Caller", "Windows.UI.Xaml.Controls.Page");
-                xamlMember.Getter = get_0_AuthentificationForm_Caller;
-                xamlMember.Setter = set_0_AuthentificationForm_Caller;
+                xamlMember.Getter = get_48_AuthentificationForm_Caller;
+                xamlMember.Setter = set_48_AuthentificationForm_Caller;
                 break;
             case "AriaView.Model.AuthentificationForm.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.AuthentificationForm");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.ViewModel.AuthentificationViewModel");
-                xamlMember.Getter = get_1_AuthentificationForm_ViewModel;
-                xamlMember.Setter = set_1_AuthentificationForm_ViewModel;
+                xamlMember.Getter = get_49_AuthentificationForm_ViewModel;
+                xamlMember.Setter = set_49_AuthentificationForm_ViewModel;
+                break;
+            case "AriaView.Model.MapView.CurrentSite":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "CurrentSite", "AriaView.Model.Site");
+                xamlMember.Getter = get_50_MapView_CurrentSite;
+                xamlMember.Setter = set_50_MapView_CurrentSite;
+                break;
+            case "AriaView.Model.MapView.FirstDayDate":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "FirstDayDate", "String");
+                xamlMember.Getter = get_51_MapView_FirstDayDate;
+                xamlMember.Setter = set_51_MapView_FirstDayDate;
+                break;
+            case "AriaView.Model.MapView.LastDayDate":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "LastDayDate", "String");
+                xamlMember.Getter = get_52_MapView_LastDayDate;
+                xamlMember.Setter = set_52_MapView_LastDayDate;
+                break;
+            case "AriaView.Model.MapView.CurrentPollutant":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "CurrentPollutant", "AriaView.Model.Pollutant");
+                xamlMember.Getter = get_53_MapView_CurrentPollutant;
+                xamlMember.Setter = set_53_MapView_CurrentPollutant;
+                break;
+            case "AriaView.Model.MapView.CurrentTerm":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "CurrentTerm", "AriaView.Model.AriaViewDateTerm");
+                xamlMember.Getter = get_54_MapView_CurrentTerm;
+                xamlMember.Setter = set_54_MapView_CurrentTerm;
                 break;
             case "AriaView.Model.MapView.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapView");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.Common.ObservableDictionary");
-                xamlMember.Getter = get_2_MapView_ViewModel;
+                xamlMember.Getter = get_55_MapView_ViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "AriaView.Model.MapPage.PinMode":
+                userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
+                xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "PinMode", "Boolean");
+                xamlMember.Getter = get_56_MapPage_PinMode;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.Model.MapPage.ViewModel":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "ViewModel", "AriaView.ViewModel.MapPageViewModel");
-                xamlMember.Getter = get_3_MapPage_ViewModel;
+                xamlMember.Getter = get_57_MapPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.Model.MapPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.Model.MapPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_4_MapPage_NavigationHelper;
+                xamlMember.Getter = get_58_MapPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "AriaView.SiteSelectionPage.NavigationHelper":
                 userType = (global::AriaView.AriaView_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AriaView.SiteSelectionPage");
                 xamlMember = new global::AriaView.AriaView_XamlTypeInfo.XamlMember(this, "NavigationHelper", "AriaView.Common.NavigationHelper");
-                xamlMember.Getter = get_5_SiteSelectionPage_NavigationHelper;
+                xamlMember.Getter = get_59_SiteSelectionPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             }
@@ -734,6 +2080,5 @@ namespace AriaView.AriaView_XamlTypeInfo
         }
     }
 }
-
 
 

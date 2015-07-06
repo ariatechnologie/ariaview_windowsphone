@@ -21,6 +21,7 @@ using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Popups;
 
 namespace AriaView.Model
 {
@@ -36,7 +37,7 @@ namespace AriaView.Model
         private int termScrollingIndex, termScrollingLimit;
         private bool IstermScrollingEnable;
         public bool PinMode { get; private set; }
-        
+
 
         /// <summary>
         /// Cela peut être remplacé par un modèle d'affichage fortement typé.
@@ -75,11 +76,11 @@ namespace AriaView.Model
                 await mapView.ChangeTerm(0);
             else
                 mapView.NextTerm();
-                
+
         }
 
 
-       async void StartTermScrolling()
+        async void StartTermScrolling()
         {
             sitesCB.IsEnabled = false;
             dateTermsCB.IsEnabled = false;
@@ -88,6 +89,7 @@ namespace AriaView.Model
             previousTermBtn.IsEnabled = false;
             pollutantsCB.IsEnabled = false;
             pinBtn.IsEnabled = false;
+            extractionBtn.IsEnabled = false;
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
             termScrollingLimit = ariaViewDate.CurrentPollutant.DateTerms.Count;
             await mapView.ChangeTerm(0);
@@ -95,7 +97,7 @@ namespace AriaView.Model
             timer.Start();
         }
 
-       async void StopTermScrolling()
+        async void StopTermScrolling()
         {
             timer.Stop();
             await mapView.ChangeTerm(0);
@@ -108,6 +110,7 @@ namespace AriaView.Model
             previousTermBtn.IsEnabled = true;
             pollutantsCB.IsEnabled = true;
             pinBtn.IsEnabled = true;
+            extractionBtn.IsEnabled = true;
         }
 
 
@@ -223,14 +226,24 @@ namespace AriaView.Model
         }
 
 
-        private void nextTermBtn_Click(object sender, RoutedEventArgs e)
+        private async void nextTermBtn_Click(object sender, RoutedEventArgs e)
         {
-           mapView.NextTerm();
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
+            mapView.NextTerm();
         }
 
-        private void previousTermBtn_Click(object sender, RoutedEventArgs e)
+        private async void previousTermBtn_Click(object sender, RoutedEventArgs e)
         {
-           mapView.PreviousTerm();
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
+            mapView.PreviousTerm();
         }
 
         private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -245,7 +258,11 @@ namespace AriaView.Model
 
         private async void datesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
- 
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
             //Si le viewModel du mapView est vide
             if (mapView.ViewModel.Count == 0 || datesCB.SelectedValue == null)
                 return;
@@ -269,28 +286,28 @@ namespace AriaView.Model
         private async Task ChangeDateAsync(string url)
         {
             progressRing.IsActive = true;
-                var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesCB.SelectedValue + ".kml");
-                var dates = ViewModel["datesList"] as List<string>;
-                var user = ViewModel["user"] as User;
-                var kmlReader = new KmlDataReader(XDocument.Parse(kmlString), url
-                    , user.Sites
-                    , dates);
+            var kmlString = await new AriaView.WebService.AriaViewWS().GetKmlAsync(url + datesCB.SelectedValue + ".kml");
+            var dates = ViewModel["datesList"] as List<string>;
+            var user = ViewModel["user"] as User;
+            var kmlReader = new KmlDataReader(XDocument.Parse(kmlString), url
+                , user.Sites
+                , dates);
 
-                //Mise à jour l'objet ariaviewdate avec la nouvelle date
-                var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
-                ariaViewDate.PollutantsList = kmlReader.CreateAriaViewDate().PollutantsList;
-                ViewModel["currentTermName"] = ariaViewDate.PollutantsList[0].DateTerms[0].StartDate;
-                 var dateTermCBContent = ViewModel["dateTerms"] as ObservableCollection<AriaViewDateTerm>;
-                 dateTermCBContent.Clear();
-                 foreach(AriaViewDateTerm t in ariaViewDate.PollutantsList[0].DateTerms)
-                 {
-                     dateTermCBContent.Add(t);
-                 }
-                dateTermsCB.SelectedIndex = 0;
-                progressRing.IsActive = false;
+            //Mise à jour l'objet ariaviewdate avec la nouvelle date
+            var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
+            ariaViewDate.PollutantsList = kmlReader.CreateAriaViewDate().PollutantsList;
+            ViewModel["currentTermName"] = ariaViewDate.PollutantsList[0].DateTerms[0].StartDate;
+            var dateTermCBContent = ViewModel["dateTerms"] as ObservableCollection<AriaViewDateTerm>;
+            dateTermCBContent.Clear();
+            foreach (AriaViewDateTerm t in ariaViewDate.PollutantsList[0].DateTerms)
+            {
+                dateTermCBContent.Add(t);
+            }
+            dateTermsCB.SelectedIndex = 0;
+            progressRing.IsActive = false;
         }
 
-  
+
         private async Task ChangeSiteAsync(String url)
         {
             progressRing.IsActive = true;
@@ -308,7 +325,7 @@ namespace AriaView.Model
 
             //Creation du nouvel ariaViewDate correspondant au nouveau site avec un KmlDataReader
             var kmlReader = new KmlDataReader(XDocument.Parse(kmlString)
-            , siteInfoUrl + "/" + datesList.Last() 
+            , siteInfoUrl + "/" + datesList.Last()
             , user.Sites
             , datesList);
             var newAriaViewDate = kmlReader.CreateAriaViewDate();
@@ -327,7 +344,7 @@ namespace AriaView.Model
             var defaultSite = ViewModel["defaultSite"] as Site;
             dateTermsCB.SelectedIndex = 0;
             pollutantsCB.SelectedIndex = 0;
-            
+
             //relocalisation le centre de la carte et le overlay sur le nouveau site
             var ariaViewDate = this.viewModel["AriaViewDate"] as AriaViewDate;
             var n = ariaViewDate.North;
@@ -368,11 +385,16 @@ namespace AriaView.Model
         public String GetUrl(string siteName)
         {
             var urlParts = ViewModel["urlParts"] as Dictionary<string, string>;
-            return  String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["type"], urlParts["scale"]);
+            return String.Format("{0}/{1}/{2}/GEARTH/{3}_{4}/", urlParts["host"], urlParts["url"], siteName, urlParts["type"], urlParts["scale"]);
         }
 
         private async void sitesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
+            {
+                await new MessageDialog("Network error").ShowAsync();
+                return;
+            }
             //Si le viewModel du mapView est vide
             if (mapView.ViewModel.Count == 0)
                 return;
@@ -382,6 +404,7 @@ namespace AriaView.Model
 
         private void pollutantsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             //Si le viewModel du mapView est vide
             if (mapView.ViewModel.Count == 0
                 || pollutantsCB.SelectedIndex < 0)
@@ -404,7 +427,7 @@ namespace AriaView.Model
             ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
         }
 
-       
+
 
         private void playBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -431,11 +454,11 @@ namespace AriaView.Model
             var dateTermsList = dateTermsCB.Items.ToList();
             var firstDate = dateTermsList.First() as AriaViewDateTerm;
             var lastDate = dateTermsList.Last() as AriaViewDateTerm;
-            mapView.FirstDayDate = firstDate.StartDate.Split('+')[0].Replace("T"," ");
-            mapView.LastDayDate = lastDate.EndDate.Split('+')[0].Replace("T"," ");
+            mapView.FirstDayDate = firstDate.StartDate.Split('+')[0].Replace("T", " ");
+            mapView.LastDayDate = lastDate.EndDate.Split('+')[0].Replace("T", " ");
             mapView.CurrentPollutant = pollutantsCB.SelectedItem as Pollutant;
             mapView.CurrentTerm = dateTermsCB.SelectedItem as AriaViewDateTerm;
-           await  mapView.ExtractMarkerData();
+            await mapView.ExtractMarkerData();
         }
 
         public ProgressRing GetProgressRing()
@@ -473,7 +496,7 @@ namespace AriaView.Model
             }
         }
 
-        public async  Task UnsetPinMode()
+        public async Task UnsetPinMode()
         {
             PinMode = false;
             //Disable addMarker on the map

@@ -19,19 +19,19 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="center" VerticalAlignment="Bottom" Margin="0,0,0,50">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                 <Button x:ConnectionId='1' x:Name="btnPortugese" Height="auto" Width="auto"                            Padding="0" BorderBrush="Transparent">
-                    <Image Source="/Assets/Portugal.png" Height="20" Width="30" Stretch="Fill"/>
+                    <Image Source="/Assets/br.png" Height="30" Width="30" Stretch="Fill"/>
                 </Button>
                 <Button x:ConnectionId='2' x:Name="btnFrench"  Height="auto" Width="auto"                         Padding="0" BorderBrush="Transparent">
-                    <Image Source="/Assets/France.png" Height="20" Width="30" Stretch="Fill"/>
+                    <Image Source="/Assets/fr.png" Height="30" Width="30" Stretch="Fill"/>
                 </Button>
                 <Button x:ConnectionId='3' x:Name="btnSpanish" Height="auto" Width="auto"                          Padding="0" BorderBrush="Transparent">
-                    <Image Source="/Assets/Spain.png" Height="20" Width="30" Stretch="Fill"/>
+                    <Image Source="/Assets/es.png" Height="30" Width="30" Stretch="Fill"/>
                 </Button>
                 <Button x:ConnectionId='4' x:Name="btnChinese"  Height="auto" Width="auto"                          Padding="0" BorderBrush="Transparent">
-                    <Image Source="/Assets/China.png" Height="20" Width="30" Stretch="Fill"/>
+                    <Image Source="/Assets/cn.png" Height="30" Width="30" Stretch="Fill"/>
                 </Button>
                 <Button x:ConnectionId='5' x:Name="btnEnglish"  Height="auto" Width="auto"                          Padding="0" BorderBrush="Transparent">
-                    <Image Source="/Assets/English.png" Height="20" Width="30" Stretch="Fill"/>
+                    <Image Source="/Assets/gb.png" Height="30" Width="30" Stretch="Fill"/>
                 </Button>
             </StackPanel>
             <TextBlock x:Uid="restartMsg" x:Name="restartMsg" Height="auto" Width="auto" Visibility="Collapsed" Margin="0,0,0,5"

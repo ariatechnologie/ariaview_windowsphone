@@ -172,12 +172,17 @@
     <Content Include="Assets\AriaView-logo150x150.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\biohazard.png" />
+    <Content Include="Assets\br.png" />
     <Content Include="Assets\calendar.png" />
     <Content Include="Assets\China.png" />
     <Content Include="Assets\cloud.jpg" />
+    <Content Include="Assets\cn.png" />
     <Content Include="Assets\English.png" />
+    <Content Include="Assets\es.png" />
     <Content Include="Assets\extract.png" />
+    <Content Include="Assets\fr.png" />
     <Content Include="Assets\France.png" />
+    <Content Include="Assets\gb.png" />
     <Content Include="Assets\logo-24x24.png" />
     <Content Include="Assets\logo-30x30.png" />
     <Content Include="Assets\logo-33x33.png" />

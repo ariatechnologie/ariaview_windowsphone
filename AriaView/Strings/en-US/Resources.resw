@@ -121,7 +121,7 @@
     <value>ARIA VIEW</value>
   </data>
   <data name="authentificationError.Text" xml:space="preserve">
-    <value>Login or password is incrorrect</value>
+    <value>Login or password you entered is incorrect.</value>
   </data>
   <data name="choixSite.Text" xml:space="preserve">
     <value>Site Selection</value>

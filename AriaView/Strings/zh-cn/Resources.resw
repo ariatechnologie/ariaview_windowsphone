@@ -121,13 +121,13 @@
     <value>ARIA VIEW</value>
   </data>
   <data name="authentificationError.Text" xml:space="preserve">
-    <value>登录名或密码不正确</value>
+    <value>用户名或者您输入的密码不正确。</value>
   </data>
   <data name="choixSite.Text" xml:space="preserve">
     <value>选址</value>
   </data>
   <data name="connexion.Text" xml:space="preserve">
-    <value>CONNEXION</value>
+    <value>登录页</value>
   </data>
   <data name="date.Text" xml:space="preserve">
     <value>日期</value>
@@ -139,13 +139,13 @@
     <value>鉴定</value>
   </data>
   <data name="login.Text" xml:space="preserve">
-    <value>登录：</value>
+    <value>登录</value>
   </data>
   <data name="memoriseMsg.Content" xml:space="preserve">
-    <value>记住我的用户名和密码</value>
+    <value>记住用户</value>
   </data>
   <data name="password.Text" xml:space="preserve">
-    <value>密码：</value>
+    <value>密码</value>
   </data>
   <data name="restartMsg.Text" xml:space="preserve">
     <value>注册语言的变化。请重新启动应用程序</value>

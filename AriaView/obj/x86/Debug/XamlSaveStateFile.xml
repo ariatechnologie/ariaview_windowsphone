@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\jerome\source\repos\ariaview_windowsphone\ariaview\obj\x86\debug\intermediatexaml\ariaview.exe" HashGuid="040dd065-b442-7329-6a2b-bee739a3d069" />
+    <LocalAssembly PathName="c:\users\jerome\source\repos\ariaview_windowsphone\ariaview\obj\x86\debug\intermediatexaml\ariaview.exe" HashGuid="08ba936e-62d9-1358-f8f2-2a21c829924f" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
     <ReferenceAssembly PathName="c:\users\jerome\source\repos\ariaview_windowsphone\packages\newtonsoft.json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="0b4cdfc1-2257-2e75-23cf-4052e97b309e" />
     <ReferenceAssembly PathName="c:\users\jerome\source\repos\ariaview_windowsphone\packages\winrtxamltoolkit.controls.datavisualization.1.6.1.3\lib\netcore451\winrtxamltoolkit.controls.datavisualization.dll" HashGuid="be684ae2-5628-42c1-f25a-53d124102458" />

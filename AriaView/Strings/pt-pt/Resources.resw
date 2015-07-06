@@ -121,7 +121,7 @@
     <value>ARIA VIEW</value>
   </data>
   <data name="authentificationError.Text" xml:space="preserve">
-    <value>O login ou senha está incorreta</value>
+    <value>Senha ou login (usuário) que você inseriu está incorreto.</value>
   </data>
   <data name="choixSite.Text" xml:space="preserve">
     <value>Choix du site</value>
@@ -139,13 +139,13 @@
     <value>identificar</value>
   </data>
   <data name="login.Text" xml:space="preserve">
-    <value>Entrar:</value>
+    <value>Login (usuário)</value>
   </data>
   <data name="memoriseMsg.Content" xml:space="preserve">
-    <value>Lembrar meu login e password</value>
+    <value>Memorizar</value>
   </data>
   <data name="password.Text" xml:space="preserve">
-    <value>Senha:</value>
+    <value>Senha</value>
   </data>
   <data name="restartMsg.Text" xml:space="preserve">
     <value>Mudar língua registado. Por favor, reinicie o aplicativo</value>

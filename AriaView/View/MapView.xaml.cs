@@ -35,14 +35,14 @@ namespace AriaView.Model
     public sealed partial class MapView : UserControl
     {
 
-        private ObservableDictionary viewModel = new ObservableDictionary();
+        private ViewModelBase viewModel = new ViewModelBase();
         private MapPage parentView;
         public Site CurrentSite { get; set; }
         public String FirstDayDate { get; set; }
         public String LastDayDate { get; set; }
         public Pollutant CurrentPollutant { get; set; }
         public AriaViewDateTerm CurrentTerm { get; set; }
-        public ObservableDictionary ViewModel
+        public ViewModelBase ViewModel
         {
             get
             {
@@ -64,7 +64,7 @@ namespace AriaView.Model
         }
 
         /// <summary>
-        /// Permet la conversion d'un URI en flux de données
+        /// Converts an URI into a stream
         /// </summary>
         public sealed class UriToStreamResolver : Windows.Web.IUriToStreamResolver
         {
@@ -94,12 +94,15 @@ namespace AriaView.Model
         }
 
         /// <summary>
-        /// Reception des notifications envoyées par le code javascript
+        ///receive the javascript's notifications
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void mapView_ScriptNotify(object sender, NotifyEventArgs e)
         {
+            //the notification is a String that begins by the method name to call 
+            //and the parameters separated by commas
+
             var methodName = e.Value.Split(',')[0];
             switch(methodName)
             {
@@ -141,7 +144,7 @@ namespace AriaView.Model
         }
 
         /// <summary>
-        /// Chargement des fichiers web dans la webView
+        /// Loading of the web content in the webview
         /// </summary>
         public void LoadMapAsync()
         {
@@ -151,13 +154,13 @@ namespace AriaView.Model
 
 
         /// <summary>
-        /// Envoie les données nécessaire à la creation
-        /// de la map au fichier javascript
+        ///initialize variables with values
+        ///to build the googlemap object
         /// </summary>
         public async void SetScriptVariables()
         {
             parentView = ((Grid)Parent).Parent as MapPage;
-            var mapPageViewModel = parentView.ViewModel as ObservableDictionary;
+            var mapPageViewModel = parentView.ViewModel as ViewModelBase;
             viewModel.SetDictionary(mapPageViewModel);
             var ariaViewDate = this.viewModel["AriaViewDate"] as AriaViewDate;
             var n = ariaViewDate.North;
@@ -178,7 +181,7 @@ namespace AriaView.Model
         }
 
         /// <summary>
-        /// Affiche la prochaine échéance
+        /// Displays the next term
         /// </summary>
         public void NextTerm()
         {
@@ -186,12 +189,11 @@ namespace AriaView.Model
             var i = ariaViewDate.CurrentPollutant.CurrentTermIndex + 1;
             if (i < 0 || i == ariaViewDate.CurrentPollutant.DateTerms.Count)
                 return;
-            //await ChangeTerm(i);
             parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
         /// <summary>
-        /// Affiche l'échéance précédente
+        /// Displays the previous term
         /// </summary>
         public void PreviousTerm()
         {
@@ -199,12 +201,11 @@ namespace AriaView.Model
             var i = ariaViewDate.CurrentPollutant.CurrentTermIndex - 1;
             if (i < 0 || i == ariaViewDate.CurrentPollutant.DateTerms.Count)
                 return;
-            //await ChangeTerm(i);
             parentView.GetDateTermsComboBox().SelectedIndex = i;
         }
 
         /// <summary>
-        /// Affiche l'échéance en fonction de l'indice passé en paramètre
+        /// Displays the term according to the specified index
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
@@ -216,26 +217,36 @@ namespace AriaView.Model
             parentView.UpdateUI();
         }
 
+        /// <summary>
+        /// Enables the pinMode in the webView
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public async Task SetPinModeValue(string value)
         {
             await webView.InvokeScriptAsync("setPinMode", new List<String> {value});
         }
 
-
+        /// <summary>
+        /// Call the javascript function that send the marker's position
+        /// </summary>
+        /// <returns></returns>
         public async Task ExtractMarkerData()
         {
             await webView.InvokeScriptAsync("ExtractMarkerData", new List<String> {});
         }
 
+        /// <summary>
+        /// Get the datas according to the marker's position from the webservice
+        /// </summary>
+        /// <param name="lat"></param>
+        /// <param name="lng"></param>
+        /// <returns></returns>
         public async Task GetExtractionData(String lat, String lng)
         {
             parentView.GetProgressRing().IsActive = true;
             var urlParts = parentView.ViewModel["urlParts"] as Dictionary<String, String>;
             var webServiceUrl = urlParts["host"] + "/OpenDapServicesRESTAT/GridGetTimeSerieByPointDomainVariablePeriod";
-            //var url =  webServiceUrl +  "?longitude="
-            //+ lng.ToString() + "&latitude=" + lat.ToString() + "&domainid=_LENVIS_" + urlParts["model"] + "_" + CurrentSite.Name + "_reference_"
-            //+ urlParts["nest"] + "_dataset&variableid=" + CurrentPollutant.ScientificName + "&startdate=" + FirstDayDate + "&enddate=" + LastDayDate;
-           
             var requestContent = new List<KeyValuePair<String,String>>();
             requestContent.Add(new KeyValuePair<string,string>("longitude",lng.ToString()));
             requestContent.Add(new KeyValuePair<string,string>("latitude",lat.ToString()));
@@ -255,6 +266,11 @@ namespace AriaView.Model
             parentView.Frame.Navigate(typeof(ChartPage),parentView.ViewModel);
         }
 
+        /// <summary>
+        /// Parse the json content downloaded from the webservice
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         List<ChartPoint> ParseExtratedData(String json)
         {
             var dataValuesField = JObject.Parse(json)["GetDataResult"]["dataValuesField"];
@@ -266,12 +282,7 @@ namespace AriaView.Model
             {
                 var date =  System.Text.RegularExpressions.Regex.Match(value["dateTimeField"].ToString(),@"\d+").Value;
                 var millisecondes = Double.Parse(date);
-                //var minute = (millisecondes / (1000 * 60)) % 60;
-                //if(minute == 30)
-                //    minute = 0.5;
                 var hour =  (millisecondes / (1000 * 60 * 60)) % 24;
-                //var pointDate = startDate.Add(new TimeSpan(0, 0, 0, 0, (int)millisecondes));
-                //var toHourDate = Double.Parse(date) / (3600 * 1000);
                 var val = Math.Round(Double.Parse(value["valueField"].ToString()),2);
                 if(val < 0)
                 val = 0;
@@ -283,7 +294,10 @@ namespace AriaView.Model
             return values;
         }
 
-
+        /// <summary>
+        /// Format the dates to be compatible with webservice date format
+        /// </summary>
+        /// <returns></returns>
         private DateTime ConvertFirstDayDate()
         {
             var year = int.Parse(FirstDayDate.Substring(0, 4));

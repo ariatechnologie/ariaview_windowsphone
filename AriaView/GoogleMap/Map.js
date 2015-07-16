@@ -1,4 +1,8 @@
-﻿var map,
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+
+var map,
     north,
     east,
     south,
@@ -66,7 +70,7 @@ function placeMarker(location) {
     callMapViewMethod("UnsetPinMode");
 }
 
-
+//init the variables
 function setValues(n, e, s, w, imagePath,x,y) {
     imageURL = imagePath;
 
@@ -97,12 +101,13 @@ function setValues(n, e, s, w, imagePath,x,y) {
     centerlng = parseFloat(y);
 }
 
+//send a notification that contains the prameter string (methodname)
 function callMapViewMethod(methodName) {
     window.external.notify(methodName);
 }
 
 
-
+//update the groundOveray 
 function changeOverlay(image)
 {
     fogImageOverlay.setMap(null);
@@ -120,6 +125,7 @@ function changeOverlay(image)
     map.setCenter(new google.maps.LatLng(centerlat, centerlng));
 }
 
+//update the global variables when the site changes
 function changeLocationInfos(n, e, s, w, x, y) {
     if (x.indexOf(",") >= 0) {
         x = x.replace(',', '.');
@@ -152,31 +158,10 @@ function setPinMode(value) {
     pinMode = value;
 }
 
+//send the marker's position to the webview
 function ExtractMarkerData(){
     if (marker == null)
         return;
     var position = "GetExtractionData" + "," + marker.getPosition().lat().toString() + "," + marker.getPosition().lng().toString();
     window.external.notify(position);
 }
-
-
-//google.maps.event.addListener(map, 'click', function (event) {
-//    placeMarker(event.latLng);
-//});
-
-//function placeMarker(location) {
-//    var marker = new google.maps.Marker({
-//        position: location,
-//        map: map
-//    });
-//}
-
-//mapTypeId: google.maps.MapTypeId.ROADMAP,
-//styles: [
-//  {
-//      "featureType": "poi",
-//      "stylers": [
-//        { "visibility": "off" }
-//      ]
-//  }
-//]

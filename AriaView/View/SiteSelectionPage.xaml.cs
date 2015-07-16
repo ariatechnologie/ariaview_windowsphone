@@ -96,7 +96,7 @@ namespace AriaView
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            var viewModelBase = e.Parameter as ObservableDictionary;
+            var viewModelBase = e.Parameter as ViewModelBase;
             viewModel.SetDictionary(viewModelBase);
             viewModel.ParseResponse((string)viewModel["xml"]);
         }

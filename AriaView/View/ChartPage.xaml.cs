@@ -22,26 +22,25 @@ using Windows.ApplicationModel.DataTransfer;
 namespace AriaView.View
 {
     /// <summary>
-    /// Page de base qui inclut des caractéristiques communes à la plupart des applications.
+    /// Page that display the extracted datas in a chart
     /// </summary>
     public sealed partial class ChartPage : Page
     {
 
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private ViewModelBase defaultViewModel = new ViewModelBase();
         private DataTransferManager dataTransfer;
 
         /// <summary>
         /// Cela peut être remplacé par un modèle d'affichage fortement typé.
         /// </summary>
-        public ObservableDictionary ViewModel
+        public ViewModelBase ViewModel
         {
             get { return this.defaultViewModel; }
         }
 
         /// <summary>
-        /// NavigationHelper est utilisé sur chaque page pour faciliter la navigation et 
-        /// gestion de la durée de vie des processus
+        /// NavigationHelper allows to easily navigate between pages and
         /// </summary>
         public NavigationHelper NavigationHelper
         {
@@ -86,23 +85,22 @@ namespace AriaView.View
 
         #region Inscription de NavigationHelper
 
-        /// Les méthodes fournies dans cette section sont utilisées simplement pour permettre
-        /// NavigationHelper pour répondre aux méthodes de navigation de la page.
-        /// 
-        /// La logique spécifique à la page doit être placée dans les gestionnaires d'événements pour  
-        /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
-        /// et <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
-        /// Le paramètre de navigation est disponible dans la méthode LoadState 
-        /// en plus de l'état de page conservé durant une session antérieure.
-
+        /// <summary>
+        /// When navigate on this page
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
             RegisterForShare();
-            var vm = e.Parameter as ObservableDictionary;
+            var vm = e.Parameter as ViewModelBase;
             ViewModel.SetDictionary(vm);
         }
 
+        /// <summary>
+        /// When navigate from this page to another
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedFrom(e);
@@ -110,9 +108,11 @@ namespace AriaView.View
 
         #endregion
 
+        
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            var charPoints = (ViewModel as ObservableDictionary)["chartPoints"] as List<ChartPoint>;
+            //Generate the chart
+            var charPoints = (ViewModel as ViewModelBase)["chartPoints"] as List<ChartPoint>;
             (lineChart.Series[0] as LineSeries).ItemsSource = charPoints;
             lineChart.Title = ViewModel["currentSite"] + " " + ViewModel["day"];
             var legenditem = (lineChart.Series[0] as LineSeries).LegendItems[0] as LegendItem;
@@ -126,6 +126,7 @@ namespace AriaView.View
 
         private void shareBtn_Click(object sender, RoutedEventArgs e)
         {
+            //display the share menu
             DataTransferManager.ShowShareUI();
         }
 
@@ -138,7 +139,7 @@ namespace AriaView.View
         void RegisterForShare()
         {
             var dataTransfert = DataTransferManager.GetForCurrentView();
-            dataTransfert.DataRequested +=  dataTransfert_DataRequested;
+            dataTransfert.DataRequested += dataTransfert_DataRequested;
         }
 
 

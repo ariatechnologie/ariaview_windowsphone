@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -71,7 +74,7 @@ namespace AriaView.GoogleMap
                 
                 return new AriaViewDate(north, east, south, west, CreatePollutantList(),sites,dates);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return null;
             }

@@ -1,4 +1,8 @@
-﻿<Page
+﻿<!--Author Jérôme Cambray
+Version 1.0-->
+    
+    
+    <Page
     x:Name="pageRoot"
     x:Class="AriaView.SiteSelectionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

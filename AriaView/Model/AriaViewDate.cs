@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +13,6 @@ namespace AriaView.Model
     public class AriaViewDate : INotifyPropertyChanged
     {
         private Double north,east,south,west;
-        private List<AriaViewDateTerm> dateTerms;
         private List<Site> sites;
         private List<string> dates;
         private int currentPollutantIndex;
@@ -57,15 +59,7 @@ namespace AriaView.Model
                 dates = value;
             }
         }
-        //public List<AriaViewDateTerm> DateTerms
-        //{
-        //    get { return dateTerms; }
-        //    set
-        //    {
-        //        dateTerms = value;
-        //        Notify("DateTerms");
-        //    }
-        //}
+   
         public Double North
         {
             get

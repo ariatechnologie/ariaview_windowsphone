@@ -124,7 +124,7 @@
     <value>Senha ou login (usuário) que você inseriu está incorreto.</value>
   </data>
   <data name="choixSite.Text" xml:space="preserve">
-    <value>Choix du site</value>
+    <value>A escolha do local</value>
   </data>
   <data name="connexion.Text" xml:space="preserve">
     <value>CONEXÃO</value>
@@ -157,7 +157,7 @@
     <value>Localizações</value>
   </data>
   <data name="term.Text" xml:space="preserve">
-    <value>Echeance</value>
+    <value>período</value>
   </data>
   <data name="voirSite.Content" xml:space="preserve">
     <value>vista</value>

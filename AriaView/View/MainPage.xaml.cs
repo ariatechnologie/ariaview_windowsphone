@@ -35,36 +35,67 @@ namespace AriaView
             ApplicationData.Current.LocalSettings.Values["wsurl"] = "http://web.aria.fr";
         }
 
+        /// <summary>
+        /// Change app language to portuguese
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPortugese_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "pt-PT";
             restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Change app language to french
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFrench_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "fr-FR";
             restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Change app language to spanish
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSpanish_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "es-ES";
             restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+
+        /// <summary>
+        /// Change app language to chinese
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChinese_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "zh-Hans-CN";
             restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Change app language to english
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnglish_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["lang"] = "en-US";
             restartMsg.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Quit the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();

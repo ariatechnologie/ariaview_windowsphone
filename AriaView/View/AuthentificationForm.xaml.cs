@@ -49,17 +49,19 @@ namespace AriaView.Model
             DataContext = viewModel;
         }
 
-
+        /// <summary>
+        /// connexions button click's event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
        async private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
             {
                 await new MessageDialog("Network error").ShowAsync();
                 return;
             }
-                
-
+              
             var result = await viewModel.AuthentificationAsync();
             ViewModel["lastSiteName"] = ApplicationData.Current.LocalSettings.Values["lastSite"];
             
@@ -86,8 +88,8 @@ namespace AriaView.Model
                 ViewModel.ParseResponse((string)ViewModel["xml"]);
                 var user = viewModel["user"] as User;
 
-                //Teste l'existance du conteneur de site par defaut sur le terminal
-                //et le cree s'il n'existe pas
+                //Check if the default site container exists on the device
+                // and create it if not
                 try
                 {
                    var temp = ApplicationData.Current.LocalSettings.Values["lastSite"].ToString();

@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +15,7 @@ using System.Xml.Linq;
 
 namespace AriaView.ViewModel
 {
-    public class AuthentificationViewModel : ObservableDictionary
+    public class AuthentificationViewModel : ViewModelBase
     {
         private readonly String VAULT_RESOURCE = "AriaView Credentials";
         private PasswordVault vault = new PasswordVault();

@@ -4,19 +4,19 @@
     <Machine>JEROME</Machine>
     <WindowsUser>jerome</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
-    <SolutionConfiguration>Release|x64</SolutionConfiguration>
-    <PackageArchitecture>x64</PackageArchitecture>
+    <SolutionConfiguration>Release|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>02d6b977-af74-469c-930a-4866e1671d8c</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\x64\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\obj\ARM\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\AriaView.exe">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\AriaView.exe">
       <PackagePath>AriaView.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll">
@@ -161,31 +161,31 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\Test\login2.xml">
       <PackagePath>Test\login2.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\App.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\Style\AppStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\Style\AppStyle.xbf">
       <PackagePath>Style\AppStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\ChartPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\ChartPage.xbf">
       <PackagePath>View\ChartPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\AuthentificationForm.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\AuthentificationForm.xbf">
       <PackagePath>View\AuthentificationForm.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\MapPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\MapPage.xbf">
       <PackagePath>View\MapPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\MapView.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\MapView.xbf">
       <PackagePath>View\MapView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\View\SiteSelectionPage.xbf">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\View\SiteSelectionPage.xbf">
       <PackagePath>View\SiteSelectionPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\AriaView.xr.xml">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\AriaView.xr.xml">
       <PackagePath>AriaView.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.1.6.1.3\lib\netcore451\WinRTXamlToolkit\WinRTXamlToolkit.xr.xml">
@@ -338,7 +338,7 @@
     <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\packages\WinRTXamlToolkit.Controls.DataVisualization.1.6.1.3\lib\netcore451\WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf">
       <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\x64\Release\resources.pri">
+    <AppxPackagedFile Include="C:\Users\jerome\Source\Repos\ariaview_windowsphone\AriaView\bin\ARM\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

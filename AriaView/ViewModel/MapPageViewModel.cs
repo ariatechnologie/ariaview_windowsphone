@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +10,7 @@ using AriaView.Common;
 
 namespace AriaView.ViewModel
 {
-    public class MapPageViewModel : ObservableDictionary
+    public class MapPageViewModel : ViewModelBase
     {
         public MapPageViewModel()
         {

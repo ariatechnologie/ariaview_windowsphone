@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using System;
 using System.Net.Http;
 using System.Collections.Specialized;
 using System.Collections.Generic;

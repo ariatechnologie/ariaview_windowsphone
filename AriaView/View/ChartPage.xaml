@@ -1,4 +1,7 @@
-﻿<Page
+﻿<!--Author Jérôme Cambray
+Version 1.0-->
+    
+    <Page
     x:Name="pageRoot"
     x:Class="AriaView.View.ChartPage"
     DataContext="{Binding ViewModel, RelativeSource={RelativeSource Self}}"

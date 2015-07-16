@@ -70,6 +70,11 @@ namespace AriaView.Model
             PinMode = false;
         }
 
+        /// <summary>
+        /// display the day terms one after thr other
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void TermScrolling(object sender, object e)
         {
             if (++termScrollingIndex == termScrollingLimit - 1)
@@ -79,7 +84,9 @@ namespace AriaView.Model
 
         }
 
-
+        /// <summary>
+        /// begin the term scrolling and disable the other buttons
+        /// </summary>
         async void StartTermScrolling()
         {
             sitesCB.IsEnabled = false;
@@ -97,6 +104,9 @@ namespace AriaView.Model
             timer.Start();
         }
 
+        /// <summary>
+        /// stop the term scrolling adnd nables the other buttons
+        /// </summary>
         async void StopTermScrolling()
         {
             timer.Stop();
@@ -156,7 +166,7 @@ namespace AriaView.Model
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
-            var previousPageViewModel = e.Parameter as ObservableDictionary;
+            var previousPageViewModel = e.Parameter as ViewModelBase;
             ViewModel.SetDictionary(previousPageViewModel);
         }
 
@@ -170,26 +180,24 @@ namespace AriaView.Model
         private void pageRoot_Loaded(object sender, RoutedEventArgs e)
         {
             InitMapAsync();
-            //Chargement de la map
+            //map loading
             mapView.LoadMapAsync();
         }
 
 
         /// <summary>
-        /// Insere les objet necessaire à l'affichage des informations de la map
-        /// dans le viewModel
+        /// Insert all necessary objects to display the map's informations in the viewModel
         /// </summary>
         /// <returns></returns>
         void InitMapAsync()
         {
             progressRing.IsActive = true;
-            //Insertion des objet a binder dans le dictionnaire
+            //Inserts the objects to bind in the dictionary
             var user = ViewModel["user"] as User;
             ViewModel["sites"] = user.Sites;
             var datesList = ViewModel["datesList"] as List<String>;
 
-            //creation de l'objet ariaviewdate
-            //var xmlString = await FileIO.ReadTextAsync(ViewModel["localkmlfile"] as StorageFile);
+            //ariaviewdate object's creation
             var xmlString = ViewModel["kmlString"] as String;
             var kmlReader = new KmlDataReader(XDocument.Parse(xmlString), ViewModel["siteInfoUrl"] as String
                 , user.Sites
@@ -197,27 +205,26 @@ namespace AriaView.Model
             ViewModel["AriaViewDate"] = kmlReader.CreateAriaViewDate();
             var ariaViewDate = ViewModel["AriaViewDate"] as AriaViewDate;
 
-            //observablecollection pour l'affichage des echeances
+            //observablecollection to display the terms
             ViewModel["dateTerms"] = new ObservableCollection<AriaViewDateTerm>(ariaViewDate.CurrentPollutant.DateTerms);
             ViewModel["pollutantsList"] = ariaViewDate.PollutantsList;
-            //ViewModel["currentPollutantName"] = ariaViewDate.CurrentPollutant.Name;
             ViewModel["currentTermName"] = ariaViewDate.CurrentPollutant.CurrentTerm.StartDate;
 
-            //Valeurs par defaut des combobox
+            //Default values for the comboboxes
             datesCB.SelectedValue = datesList.Last();
             var defaultSite = ViewModel["defaultSite"] as Site;
             sitesCB.SelectedValue = defaultSite;
             dateTermsCB.SelectedIndex = 0;
             pollutantsCB.SelectedIndex = 0;
 
-            //Insertion de l'url de la legend dans le dictionnaire
+            //Inserts the legend image's url in the dictionary
             var currentSite = sitesCB.SelectedValue as Site;
             ViewModel["legendImage"] = GetUrl(currentSite.Name) + "/" + datesList.Last() + "/" + ariaViewDate.CurrentPollutant.LegendImage;
             progressRing.IsActive = false;
         }
 
         /// <summary>
-        /// Actualise les comboBox permetant l'affichage des échéances, et de la date en courante
+        /// Actualise  comboBoxes
         /// </summary>
         public void UpdateUI()
         {
@@ -225,7 +232,11 @@ namespace AriaView.Model
             dateTermsCB.SelectedIndex = ariaViewDate.CurrentPollutant.CurrentTermIndex;
         }
 
-
+       /// <summary>
+       /// display the next term on the map
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private async void nextTermBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
@@ -236,6 +247,11 @@ namespace AriaView.Model
             mapView.NextTerm();
         }
 
+        /// <summary>
+        /// display the previous term in the map
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void previousTermBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!AriaView.WebService.AriaViewWS.IsConnectedToInternet())
@@ -246,10 +262,11 @@ namespace AriaView.Model
             mapView.PreviousTerm();
         }
 
+
         private async void dateTermsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var source = sender as ComboBox;
-            //Si le viewModel du mapView est vide
+            //if viewModel is empty
             if (mapView.ViewModel.Count == 0 || ((ObservableCollection<AriaViewDateTerm>)ViewModel["dateTerms"]).Count == 0
                 || source.SelectedIndex < 0)
                 return;
@@ -263,7 +280,7 @@ namespace AriaView.Model
                 await new MessageDialog("Network error").ShowAsync();
                 return;
             }
-            //Si le viewModel du mapView est vide
+            //if viewModel is empty
             if (mapView.ViewModel.Count == 0 || datesCB.SelectedValue == null)
                 return;
             var currentSite = sitesCB.SelectedValue as Site;
@@ -272,6 +289,10 @@ namespace AriaView.Model
             await ChangeDateAsync(url);
         }
 
+        /// <summary>
+        /// set the current with the sepocified index
+        /// </summary>
+        /// <param name="i"></param>
         public void SetSelectedDateTerm(int i)
         {
             dateTermsCB.SelectedIndex = i;
@@ -282,7 +303,11 @@ namespace AriaView.Model
             return dateTermsCB;
         }
 
-
+        /// <summary>
+        /// Change the date
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private async Task ChangeDateAsync(string url)
         {
             progressRing.IsActive = true;
@@ -307,7 +332,11 @@ namespace AriaView.Model
             progressRing.IsActive = false;
         }
 
-
+        /// <summary>
+        /// Change the site
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private async Task ChangeSiteAsync(String url)
         {
             progressRing.IsActive = true;
@@ -370,6 +399,11 @@ namespace AriaView.Model
             progressRing.IsActive = false;
         }
 
+        /// <summary>
+        /// Get the availables dates for the current site from the webservice
+        /// </summary>
+        /// <param name="siteRootUrl"></param>
+        /// <returns></returns>
         private async Task<List<String>> GetDates(string siteRootUrl)
         {
             var ws = new AriaView.WebService.AriaViewWS();
@@ -382,6 +416,11 @@ namespace AriaView.Model
             return datesList;
         }
 
+        /// <summary>
+        /// returns the webservice url according to the current site
+        /// </summary>
+        /// <param name="siteName"></param>
+        /// <returns></returns>
         public String GetUrl(string siteName)
         {
             var urlParts = ViewModel["urlParts"] as Dictionary<string, string>;
@@ -443,6 +482,11 @@ namespace AriaView.Model
             }
         }
 
+        /// <summary>
+        /// Quit the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
@@ -466,6 +510,11 @@ namespace AriaView.Model
             return progressRing;
         }
 
+        /// <summary>
+        /// enbles the pinMode and disables the other buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void pinBtn_Click(object sender, RoutedEventArgs e)
         {
             if (!PinMode)
@@ -496,6 +545,10 @@ namespace AriaView.Model
             }
         }
 
+        /// <summary>
+        /// Disable the pinMode and enable the other buttons
+        /// </summary>
+        /// <returns></returns>
         public async Task UnsetPinMode()
         {
             PinMode = false;

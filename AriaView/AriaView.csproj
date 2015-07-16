@@ -17,7 +17,7 @@
     <PackageCertificateKeyFile>AriaView_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <AppxPackageDir>C:\Users\jerome\Desktop\Dev\deploy\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\jerome\Desktop\Dev\deploy\AriaView\</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -117,7 +117,7 @@
     </Compile>
     <Compile Include="Common\NullToStringConverter.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
-    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="GoogleMap\KmlDataReader.cs" />

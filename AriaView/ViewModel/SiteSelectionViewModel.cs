@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,7 @@ using Windows.Storage;
 
 namespace AriaView.ViewModel
 {
-   public class SiteSelectionViewModel : ObservableDictionary
+   public class SiteSelectionViewModel : ViewModelBase
    {
      
 

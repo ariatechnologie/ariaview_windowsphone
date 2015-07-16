@@ -1,4 +1,7 @@
-﻿using AriaView.Model;
+﻿//Author Jérôme Cambray
+//Version 1.0
+
+using AriaView.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +13,10 @@ using Windows.Foundation.Collections;
 namespace AriaView.Common
 {
     /// <summary>
-    /// Implémentation de IObservableMap qui prend en charge la réentrance pour une utilisation en tant que modèle d'affichage
-    /// par défaut.
+    /// Allows to store binding objects into a dictionary
+    /// and provides base behavior for viewModel objects
     /// </summary>
-    public class ObservableDictionary : IObservableMap<string, object>
+    public class ViewModelBase : IObservableMap<string, object>
     {
         private class ObservableDictionaryChangedEventArgs : IMapChangedEventArgs<string>
         {
@@ -27,7 +30,7 @@ namespace AriaView.Common
             public string Key { get; private set; }
         }
 
-        private Dictionary<string, object> _dictionary = new Dictionary<string, object>();
+        private Dictionary<string, object> dictionary = new Dictionary<string, object>();
         public event MapChangedEventHandler<string, object> MapChanged;
 
         private void InvokeMapChanged(CollectionChange change, string key)
@@ -41,7 +44,7 @@ namespace AriaView.Common
 
         public void Add(string key, object value)
         {
-            this._dictionary.Add(key, value);
+            this.dictionary.Add(key, value);
             this.InvokeMapChanged(CollectionChange.ItemInserted, key);
         }
 
@@ -52,7 +55,7 @@ namespace AriaView.Common
 
         public bool Remove(string key)
         {
-            if (this._dictionary.Remove(key))
+            if (this.dictionary.Remove(key))
             {
                 this.InvokeMapChanged(CollectionChange.ItemRemoved, key);
                 return true;
@@ -63,8 +66,8 @@ namespace AriaView.Common
         public bool Remove(KeyValuePair<string, object> item)
         {
             object currentValue;
-            if (this._dictionary.TryGetValue(item.Key, out currentValue) &&
-                Object.Equals(item.Value, currentValue) && this._dictionary.Remove(item.Key))
+            if (this.dictionary.TryGetValue(item.Key, out currentValue) &&
+                Object.Equals(item.Value, currentValue) && this.dictionary.Remove(item.Key))
             {
                 this.InvokeMapChanged(CollectionChange.ItemRemoved, item.Key);
                 return true;
@@ -76,19 +79,19 @@ namespace AriaView.Common
         {
             get
             {
-                return this._dictionary[key];
+                return this.dictionary[key];
             }
             set
             {
-                this._dictionary[key] = value;
+                this.dictionary[key] = value;
                 this.InvokeMapChanged(CollectionChange.ItemChanged, key);
             }
         }
 
         public void Clear()
         {
-            var priorKeys = this._dictionary.Keys.ToArray();
-            this._dictionary.Clear();
+            var priorKeys = this.dictionary.Keys.ToArray();
+            this.dictionary.Clear();
             foreach (var key in priorKeys)
             {
                 this.InvokeMapChanged(CollectionChange.ItemRemoved, key);
@@ -97,32 +100,32 @@ namespace AriaView.Common
 
         public ICollection<string> Keys
         {
-            get { return this._dictionary.Keys; }
+            get { return this.dictionary.Keys; }
         }
 
         public bool ContainsKey(string key)
         {
-            return this._dictionary.ContainsKey(key);
+            return this.dictionary.ContainsKey(key);
         }
 
         public bool TryGetValue(string key, out object value)
         {
-            return this._dictionary.TryGetValue(key, out value);
+            return this.dictionary.TryGetValue(key, out value);
         }
 
         public ICollection<object> Values
         {
-            get { return this._dictionary.Values; }
+            get { return this.dictionary.Values; }
         }
 
         public bool Contains(KeyValuePair<string, object> item)
         {
-            return this._dictionary.Contains(item);
+            return this.dictionary.Contains(item);
         }
 
         public int Count
         {
-            get { return this._dictionary.Count; }
+            get { return this.dictionary.Count; }
         }
 
         public bool IsReadOnly
@@ -132,27 +135,27 @@ namespace AriaView.Common
 
         public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
         {
-            return this._dictionary.GetEnumerator();
+            return this.dictionary.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return this._dictionary.GetEnumerator();
+            return this.dictionary.GetEnumerator();
         }
 
         public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
         {
             int arraySize = array.Length;
-            foreach (var pair in this._dictionary)
+            foreach (var pair in this.dictionary)
             {
                 if (arrayIndex >= arraySize) break;
                 array[arrayIndex++] = pair;
             }
         }
 
-        public void SetDictionary(ObservableDictionary o)
+        public void SetDictionary(ViewModelBase o)
         {
-            _dictionary = o._dictionary;
+            dictionary = o.dictionary;
             foreach(var k in Keys)
             {
                 this.InvokeMapChanged(CollectionChange.ItemInserted, k);
